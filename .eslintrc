@@ -1,0 +1,51 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "import/default": 0,
+    "import/extensions": 0,
+    "import/first": 0,
+    "import/named": 0,
+    "import/no-duplicates": 1,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 2,
+    "import/no-unresolved": [2, { "ignore": ["^components\/", "^static\/", "^helpers\/","^react$", "^react-router$"] }],
+    "import/prefer-default-export": 0,
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-danger": 0,
+    "react/no-multi-comp": 0,
+    "react/no-string-refs": 0,
+    "react/prefer-stateless-function": 0,
+    "react/react-in-jsx-scope": 0,
+    "class-methods-use-this": 0,
+    "func-style": [2, "declaration", { "allowArrowFunctions": true }],
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "linebreak-style": 0,
+    "max-len": ["error", 1000],
+    "new-cap": [0, { "capIsNewExceptions": ["List", "Map", "Set"] }],
+    "no-alert": 0,
+    "no-underscore-dangle": 0,
+    "semi": ["error", "never"],
+    "no-restricted-syntax": 0,
+    "arrow-body-style": 0,
+    "camelcase": 0,
+    "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
+    "consistent-return": 0
+  },
+  "plugins": [
+    "react", "import"
+  ],
+  "parser": "babel-eslint",
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules"]
+    }
+  }
+}

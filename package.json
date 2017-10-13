@@ -1,0 +1,43 @@
+{
+  "name": "@twreporter/static-fe-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for building static file",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && NODE_ENV=production webpack --progress --colors && babel-node src/server.js",
+    "lint": "eslint -c .eslintrc src",
+    "lint-fix": "eslint -c .eslintrc src --fix"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-styled-components": "^1.2.1",
+    "babel-plugin-transform-assets-import-to-string": "^1.0.1",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.7.1"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "styled-components": "^2.2.1"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
