@@ -7,8 +7,8 @@
 - [x] [React](https://facebook.github.io/react/)
 - [x] [Babel](https://babeljs.io/)
 - [x] [styled-components](https://github.com/styled-components/styled-components.git)
-- [x] [Generate static File]
-- [x] [Import Image]
+- [x] Generate static File
+- [x] Import Image
 
 ## Setup
 
