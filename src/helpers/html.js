@@ -5,7 +5,7 @@ export default class Html extends PureComponent {
   static propTypes = {
     scripts: PropTypes.arrayOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
-    styleTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    styleTags: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
   }
 
   render() {

@@ -9,7 +9,7 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 const scripts = []
 fs.readdirSync(config.outputPath).forEach((file) => {
   if (file.endsWith('.js')) {
-    scripts.push(`${config.outputFolder}/${file}`)
+    scripts.push(`${file}`)
   }
 })
 
