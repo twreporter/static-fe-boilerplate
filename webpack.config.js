@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const config = require('./config')
 
 module.exports = {
@@ -28,8 +28,11 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot|otf|svg|png)$/,
-        loader: 'file-loader?emitFile=false'
-      }
-    ]
-  }
-};
+        loader: 'file-loader',
+        options: {
+          emitFile: false,
+        },
+      },
+    ],
+  },
+}

@@ -12,12 +12,6 @@
       }
     ],
     [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
-      }
-    ],
-    [
       "inline-react-svg", {
         "svgo": {
           "plugins": [
