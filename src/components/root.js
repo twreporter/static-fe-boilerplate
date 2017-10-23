@@ -1,20 +1,32 @@
+import { FullpageSlides } from '@twreporter/react-components'
+import { injectGlobal } from 'styled-components'
+import blankAudio from 'static/sound/blank.mp3'
 import React from 'react'
-import styled from 'styled-components'
-import testImage from 'static/logo.png'
+import slides from '../data/slides'
 
-const Container = styled.div`
-  background-color: grey;
-  width: 100%;
-  text-align: center;
+// eslint-disable-next-line no-unused-expressions
+injectGlobal`
+  html, body {
+    touch-action: manipulation;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  body {
+    font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  }
+  #root: {
+    height: 100%;
+    overflow: hidden;
+  }
+  * {
+    box-sizing: border-box;
+  }
 `
 
-export default class Root extends React.Component {
-  render() {
-    return (
-      <Container>
-        <img src={testImage} alt="presentation" />
-        this is a root component
-      </Container>
-    )
-  }
-}
+const Slides = () => <FullpageSlides title="廢墟裡的少年" slides={slides} blankAudioSrc={blankAudio} />
+
+export default Slides
