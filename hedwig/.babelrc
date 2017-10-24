@@ -1,0 +1,38 @@
+{
+  "env": {
+    "server": {
+      "plugins": [
+        [
+          "inline-react-svg", {
+            "svgo": {
+              "plugins": [
+                {
+                  "cleanupIDs": false
+                }
+              ]
+            }
+          }
+        ],
+        [
+          "transform-assets-import-to-string", 
+          {
+            "extensions": [".jpg", ".png", ".mp3"],
+            "baseDir": "static"
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ]
+  ],
+  "presets": [["env", { "module": false }], "stage-0", "react"],
+  "comments": false
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@twreporter/static-fe-hedwig",
+  "version": "1.0.0",
+  "description": "A boilerplate for building hedwig static files",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rimraf dist/*.html && rimraf dist/*.js && npm run build:client-dev && npm run build:server",
+    "build": "rimraf dist && npm run build:client-prod && npm run build:server",
+    "build:client-dev": "webpack --config webpack.config.js --env.NODE_ENV=development --progress --colors",
+    "build:client-prod": "webpack --config webpack.config.js --env.NODE_ENV=production  --progress --colors",
+    "build:server": "BABEL_ENV=server babel-node src/server.js",
+    "lint": "eslint -c .eslintrc src",
+    "lint-fix": "eslint -c .eslintrc src --fix",
+    "watch": "webpack --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-styled-components": "^1.2.1",
+    "babel-plugin-transform-assets-import-to-string": "^1.0.1",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-import-resolver-babel-module": "2.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "@twreporter/react-components": "1.1.1-alpha.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^2.5.1",
+    "styled-components": "^2.2.1"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
