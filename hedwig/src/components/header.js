@@ -18,12 +18,23 @@ const Container = styled.div`
   height: 100vh;
 `
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const Background = styled.div`
   width: 100%;
   height: 100%;
   background-position: center center;
   background-size: cover;
   background-color: black;
+  background-image: url(${props => props.mobile});
+  animation: ${fadeIn} 900ms ease 1200ms;
   ${mq.tabletBelow`
     background-image: url(${props => props.tablet});
   `}
