@@ -34,7 +34,7 @@ const Background = styled.div`
   background-size: cover;
   background-color: black;
   background-image: url(${props => props.mobile});
-  animation: ${fadeIn} 900ms ease 1200ms;
+  animation: ${fadeIn} 900ms ease 1200ms both;
   ${mq.tabletBelow`
     background-image: url(${props => props.tablet});
   `}

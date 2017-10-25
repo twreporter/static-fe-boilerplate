@@ -8,8 +8,11 @@ import Article from './article'
 import section01 from '../data/section-01'
 import section02 from '../data/section-02'
 import section03 from '../data/section-03'
-import SingleColumnPictureDesktop from './single-column-picture-desktop'
 import SingleColumnPictureMobile from './single-column-picture-mobile'
+import SingleColumnPictureTablet from './single-column-picture-tablet'
+import SingleColumnPictureDesktop from './single-column-picture-desktop'
+
+
 import Interview from './interview'
 
 injectGlobal`
@@ -39,14 +42,17 @@ export default class Root extends React.Component {
         <Header image={image} title={title} />
         <Credits credits={credits} />
         <Article content={content} />
-        <SingleColumnPictureDesktop {...section01} />
         <SingleColumnPictureMobile {...section01} />
+        <SingleColumnPictureTablet {...section01} />
+        <SingleColumnPictureDesktop {...section01} />
         <Interview {...section01} />
-        <SingleColumnPictureDesktop {...section02} />
         <SingleColumnPictureMobile {...section02} />
+        <SingleColumnPictureTablet {...section02} />
+        <SingleColumnPictureDesktop {...section02} />
         <Interview {...section02} />
-        <SingleColumnPictureDesktop {...section03} />
         <SingleColumnPictureMobile {...section03} />
+        <SingleColumnPictureTablet {...section03} />
+        <SingleColumnPictureDesktop {...section03} />
         <Interview {...section03} />
       </Container>
     )
