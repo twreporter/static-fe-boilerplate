@@ -11,7 +11,8 @@ import section03 from '../data/section-03'
 import SingleColumnPictureMobile from './single-column-picture-mobile'
 import SingleColumnPictureTablet from './single-column-picture-tablet'
 import SingleColumnPictureDesktop from './single-column-picture-desktop'
-
+import Quote from './quote'
+import quote from '../data/quote'
 
 import Interview from './interview'
 
@@ -41,6 +42,7 @@ export default class Root extends React.Component {
       <Container>
         <Header image={image} title={title} />
         <Credits credits={credits} />
+        <Quote quote={quote} />
         <Article content={content} />
         <SingleColumnPictureMobile {...section01} />
         <SingleColumnPictureTablet {...section01} />

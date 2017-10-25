@@ -11,6 +11,7 @@ const _ = {
 
 const Container = ContentContainer.extend`
   text-align: left;
+  padding-bottom: 100px;
 `
 
 const Paragraph = styled.p`
