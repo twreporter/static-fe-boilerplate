@@ -11,14 +11,15 @@ import section03 from '../data/section-03'
 import SingleColumnPictureMobile from './single-column-picture-mobile'
 import SingleColumnPictureTablet from './single-column-picture-tablet'
 import SingleColumnPictureDesktop from './single-column-picture-desktop'
+import Quote from './quote'
+import quote from '../data/quote'
+import Banner from './banner'
 import ImgLeftTextRightBlock from './img-left-text-right-block'
 import Progress04SVG from '../../static/progress-3.svg'
-import React from 'react'
 import Section04Data from '../data/section-04'
 import Section05Data from '../data/section-05'
 import Section06Data from '../data/section-06'
 import SideBar from './side-bar'
-import styled from 'styled-components'
 import { screen } from './styles/utils'
 
 
@@ -85,34 +86,36 @@ export default class Root extends React.Component {
         <SideBar
           anchors={anchors}
         >
-        <Header image={image} title={title} />
-        <Credits credits={credits} />
-        <Article content={content} />
-        <SingleColumnPictureMobile {...section01} />
-        <SingleColumnPictureTablet {...section01} />
-        <SingleColumnPictureDesktop {...section01} />
-        <Interview {...section01} />
-        <SingleColumnPictureMobile {...section02} />
-        <SingleColumnPictureTablet {...section02} />
-        <SingleColumnPictureDesktop {...section02} />
-        <Interview {...section02} />
-        <SingleColumnPictureMobile {...section03} />
-        <SingleColumnPictureTablet {...section03} />
-        <SingleColumnPictureDesktop {...section03} />
-        <Interview {...section03} />
-        <div>
-          <ImgLeftTextRightBlock
+          <Header image={image} title={title} />
+          <Banner />
+          <Credits credits={credits} />
+          <Quote quote={quote} />
+          <Article content={content} />
+          <SingleColumnPictureMobile {...section01} />
+          <SingleColumnPictureTablet {...section01} />
+          <SingleColumnPictureDesktop {...section01} />
+          <Interview {...section01} />
+          <SingleColumnPictureMobile {...section02} />
+          <SingleColumnPictureTablet {...section02} />
+          <SingleColumnPictureDesktop {...section02} />
+          <Interview {...section02} />
+          <SingleColumnPictureMobile {...section03} />
+          <SingleColumnPictureTablet {...section03} />
+          <SingleColumnPictureDesktop {...section03} />
+          <Interview {...section03} />
+          <div>
+            <ImgLeftTextRightBlock
               {...Section04Data}
               ProgressSVG={Progress04SVG}
             />
-            <Underline> </Underline>
+            <Underline />
           </div>
           <div>
             <ImgLeftTextRightBlock
               {...Section05Data}
               ProgressSVG={Progress04SVG}
             />
-            <Underline> </Underline>
+            <Underline />
           </div>
           <ImgLeftTextRightBlock
             {...Section06Data}

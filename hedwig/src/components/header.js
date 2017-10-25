@@ -4,12 +4,13 @@ import mq from '../utils/media-query'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import smoothScroll from 'smoothscroll'
 
 const fontSize = '42px'
 
 const titleMaxWidth = {
   tablet: '590px',
-  desktop: '50%',
+  desktop: '80%',
 }
 
 const Container = styled.div`
@@ -35,7 +36,7 @@ const Background = styled.div`
   background-color: black;
   background-image: url(${props => props.mobile});
   animation: ${fadeIn} 900ms ease 1200ms both;
-  ${mq.tabletBelow`
+  ${mq.tabletOnly`
     background-image: url(${props => props.tablet});
   `}
   ${mq.desktopAbove`
@@ -48,8 +49,15 @@ const Title = styled.h1`
   font-size: ${fontSize};
   font-weight: ${fontWeight.heavy};
   position: absolute;
-  white-space: pre-line;
-  ${mq.tabletBelow`
+  ${mq.mobileOnly`
+    font-size: 25px;
+    text-align: left;
+    left: 50%;
+    bottom: 14%;
+    transform: translateX(-50%);
+    width: 265px;
+  `}
+  ${mq.tabletOnly`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -62,6 +70,7 @@ const Title = styled.h1`
     bottom: 12.8%;
     max-width: ${titleMaxWidth.desktop};
     text-align: left;
+    white-space: pre-line;
   `}
   ${mq.hdAbove`
     bottom: 20.1%;
@@ -83,11 +92,13 @@ const IconContainer = styled.div`
   position: absolute;
   left: 50%;
   height: 28px;
+  cursor: pointer;
   >svg {
     width: 100%;
     height: 100%;
   }
-  ${mq.tabletBelow`
+  bottom: 4%;
+  ${mq.tabletOnly`
     bottom: 5.4%
   `}
   ${mq.desktopAbove`
@@ -100,6 +111,17 @@ const IconContainer = styled.div`
 `
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this._handleClick = this._handleClick.bind(this)
+  }
+
+  _handleClick(event) {
+    event.preventDefault()
+    if (typeof window === 'undefined') return
+    return smoothScroll(window.innerHeight)
+  }
+
   render() {
     const { title, image } = this.props
     const { mobile, tablet, desktop } = image.resizedTargets
@@ -107,7 +129,7 @@ class Header extends React.Component {
       <Container>
         <Background mobile={mobile} tablet={tablet} desktop={desktop} />
         <Title>{title}</Title>
-        <IconContainer><ArrowDownIcon /></IconContainer>
+        <IconContainer onClick={this._handleClick}><ArrowDownIcon /></IconContainer>
       </Container>
     )
   }
