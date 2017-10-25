@@ -1,6 +1,9 @@
 import { css } from 'styled-components'
 
 export const breakPoints = {
+  mobile: {
+    max: 767,
+  },
   tablet: {
     min: 768,
     max: 1023,
@@ -15,6 +18,11 @@ export const breakPoints = {
 }
 
 const mq = {
+  mobileOnly: (...args) => css`
+    @media (max-width: ${breakPoints.mobile.max}px) {
+      ${css(...args)}
+    }
+  `,
   tabletOnly: (...args) => css`
     @media (min-width: ${breakPoints.tablet.min}px) and (max-width: ${breakPoints.tablet.max}px) {
       ${css(...args)}
@@ -25,6 +33,11 @@ const mq = {
       ${css(...args)}
     }
   `,
+  tabletAbove: (...args) => css`
+  @media (min-width: ${breakPoints.tablet.min}px) {
+    ${css(...args)}
+  }
+`,
   desktopAbove: (...args) => css`
     @media (min-width: ${breakPoints.desktop.min}px) {
       ${css(...args)}
