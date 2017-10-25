@@ -10,22 +10,22 @@ const section01 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'static/illustrator-01-mobile.jpg',
           width: 306,
           height: 214,
         },
         tablet: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'static/illustrator-01-tablet.jpg',
           width: 640,
           height: 451,
         },
         desktop: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'static/illustrator-01-desktop.jpg',
           width: 771,
           height: 543,
         },
         hd: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'static/illustrator-01-desktop.jpg',
           width: 1136,
           height: 801,
         },

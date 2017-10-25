@@ -9,6 +9,7 @@ const textContentWidth = {
 }
 
 export const ContentContainer = styled.div`
+  position: relative;
   margin: 0 auto;
   max-width: 100%;
   ${mq.mobileOnly`

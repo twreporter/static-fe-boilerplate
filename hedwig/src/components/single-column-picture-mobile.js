@@ -81,9 +81,15 @@ const InfoItem = styled.div`
   line-height: 1.58;
 `
 
+const ProgressIndicator = styled.div`
+  position: absolute;
+  top:0 ;
+  right: 0;
+`
+
 class SingleColumnPicture extends React.Component {
   render() {
-    const { author, illustration } = this.props
+    const { ProgressSVG, author, illustration } = this.props
     const {
       name,
       jobTitle,
@@ -106,6 +112,9 @@ class SingleColumnPicture extends React.Component {
             <AuthorName>{name}</AuthorName>
             <AuthorBg>{`${jobTitle},${country}`}</AuthorBg>
           </TitleBlock>
+          <ProgressIndicator>
+            <ProgressSVG />
+          </ProgressIndicator>
         </ContentContainer>
         <PictureBlock mobile={mobile}>
           <Image src={mobile.path} />
@@ -127,6 +136,7 @@ class SingleColumnPicture extends React.Component {
 SingleColumnPicture.propTypes = {
   author: PropTypes.object.isRequired,
   illustration: PropTypes.object.isRequired,
+  ProgressSVG: PropTypes.func.isRequired,
 }
 
 export default SingleColumnPicture

@@ -1,24 +1,27 @@
 /* eslint no-unused-expressions: 0 */
-import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
-import Header from './header'
-import article from '../data/article'
-import Credits from './credits'
 import Article from './article'
+import Credits from './credits'
+import Header from './header'
+import ImgLeftTextRightBlock from './img-left-text-right-block'
+import Progress01 from '../../static/progress-01.svg'
+import Progress02 from '../../static/progress-02.svg'
+import Progress03 from '../../static/progress-03.svg'
+import Progress04 from '../../static/progress-04.svg'
+import Progress05 from '../../static/progress-05.svg'
+import Progress06 from '../../static/progress-06.svg'
+import React from 'react'
+import SideBar from './side-bar'
+import SingleColumnPictureDesktop from './single-column-picture-desktop'
+import SingleColumnPictureMobile from './single-column-picture-mobile'
+import SingleColumnPictureTablet from './single-column-picture-tablet'
+import article from '../data/article'
 import section01 from '../data/section-01'
 import section02 from '../data/section-02'
 import section03 from '../data/section-03'
-import SingleColumnPictureMobile from './single-column-picture-mobile'
-import SingleColumnPictureTablet from './single-column-picture-tablet'
-import SingleColumnPictureDesktop from './single-column-picture-desktop'
-import ImgLeftTextRightBlock from './img-left-text-right-block'
-import Progress04SVG from '../../static/progress-3.svg'
-import React from 'react'
-import Section04Data from '../data/section-04'
-import Section05Data from '../data/section-05'
-import Section06Data from '../data/section-06'
-import SideBar from './side-bar'
-import styled from 'styled-components'
+import section04 from '../data/section-04'
+import section05 from '../data/section-05'
+import section06 from '../data/section-06'
+import styled, { injectGlobal } from 'styled-components'
 import { screen } from './styles/utils'
 
 
@@ -37,33 +40,37 @@ const {
 } = article
 
 const Container = styled.div`
-  background-color: #FFF;
+  background-color: #f2f2f2;
   width: 100%;
   text-align: center;
+`
+
+const WhiteBGContainer = styled.div`
+  background-color: #FFF;
 `
 
 const anchors = [
   {
     id: 'intro',
-    label: '',
+    label: () => { return null },
   }, {
     id: 'section-1',
-    label: '1',
+    label: Progress01,
   }, {
     id: 'section-2',
-    label: '2',
+    label: Progress02,
   }, {
     id: 'section-3',
-    label: '3',
+    label: Progress03,
   }, {
     id: 'section-4',
-    label: '4',
+    label: Progress04,
   }, {
     id: 'section-5',
-    label: '5',
+    label: Progress05,
   }, {
     id: 'section-6',
-    label: '6',
+    label: Progress06,
   },
 ]
 
@@ -85,38 +92,55 @@ export default class Root extends React.Component {
         <SideBar
           anchors={anchors}
         >
-        <Header image={image} title={title} />
-        <Credits credits={credits} />
-        <Article content={content} />
-        <SingleColumnPictureMobile {...section01} />
-        <SingleColumnPictureTablet {...section01} />
-        <SingleColumnPictureDesktop {...section01} />
-        <Interview {...section01} />
-        <SingleColumnPictureMobile {...section02} />
-        <SingleColumnPictureTablet {...section02} />
-        <SingleColumnPictureDesktop {...section02} />
-        <Interview {...section02} />
-        <SingleColumnPictureMobile {...section03} />
-        <SingleColumnPictureTablet {...section03} />
-        <SingleColumnPictureDesktop {...section03} />
-        <Interview {...section03} />
-        <div>
-          <ImgLeftTextRightBlock
-              {...Section04Data}
-              ProgressSVG={Progress04SVG}
-            />
-            <Underline> </Underline>
+          <div>
+            <Header image={image} title={title} />
+            <Credits credits={credits} />
+            <Article content={content} />
           </div>
           <div>
+            <SingleColumnPictureMobile
+              {...section01}
+              ProgressSVG={Progress01}
+            />
+            <SingleColumnPictureTablet {...section01} />
+            <SingleColumnPictureDesktop {...section01} />
+            <Interview {...section01} />
+          </div>
+          <div>
+            <SingleColumnPictureMobile
+              {...section02}
+              ProgressSVG={Progress02}
+            />
+            <SingleColumnPictureTablet {...section02} />
+            <SingleColumnPictureDesktop {...section02} />
+            <Interview {...section02} />
+          </div>
+          <div>
+            <SingleColumnPictureMobile
+              {...section03}
+              ProgressSVG={Progress03}
+            />
+            <SingleColumnPictureTablet {...section03} />
+            <SingleColumnPictureDesktop {...section03} />
+            <Interview {...section03} />
+          </div>
+          <WhiteBGContainer>
             <ImgLeftTextRightBlock
-              {...Section05Data}
-              ProgressSVG={Progress04SVG}
+              {...section04}
+              ProgressSVG={Progress04}
             />
             <Underline> </Underline>
-          </div>
+          </WhiteBGContainer>
+          <WhiteBGContainer>
+            <ImgLeftTextRightBlock
+              {...section05}
+              ProgressSVG={Progress05}
+            />
+            <Underline> </Underline>
+          </WhiteBGContainer>
           <ImgLeftTextRightBlock
-            {...Section06Data}
-            ProgressSVG={Progress04SVG}
+            {...section06}
+            ProgressSVG={Progress06}
           />
         </SideBar>
       </Container>

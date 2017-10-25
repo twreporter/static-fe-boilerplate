@@ -60,33 +60,19 @@ class Anchors extends React.Component {
   }
 
   render() {
-    const AssembleWord = (words) => {
-      return words.split('').map((word) => {
-        return (
-          <Label key={`anchor_label_${word}`}>
-            {word}
-          </Label>
-        )
-      })
-    }
     const anchorBts = []
     this.props.data.forEach((anchorObj) => {
       const moduleID = _.get(anchorObj, 'id', '')
-      const moduleLabel = _.get(anchorObj, 'label', '')
+      const ModuleLabel = _.get(anchorObj, 'label')
 
       // moduleID and moduleLable are not empty string
-      if (moduleID && moduleLabel) {
+      if (moduleID && ModuleLabel) {
         const anchorJSX = (
           <Anchor
             onClick={(e) => { this.props.handleClickAnchor(moduleID, e) }}
             key={`SectionButton_${moduleID}`}
           >
-            <Label
-              key={`anchor_label_${moduleLabel}`}
-              highlight={moduleID === this.state.currentSection}
-            >
-              {moduleLabel}
-            </Label>
+            <ModuleLabel />
           </Anchor>
         )
         anchorBts.push(anchorJSX)
@@ -108,7 +94,7 @@ Anchors.propTypes = {
   handleClickAnchor: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.func,
   })),
 }
 
@@ -197,16 +183,18 @@ class SideBar extends React.PureComponent {
 }
 
 SideBar.defaultProps = {
-  children: [],
   anchors: [],
+  children: [],
+  isShow: true,
 }
 
 SideBar.propTypes = {
-  children: PropTypes.array,
   anchors: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.function,
   })),
+  children: PropTypes.array,
+  isShow: PropTypes.bool,
 }
 
 export default SideBar
