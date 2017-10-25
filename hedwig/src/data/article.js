@@ -7,18 +7,53 @@ const article = {
       desktop: 'https://i.imgur.com/xSfnYA8.jpg',
     },
   },
-  authors: [
+  credits: [
     {
-      title: '文',
-      members: ['王儀君'],
+      jobTitle: '文',
+      members: [
+        {
+          name: '王儀君',
+          linkTo: 'https://www.twreporter.org/author/571de7badae62379576d7f3d',
+        },
+      ],
     },
     {
-      title: '繪圖創作',
-      members: ['Once Lee', 'Acia yang', '黃禹禛', '彭鈺程', '謝承佑', '鄭涵文'],
+      jobTitle: '繪圖創作',
+      members: [
+        {
+          name: 'Once Lee',
+          linkTo: '',
+        },
+        {
+          name: 'Acia yang',
+          linkTo: '',
+        },
+        {
+          name: '黃禹禛',
+          linkTo: '',
+        },
+        {
+          name: '彭鈺程',
+          linkTo: '',
+        },
+        {
+          name: '謝承佑',
+          linkTo: '',
+        },
+        {
+          name: '鄭涵文',
+          linkTo: '',
+        },
+      ],
     },
     {
-      title: '電影劇照',
-      members: ['酷兒影展提供'],
+      jobTitle: '電影劇照',
+      members: [
+        {
+          name: '酷兒影展提供',
+          linkTo: '',
+        },
+      ],
     },
   ],
   content: [
