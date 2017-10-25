@@ -10,22 +10,22 @@ const section01 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: '',
+          path: 'https://i.imgur.com/xSfnYA8.jpg',
           width: 306,
           height: 214,
         },
         tablet: {
-          path: '',
+          path: 'https://i.imgur.com/xSfnYA8.jpg',
           width: 640,
           height: 451,
         },
         desktop: {
-          path: '',
+          path: 'https://i.imgur.com/xSfnYA8.jpg',
           width: 771,
           height: 543,
         },
         hd: {
-          path: '',
+          path: 'https://i.imgur.com/xSfnYA8.jpg',
           width: 1136,
           height: 801,
         },
