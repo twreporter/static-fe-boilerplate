@@ -18,6 +18,7 @@ export default class Html extends PureComponent {
           <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1" />
           <meta charSet="utf-8" />
           <style dangerouslySetInnerHTML={{ __html: styleTags }} />
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" media="all" rel="stylesheet" type="text/css" charset="UTF-8" />
         </head>
         <body>
           <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
