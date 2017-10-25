@@ -284,6 +284,11 @@ export default class ImgLeftTextRightBlock extends PureComponent {
         </InterviewContainer>
       )
     }) : null
+
+    const imgSrc = process.env.NODE_ENV === 'production' ?
+      'https://storage.googleapis.com/twreporter-infographics/hedwig/' + illustration.image.resizedTargets.tablet :
+      illustration.image.resizedTargets.tablet
+
     return (
       <OuterContainer>
         <InnerContainer>
@@ -309,7 +314,7 @@ export default class ImgLeftTextRightBlock extends PureComponent {
             <ImgContainer>
               <ImgWrapper
                 alt={illustration.alt}
-                src={illustration.image.resizedTargets.tablet}
+                src={imgSrc}
               >
               </ImgWrapper>
             </ImgContainer>

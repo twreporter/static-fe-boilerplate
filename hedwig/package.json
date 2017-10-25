@@ -10,7 +10,7 @@
     "build": "rimraf dist && npm run build:client-prod && npm run build:server",
     "build:client-dev": "webpack --config webpack.config.js --env.NODE_ENV=development --progress --colors",
     "build:client-prod": "webpack --config webpack.config.js --env.NODE_ENV=production  --progress --colors",
-    "build:server": "BABEL_ENV=server babel-node src/server.js",
+    "build:server": "NODE_ENV=production babel-node src/server.js",
     "lint": "eslint -c .eslintrc src",
     "lint-fix": "eslint -c .eslintrc src --fix",
     "watch": "webpack --watch"

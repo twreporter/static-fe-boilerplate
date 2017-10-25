@@ -14,13 +14,6 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 // defines global variable
 global.__SERVER__ = true
 
-const app = new Express()
-const server = new http.Server(app)
-
-// serve static files
-app.use('/static', Express.static(path.join(__dirname, '..', 'static')))
-app.use('/dist', Express.static(path.join(__dirname, '..', 'dist')))
-
 const scripts = []
 
 if (process.env.NODE_ENV === 'production') {
@@ -32,7 +25,28 @@ if (process.env.NODE_ENV === 'production') {
       scripts.push(`dist/${file}`)
     }
   })
+  const sheet = new ServerStyleSheet()
+  const jsx = (
+    <StyleSheetManager sheet={sheet.instance}>
+      <Root />
+    </StyleSheetManager>
+  )
+  const content = ReactDOMServer.renderToString(jsx)
+
+  const html = ReactDOMServer.renderToStaticMarkup(<Html
+    scripts={scripts}
+    content={content}
+    styleTags={sheet.getStyleTags()}
+  />)
+
+  fs.writeFileSync(`${config.outputPath}/index.html`, html)
 } else {
+  const app = new Express()
+  const server = new http.Server(app)
+
+  // serve static files
+  app.use('/static', Express.static(path.join(__dirname, '..', 'static')))
+  app.use('/dist', Express.static(path.join(__dirname, '..', 'dist')))
   const proxy = httpProxy.createProxyServer({
     // webpack dev server
     target: 'http://localhost:5000',
@@ -43,36 +57,31 @@ if (process.env.NODE_ENV === 'production') {
   })
   // load dev webpack bundle
   scripts.push('dist/main.dev.bundle.js')
+
+  app.use((req, res) => {
+    const sheet = new ServerStyleSheet()
+    const jsx = (
+      <StyleSheetManager sheet={sheet.instance}>
+        <Root />
+      </StyleSheetManager>
+    )
+    const content = ReactDOMServer.renderToString(jsx)
+
+    const html = ReactDOMServer.renderToStaticMarkup(<Html
+      scripts={scripts}
+      content={content}
+      styleTags={sheet.getStyleTags()}
+    />)
+
+    res.status(200)
+    res.send(`<!doctype html>${html}`)
+  })
+
+  server.listen(3000, (err) => {
+    if (err) {
+      console.error(err)
+    }
+    console.info('==> 💻   Open http://%s:%s in a browser to view the app.', 'localhost', 3000)
+  })
 }
 
-let html = ''
-
-app.use((req, res) => {
-  const sheet = new ServerStyleSheet()
-  const jsx = (
-    <StyleSheetManager sheet={sheet.instance}>
-      <Root />
-    </StyleSheetManager>
-  )
-  const content = ReactDOMServer.renderToString(jsx)
-
-  html = ReactDOMServer.renderToStaticMarkup(<Html
-    scripts={scripts}
-    content={content}
-    styleTags={sheet.getStyleTags()}
-  />)
-
-  res.status(200)
-  res.send(`<!doctype html>${html}`)
-})
-
-server.listen(3000, (err) => {
-  if (err) {
-    console.error(err)
-  }
-  console.info('==> 💻   Open http://%s:%s in a browser to view the app.', 'localhost', 3000)
-})
-
-if (process.env.NODE_ENV === 'production') {
-  fs.writeFileSync(`${config.outputPath}/index.html`, html)
-}
