@@ -13,7 +13,7 @@ import SingleColumnPictureTablet from './single-column-picture-tablet'
 import SingleColumnPictureDesktop from './single-column-picture-desktop'
 import Quote from './quote'
 import quote from '../data/quote'
-
+import Banner from './banner'
 import Interview from './interview'
 
 injectGlobal`
@@ -41,6 +41,7 @@ export default class Root extends React.Component {
     return (
       <Container>
         <Header image={image} title={title} />
+        <Banner />
         <Credits credits={credits} />
         <Quote quote={quote} />
         <Article content={content} />
