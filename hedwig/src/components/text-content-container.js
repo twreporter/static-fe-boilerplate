@@ -27,5 +27,5 @@ export const ContentContainer = styled.div`
 
 export const ContainerWrapper = styled.div`
   width: 100%;
-  position: realtive;
+  position: relative;
 `
