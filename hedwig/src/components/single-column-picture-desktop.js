@@ -51,8 +51,13 @@ const PictureBlock = styled.div`
   width: 100%;
   height: ${props => props.desktop.height}px;
   margin-bottom: 43px;
+  background-position: center center;
+  background-size: cover;
+  background-color: black;
+  background-image: url(${props => props.desktop.path});
   ${mqLoadLarge`
     height: ${props => props.hd.height}px;
+    background-image: url(${props => props.hd.path});
     margin-bottom: 30px;
   `}
 `
