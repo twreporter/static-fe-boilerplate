@@ -1,5 +1,6 @@
 /* eslint no-unused-expressions: 0 */
 import Article from './article'
+import Banner from './banner'
 import Credits from './credits'
 import Header from './header'
 import ImgLeftTextRightBlock from './img-left-text-right-block'
@@ -9,12 +10,15 @@ import Progress03 from '../../static/progress-03.svg'
 import Progress04 from '../../static/progress-04.svg'
 import Progress05 from '../../static/progress-05.svg'
 import Progress06 from '../../static/progress-06.svg'
+import Quote from './quote'
 import React from 'react'
 import SideBar from './side-bar'
 import SingleColumnPictureDesktop from './single-column-picture-desktop'
 import SingleColumnPictureMobile from './single-column-picture-mobile'
 import SingleColumnPictureTablet from './single-column-picture-tablet'
+import Waypoint from 'react-waypoint'
 import article from '../data/article'
+import quote from '../data/quote'
 import section01 from '../data/section-01'
 import section02 from '../data/section-02'
 import section03 from '../data/section-03'
@@ -86,15 +90,40 @@ const Underline = styled.div`
 `
 
 export default class Root extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      toShowSideBar: false,
+    }
+    this.toggleSideBar = this._toggleSideBar.bind(this)
+  }
+
+  _toggleSideBar(bool) {
+    this.setState({
+      toShowSideBar: bool,
+    })
+  }
+
   render() {
     return (
       <Container>
         <SideBar
           anchors={anchors}
+          toShowAnchors={this.state.toShowSideBar}
         >
           <div>
-            <Header image={image} title={title} />
+            <Waypoint
+              onEnter={() => { this.toggleSideBar(false) }}
+              onLeave={() => { this.toggleSideBar(true) }}
+              fireOnRapidScroll
+            >
+              <div>
+                <Header image={image} title={title} />
+                <Banner />
+              </div>
+            </Waypoint>
             <Credits credits={credits} />
+            <Quote quote={quote} />
             <Article content={content} />
           </div>
           <div>
@@ -129,14 +158,14 @@ export default class Root extends React.Component {
               {...section04}
               ProgressSVG={Progress04}
             />
-            <Underline> </Underline>
+            <Underline />
           </WhiteBGContainer>
           <WhiteBGContainer>
             <ImgLeftTextRightBlock
               {...section05}
               ProgressSVG={Progress05}
             />
-            <Underline> </Underline>
+            <Underline />
           </WhiteBGContainer>
           <ImgLeftTextRightBlock
             {...section06}

@@ -10,22 +10,22 @@ const section01 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'static/illustrator-01-mobile.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-mobile.jpg',
           width: 306,
           height: 214,
         },
         tablet: {
-          path: 'static/illustrator-01-tablet.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-tablet.jpg',
           width: 640,
           height: 451,
         },
         desktop: {
-          path: 'static/illustrator-01-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-desktop.jpg',
           width: 771,
           height: 543,
         },
         hd: {
-          path: 'static/illustrator-01-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-desktop.jpg',
           width: 1136,
           height: 801,
         },
@@ -53,7 +53,10 @@ const section01 = {
     },
     {
       question: 'Q3. 在你的生命裡，影響你最大的人是誰？',
-      answer: ['可能是我媽媽吧！或許我去當drag queen（變裝皇后）就會變成我媽媽。沒辦法，因為我身上那道最初始的疤──肚臍，就是我媽媽給我的origin of love。'],
+      answer: [
+        '可能是我媽媽吧！或許我去當drag queen（變裝皇后）就會變成我媽媽',
+        '。沒辦法，因為我身上那道最初始的疤──肚臍，就是我媽媽給我的origin of love。',
+      ],
     },
   ],
 }

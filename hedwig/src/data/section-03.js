@@ -10,22 +10,22 @@ const section03 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'static/illustrator-03-mobile.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-03-mobile.jpg',
           width: 306,
           height: 217,
         },
         tablet: {
-          path: 'static/illustrator-03-tablet.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-03-tablet.jpg',
           width: 640,
           height: 452,
         },
         desktop: {
-          path: 'static/illustrator-03-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-03-desktop.jpg',
           width: 769,
           height: 544,
         },
         hd: {
-          path: 'static/illustrator-03-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-03-desktop.jpg',
           width: 1136,
           height: 804,
         },

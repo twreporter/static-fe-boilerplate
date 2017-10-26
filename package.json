@@ -4,8 +4,8 @@
   "description": "A boilerplate for building static file",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc .",
-    "lint-fix": "eslint -c .eslintrc . --fix"
+    "lint": "eslint -c .eslintrc hedwig",
+    "lint-fix": "eslint -c .eslintrc hedwig --fix"
   },
   "license": "MIT",
   "devDependencies": {
@@ -27,5 +27,6 @@
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
+    "lint"
   ]
 }

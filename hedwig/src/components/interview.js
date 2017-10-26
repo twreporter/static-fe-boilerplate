@@ -4,6 +4,7 @@ import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import mq from '../utils/media-query'
 
 const _ = {
   map,
@@ -11,6 +12,15 @@ const _ = {
 
 const Container = ContentContainer.extend`
   text-align: left;
+  ${mq.mobileOnly`
+    padding: 25px 0 60px 0;
+  `}
+  ${mq.tabletOnly`
+    padding: 60px 0 77px 0;
+  `}
+  ${mq.desktopAbove`
+    padding: 60px 126px 0;
+  `}
 `
 
 const Block = styled.div`

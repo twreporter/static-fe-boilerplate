@@ -10,22 +10,22 @@ const section02 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'static/illustrator-02-mobile.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-mobile.jpg',
           width: 306,
           height: 217,
         },
         tablet: {
-          path: 'static/illustrator-02-tablet.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-tablet.jpg',
           width: 640,
           height: 453,
         },
         desktop: {
-          path: 'static/illustrator-02-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-desktop.jpg',
           width: 769,
           height: 544,
         },
         hd: {
-          path: 'static/illustrator-02-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-desktop.jpg',
           width: 1136,
           height: 804,
         },
@@ -48,12 +48,12 @@ const section02 = {
       ],
     },
     {
-      question: 'Q2. 電影裡Hedwig找到自己兒時日記，發現了許多影響他的人。在你的生命裡，影響你最大的人是誰？',
-      answer: ['大學一位同志好友。他是第一個讓我了解同志的世界，我們從18歲認識，從那時我才發現有些人先天就跟自己不太一樣，也開始學會用同理心及平等的方式對待每個人。'],
+      question: 'Q2. 在《搖滾芭比》這部電影裡，最讓你感動與留下深刻印象的是什麼？',
+      answer: ['有兩幕。第一是Tommy對Hedwig唱著〈Wicked Little Town〉，Hedwig拋開一切，用男人的樣子面對Tommy而留下眼淚。第二是Hedwig化身為Tommy模樣所唱的最後一首歌〈Midnight Radio〉，歌詞裡提到 「呼吸，感覺，愛情，獻出自由，你靈魂知道，就像血液知道，從心到腦的路徑，知道你的全部」，我感受到不管人生曾經做了哪些選擇，既使無法預知成與敗，結果或許伴隨著難過及懊悔，甚至沒有勇氣去誠實面對，唯有接受自己心才能更自由。'],
     },
     {
-      question: 'Q3. 在《搖滾芭比》這部電影裡，最讓你感動與留下深刻印象的是什麼？',
-      answer: ['有兩幕。第一是Tommy對Hedwig唱著〈Wicked Little Town〉，Hedwig拋開一切，用男人的樣子面對Tommy而留下眼淚。第二是Hedwig化身為Tommy模樣所唱的最後一首歌〈Midnight Radio〉，歌詞裡提到「呼吸，感覺，愛情，獻出自由，你靈魂知道，就像血液知道，從心到腦的路徑，知道你的全部」，我感受到不管人生曾經做了哪些選擇，既使無法預知成與敗，結果或許伴隨著難過及懊悔，甚至沒有勇氣去誠實面對，唯有接受自己心才能更自由。'],
+      question: 'Q3. 在你的生命裡，影響你最大的人是誰？',
+      answer: ['大學一位同志好友。他是第一個讓我了解同志的世界，我們從18歲認識，從那時我才發現有些人先天就跟自己不太一樣，也開始學會用同理心及平等的方式對待每個人。'],
     },
   ],
 }

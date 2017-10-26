@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import get from 'lodash/get'
+import get from 'lodash.get'
 
 const _ = {
   get,
@@ -22,9 +22,7 @@ const ImgFallback = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-image: ${(props) => {
-    return `url(${_.get(props, 'url')})`
-  }};
+  background-image: ${props => `url(${_.get(props, 'url')})`};
   background-position: center center;
 `
 
@@ -46,7 +44,7 @@ class ImgWrapper extends React.Component {
 
   render() {
     const { src, alt, srcSet } = this.props
-    const isObjectFit = this.state.isObjectFit
+    const { isObjectFit } = this.state
 
     return isObjectFit ? (
       <ImgObjectFit>
@@ -73,7 +71,6 @@ class ImgWrapper extends React.Component {
 ImgWrapper.defaultProps = {
   alt: '',
   children: null,
-  src: '',
   srcSet: '',
 }
 

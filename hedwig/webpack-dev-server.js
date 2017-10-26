@@ -2,7 +2,7 @@
 const webpackDevServer = require('webpack-dev-server')
 const webpack = require('webpack')
 
-const config = require('./webpack.config.js')({NODE_ENV: 'development'})
+const config = require('./webpack.config.js')({ NODE_ENV: 'development' })
 
 const options = {
   hot: true,
