@@ -1,3 +1,4 @@
+/* eslint react/no-array-index-key:0 */
 import ImgWrapper from './img-wrapper'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
@@ -13,7 +14,7 @@ const mockup = {
     },
     interview: {
       width: '498px',
-    }
+    },
   },
   desktop: {
     width: '868px',
@@ -23,7 +24,7 @@ const mockup = {
     },
     interview: {
       width: '431px',
-    }
+    },
   },
   tablet: {
     width: '556px',
@@ -33,13 +34,13 @@ const mockup = {
     },
     interview: {
       width: '556px',
-    }
+    },
   },
   mobile: {
     interview: {
-      width: ((278/320)*100)+'%'
-    }
-  }
+      width: `${(278 / 320) * 100}%`,
+    },
+  },
 }
 
 const OuterContainer = styled.div`
@@ -207,7 +208,6 @@ const Answer = styled.p`
 
 const IllustrationDesc = styled.div`
   text-align: left;
-  width: 100%;
 
   ${screen.desktopBelow`
     text-align: right;
@@ -266,12 +266,14 @@ export default class ImgLeftTextRightBlock extends PureComponent {
   }
 
   render() {
-    const { ProgressSVG, author, illustration, interviews } = this.props
+    const {
+      ProgressSVG, author, illustration, interviews,
+    } = this.props
     const interviewsJSX = Array.isArray(interviews) ? interviews.map((interview, index) => {
       const answers = interview.answer
-      const answersJSX = Array.isArray(answers) ? answers.map((answer, index) => {
+      const answersJSX = Array.isArray(answers) ? answers.map((answer, aIndex) => {
         return (
-          <Answer key={`answer_${index}`}>{answer}</Answer>
+          <Answer key={`answer_${aIndex}`}>{answer}</Answer>
         )
       }) : null
 
@@ -284,6 +286,11 @@ export default class ImgLeftTextRightBlock extends PureComponent {
         </InterviewContainer>
       )
     }) : null
+
+    const imgSrc = process.env.NODE_ENV === 'production' ?
+      `https://storage.googleapis.com/twreporter-infographics/hedwig/${illustration.image.resizedTargets.tablet}` :
+      illustration.image.resizedTargets.tablet
+
     return (
       <OuterContainer>
         <InnerContainer>
@@ -309,9 +316,8 @@ export default class ImgLeftTextRightBlock extends PureComponent {
             <ImgContainer>
               <ImgWrapper
                 alt={illustration.alt}
-                src={illustration.image.resizedTargets.tablet}
-              >
-              </ImgWrapper>
+                src={imgSrc}
+              />
             </ImgContainer>
             <IllustrationDesc>
               <div>

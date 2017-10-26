@@ -10,22 +10,22 @@ const section02 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-mobile.jpg',
           width: 306,
           height: 217,
         },
         tablet: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-tablet.jpg',
           width: 640,
           height: 453,
         },
         desktop: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-desktop.jpg',
           width: 769,
           height: 544,
         },
         hd: {
-          path: 'https://i.imgur.com/xSfnYA8.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-02-desktop.jpg',
           width: 1136,
           height: 804,
         },

@@ -17,6 +17,7 @@ const Container = styled.div`
   position: fixed;
   top: 0px;
   z-index: 100;
+  width: 84px;
   ${screen.mobileOnly`
     display: none;
   `}
@@ -35,16 +36,8 @@ const Anchor = styled.div`
   }
 `
 
-const Label = styled.div`
-  color: #a67a44;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1.5;
-  width: 13px;
-  border-bottom: ${props => (props.highlight ? 'solid 4px #a67a44' : '')};
-`
-
 class Anchors extends React.Component {
+  /*
   constructor(props) {
     super(props)
     this.state = {
@@ -58,35 +51,22 @@ class Anchors extends React.Component {
       currentSection,
     })
   }
+  */
 
   render() {
-    const AssembleWord = (words) => {
-      return words.split('').map((word) => {
-        return (
-          <Label key={`anchor_label_${word}`}>
-            {word}
-          </Label>
-        )
-      })
-    }
     const anchorBts = []
     this.props.data.forEach((anchorObj) => {
       const moduleID = _.get(anchorObj, 'id', '')
-      const moduleLabel = _.get(anchorObj, 'label', '')
+      const ModuleLabel = _.get(anchorObj, 'label')
 
       // moduleID and moduleLable are not empty string
-      if (moduleID && moduleLabel) {
+      if (moduleID && ModuleLabel) {
         const anchorJSX = (
           <Anchor
             onClick={(e) => { this.props.handleClickAnchor(moduleID, e) }}
             key={`SectionButton_${moduleID}`}
           >
-            <Label
-              key={`anchor_label_${moduleLabel}`}
-              highlight={moduleID === this.state.currentSection}
-            >
-              {moduleLabel}
-            </Label>
+            { this.props.toShowLabel ? <ModuleLabel /> : null }
           </Anchor>
         )
         anchorBts.push(anchorJSX)
@@ -102,14 +82,16 @@ class Anchors extends React.Component {
 
 Anchors.defaultProps = {
   data: [],
+  toShowLabel: true,
 }
 
 Anchors.propTypes = {
   handleClickAnchor: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.func,
   })),
+  toShowLabel: PropTypes.bool,
 }
 
 class SideBar extends React.PureComponent {
@@ -152,7 +134,7 @@ class SideBar extends React.PureComponent {
   }
 
   render() {
-    const { children, anchors } = this.props
+    const { children, anchors, toShowAnchors } = this.props
     let modules = children
     if (children && !Array.isArray(children)) {
       modules = [children]
@@ -188,6 +170,7 @@ class SideBar extends React.PureComponent {
             ref={(node) => { this.anchorsNode = node }}
             data={anchors}
             handleClickAnchor={this.scrollTo}
+            toShowLabel={toShowAnchors}
           />
         </Container>
         {webSiteContent}
@@ -197,16 +180,18 @@ class SideBar extends React.PureComponent {
 }
 
 SideBar.defaultProps = {
-  children: [],
   anchors: [],
+  children: [],
+  toShowAnchors: true,
 }
 
 SideBar.propTypes = {
-  children: PropTypes.array,
   anchors: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.function,
   })),
+  children: PropTypes.array,
+  toShowAnchors: PropTypes.bool,
 }
 
 export default SideBar
