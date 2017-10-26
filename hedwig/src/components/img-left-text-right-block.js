@@ -208,7 +208,6 @@ const Answer = styled.p`
 
 const IllustrationDesc = styled.div`
   text-align: left;
-  width: 100%;
 
   ${screen.desktopBelow`
     text-align: right;
