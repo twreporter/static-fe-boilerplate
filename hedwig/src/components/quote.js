@@ -20,7 +20,12 @@ const Content = styled.div`
 
 const Original = styled.div`
   font-size: 18px;
-  white-space: pre-wrap;
+`
+
+const From = styled.div`
+  margin-top: .5em;
+  font-size: 18px;
+  text-align: right;
 `
 
 class Quote extends React.PureComponent {
@@ -35,7 +40,8 @@ class Quote extends React.PureComponent {
       <ContainerWrapper>
         <Container>
           <Content>{content}</Content>
-          <Original>{`${original}       ${from}`}</Original>
+          <Original>{original}</Original>
+          <From>{from}</From>
         </Container>
       </ContainerWrapper>
     )
