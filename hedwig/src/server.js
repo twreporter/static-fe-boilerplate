@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     const re = /main\..+\.bundle\.js/
     const found = file.match(re)
     if (found !== null) {
-      scripts.push(`https://storage.googleapis.com/twreporter-infographics/hedwig/dist/${file}`)
+      scripts.push(`https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/dist/${file}`)
     }
   })
   const sheet = new ServerStyleSheet()

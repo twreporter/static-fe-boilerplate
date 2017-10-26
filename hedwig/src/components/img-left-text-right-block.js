@@ -288,7 +288,7 @@ export default class ImgLeftTextRightBlock extends PureComponent {
     }) : null
 
     const imgSrc = process.env.NODE_ENV === 'production' ?
-      `https://storage.googleapis.com/twreporter-infographics/hedwig/${illustration.image.resizedTargets.tablet}` :
+      `https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/${illustration.image.resizedTargets.tablet}` :
       illustration.image.resizedTargets.tablet
 
     return (

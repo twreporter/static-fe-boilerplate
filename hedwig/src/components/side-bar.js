@@ -120,7 +120,7 @@ class SideBar extends React.PureComponent {
   }
 
   _handleOnEnter(nextSection) {
-    this.anchorsNode.changeHighlight(nextSection)
+    // this.anchorsNode.changeHighlight(nextSection)
     this.previousSection = this.currentSection
     this.currentSection = nextSection
   }
@@ -128,7 +128,7 @@ class SideBar extends React.PureComponent {
   _handleOnLeave(onLeaveSection) {
     if (onLeaveSection === this.currentSection) {
       this.currentSection = this.previousSection
-      this.anchorsNode.changeHighlight(this.previousSection)
+      // this.anchorsNode.changeHighlight(this.previousSection)
       this.previousSection = onLeaveSection
     }
   }
