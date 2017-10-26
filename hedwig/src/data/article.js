@@ -2,9 +2,9 @@ const article = {
   title: '【搖滾芭比專題】\n我是新柏林圍牆，來拆毀我吧！\n──創作者畫筆下的Hedwig',
   image: {
     resizedTargets: {
-      mobile: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/leading-img-mobile.jpg',
-      tablet: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/leading-img-tablet.jpg',
-      desktop: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/leading-img-desktop.jpg',
+      mobile: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/leading-img-mobile.jpg',
+      tablet: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/leading-img-tablet.jpg',
+      desktop: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/leading-img-desktop.jpg',
     },
   },
   credits: [

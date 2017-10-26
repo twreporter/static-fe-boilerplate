@@ -9,7 +9,7 @@ export default {
   illustration: {
     image: {
       resizedTargets: {
-        mobile: 'static/illustrator-06-mobile.jpga',
+        mobile: 'static/illustrator-06-mobile.jpg',
         tablet: 'static/illustrator-06-tablet.jpg',
         desktop: 'static/illustrator-06-desktop.jpg',
       },

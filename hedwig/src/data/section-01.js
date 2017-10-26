@@ -10,22 +10,22 @@ const section01 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-mobile.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-mobile.jpg',
           width: 306,
           height: 214,
         },
         tablet: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-tablet.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-tablet.jpg',
           width: 640,
           height: 451,
         },
         desktop: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-desktop.jpg',
           width: 771,
           height: 543,
         },
         hd: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig/static/illustrator-01-desktop.jpg',
+          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-desktop.jpg',
           width: 1136,
           height: 801,
         },
