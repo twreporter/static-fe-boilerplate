@@ -18,11 +18,11 @@ const scripts = []
 
 if (process.env.NODE_ENV === 'production') {
   // load webpack bundle
-  fs.readdirSync(__dirname).forEach((file) => {
+  fs.readdirSync(path.resolve(__dirname, '../dist')).forEach((file) => {
     const re = /main\..+\.bundle\.js/
     const found = file.match(re)
     if (found !== null) {
-      scripts.push(`dist/${file}`)
+      scripts.push(`https://storage.googleapis.com/twreporter-infographics/hedwig/dist/${file}`)
     }
   })
   const sheet = new ServerStyleSheet()

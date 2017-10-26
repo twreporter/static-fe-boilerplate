@@ -49,7 +49,6 @@ module.exports = (env) => {
         'process.env': {
           NODE_ENV: isProduction ? '"production"' : '"development"',
         },
-        __SERVER__: false,
       }),
     ],
   }
