@@ -2,7 +2,7 @@ export default {
   author: {
     name: '謝承佑',
     jobTitle: '展場設計師',
-    country: '台灣',
+    country: '德國',
     email: 'michaelyo@livemail.tw',
     website: '',
   },
