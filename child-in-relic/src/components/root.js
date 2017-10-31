@@ -1,6 +1,6 @@
 import { FullpageSlides } from '@twreporter/react-components'
 import { injectGlobal } from 'styled-components'
-import blankAudio from 'static/sound/blank.mp3'
+import blankAudio from '../../static/sound/blank.mp3'
 import React from 'react'
 import slides from '../data/slides'
 

@@ -1,15 +1,18 @@
-import Html from 'helpers/html'
+import Html from './helpers/html'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import Root from 'components/root'
+import Root from './components/root'
 import config from '../config'
 import fs from 'fs'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
+const isProduction = process.env.NODE_ENV === 'production'
+const scriptsPath = !isProduction ? '' : `${config.baseUri}/dist/`
+
 const scripts = []
 fs.readdirSync(config.outputPath).forEach((file) => {
   if (file.endsWith('.js')) {
-    scripts.push(`${file}`)
+    scripts.push(`${scriptsPath}${file}`)
   }
 })
 
