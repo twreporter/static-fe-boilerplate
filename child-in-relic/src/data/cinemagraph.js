@@ -1,28 +1,28 @@
 import { CinemagraphHelper } from '@twreporter/react-components'
 
-import mobileBg001 from 'static/mobile-001-768x1024-bg.jpg'
-import mobileBg003 from 'static/mobile-003-768x1024-bg.jpg'
-import mobileBg009 from 'static/mobile-009-768x1024-bg.jpg'
-import mobileBg024 from 'static/mobile-024-768x1024-bg.jpg'
+import mobileBg001 from '../../static/mobile/mobile-001-768x1024-bg.jpg'
+import mobileBg003 from '../../static/mobile/mobile-003-768x1024-bg.jpg'
+import mobileBg009 from '../../static/mobile/mobile-009-768x1024-bg.jpg'
+import mobileBg024 from '../../static/mobile/mobile-024-768x1024-bg.jpg'
 
-import tabletBg001 from 'static/tablet-001-1024x1024-bg.jpg'
-import tabletBg003 from 'static/tablet-003-1024x1024-bg.jpg'
-import tabletBg009 from 'static/tablet-009-1024x1024-bg.jpg'
-import tabletBg024 from 'static/tablet-024-1024x1024-bg.jpg'
+import tabletBg001 from '../../static/tablet/tablet-001-1024x1024-bg.jpg'
+import tabletBg003 from '../../static/tablet/tablet-003-1024x1024-bg.jpg'
+import tabletBg009 from '../../static/tablet/tablet-009-1024x1024-bg.jpg'
+import tabletBg024 from '../../static/tablet/tablet-024-1024x1024-bg.jpg'
 
-import desktopBg001 from 'static/desktop-001-1440x960-bg.jpg'
-import desktopBg003 from 'static/desktop-003-1440x960-bg.jpg'
-import desktopBg009 from 'static/desktop-009-1440x960-bg.jpg'
-import desktopBg024 from 'static/desktop-024-1440x810-bg.jpg'
+import desktopBg001 from '../../static/desktop/desktop-001-1440x960-bg.jpg'
+import desktopBg003 from '../../static/desktop/desktop-003-1440x960-bg.jpg'
+import desktopBg009 from '../../static/desktop/desktop-009-1440x960-bg.jpg'
+import desktopBg024 from '../../static/desktop/desktop-024-1440x810-bg.jpg'
 
-import mobileFg003 from 'static/mobile-003-768x1024-fg.png'
-import mobileFg009 from 'static/mobile-009-768x1024-fg.png'
+import mobileFg003 from '../../static/mobile/mobile-003-768x1024-fg.png'
+import mobileFg009 from '../../static/mobile/mobile-009-768x1024-fg.png'
 
-import tabletFg003 from 'static/tablet-003-1024x1024-fg.png'
-import tabletFg009 from 'static/tablet-009-1024x1023-fg.png'
+import tabletFg003 from '../../static/tablet/tablet-003-1024x1024-fg.png'
+import tabletFg009 from '../../static/tablet/tablet-009-1024x1024-fg.png'
 
-import desktopFg003 from 'static/desktop-003-1440x884-fg.png'
-import desktopFg009 from 'static/desktop-009-1440x544-fg.png'
+import desktopFg003 from '../../static/desktop/desktop-003-1440x960-fg.png'
+import desktopFg009 from '../../static/desktop/desktop-009-1440x960-fg.png'
 
 const cinemagraph001 = new CinemagraphHelper('first-page-boy-on-the-car')
 const cinemagraph003 = new CinemagraphHelper('boy-with-dolls-in-the-room')

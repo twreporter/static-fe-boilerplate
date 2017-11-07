@@ -1,18 +1,19 @@
 {
   "env": {
-    "server": {
+    "server-production": {
       "plugins": [
         [
-          "inline-react-svg", {
-            "svgo": {
-              "plugins": [
-                {
-                  "cleanupIDs": false
-                }
-              ]
-            }
+          "transform-assets-import-to-string", 
+          {
+            "extensions": [".jpg", ".png", ".mp3"],
+            "baseDir": "/static",
+            "baseUri": "https://storage.googleapis.com/twreporter-infographics/high-risk-youth-life-is-a-struggle"
           }
-        ],
+        ]
+      ]
+    },
+    "server-developement": {
+      "plugins": [
         [
           "transform-assets-import-to-string", 
           {
@@ -25,22 +26,22 @@
   },
   "plugins": [
     [
-      "module-resolver",
-      {
-        "root": ["."],
-        "alias": {
-          "components": "./src/components",
-          "static": "./static",
-          "helpers": "./src/helpers"
-        }
-      }
-    ],
-    [
       "styled-components",
       {
         "ssr": true,
         "displayName": true,
         "preprocess": false
+      }
+    ],
+    [
+      "inline-react-svg", {
+        "svgo": {
+          "plugins": [
+            {
+              "cleanupIDs": false
+            }
+          ]
+        }
       }
     ]
   ],

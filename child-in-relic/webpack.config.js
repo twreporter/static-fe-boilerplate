@@ -10,7 +10,6 @@ module.exports = (env) => {
     output: {
       filename: '[name]-[hash].bundle.js',
       path: config.outputPath,
-      publicPath: '',
     },
     module: {
       rules: [
@@ -31,6 +30,7 @@ module.exports = (env) => {
             name: '[path][name].[ext]', // `[path]` is relative to `options.context`
             emitFile: isProduction,
             outputPath: 'static/', // means `webpack.config.output.path + outputPath`
+            publicPath: !isProduction ? '' : `${config.baseUri}/`,
           },
         },
       ],

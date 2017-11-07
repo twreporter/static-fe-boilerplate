@@ -4,11 +4,12 @@
   "description": "A boilerplate for building static file of child-in-recli",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rimraf dist/*.html && rimraf dist/*.js && npm run build:client-dev && npm run build:server",
-    "build": "rimraf dist && npm run build:client-prod && npm run build:server",
-    "build:client-dev": "webpack --config webpack.config.js --env.NODE_ENV=development --progress --colors",
-    "build:client-prod": "NODE_ENV=production webpack --config webpack.config.js --env.NODE_ENV=production  --progress --colors",
-    "build:server": "BABEL_ENV=server babel-node src/server.js",
+    "dev": "rimraf dist/*.html && rimraf dist/*.js && npm run build:client-dev && npm run build:server-dev",
+    "build": "rimraf dist && npm run build:client-prod && npm run build:server-prod",
+    "build:client-dev": "NODE_ENV=development webpack --config webpack.config.js --env.NODE_ENV=development --progress --colors",
+    "build:client-prod": "NODE_ENV=production webpack -p --config webpack.config.js --env.NODE_ENV=production  --progress --colors",
+    "build:server-dev": "NODE_ENV=development BABEL_ENV=server-developement babel-node src/server.js",
+    "build:server-prod": "NODE_ENV=production BABEL_ENV=server-production babel-node src/server.js",
     "lint": "eslint -c .eslintrc src",
     "lint-fix": "eslint -c .eslintrc src --fix",
     "watch": "webpack --watch"
@@ -40,7 +41,7 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "@twreporter/react-components": "1.1.1-alpha.1",
+    "@twreporter/react-components": "1.1.2-beta.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^2.5.1",
