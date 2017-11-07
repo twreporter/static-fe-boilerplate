@@ -1,6 +1,6 @@
 import { FullpageSlides } from '@twreporter/react-components'
 import { injectGlobal } from 'styled-components'
-import blankAudio from '../../static/sound/blank.mp3'
+import slidesMeta from '../data/slides-meta'
 import React from 'react'
 import slides from '../data/slides'
 
@@ -27,6 +27,6 @@ injectGlobal`
   }
 `
 
-const Slides = () => <FullpageSlides title="廢墟裡的少年" slides={slides} blankAudioSrc={blankAudio} />
+const Slides = () => <FullpageSlides title={slidesMeta.headerTitle} slides={slides} blankAudioSrc={slidesMeta.blankAudioSrc} />
 
 export default Slides
