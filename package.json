@@ -4,29 +4,25 @@
   "description": "A boilerplate for building static file",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c .eslintrc hedwig",
-    "lint-fix": "eslint -c .eslintrc hedwig --fix"
+    "lint": "eslint -c .eslintrc",
+    "lint:staged": "lint-staged"
   },
+  "lint-staged": {
+    "*.js": "lint"
+  },
+  "pre-commit": [
+    "lint:staged"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-inline-react-svg": "^0.4.0",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-plugin-styled-components": "^1.2.1",
-    "babel-plugin-transform-assets-import-to-string": "^1.0.1",
-    "babel-plugin-wrap-in-js": "^1.1.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-eslint": "^8.0.2",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-import-resolver-babel-module": "2.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "lint-staged": "^4.3.0",
     "pre-commit": "^1.2.2"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
