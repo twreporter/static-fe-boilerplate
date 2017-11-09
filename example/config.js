@@ -1,0 +1,19 @@
+const path = require('path')
+
+const distPathname = 'dist'
+const staticPathname = 'static'
+
+const productionOrigin = 'https://xxx.ooo'
+const productionDistHrefBase = `${productionOrigin}/${distPathname}`
+const productionStaticHrefBase = `${productionOrigin}/${staticPathname}`
+
+const localDistDir = path.resolve(__dirname, distPathname)
+const localStaticDir = path.resolve(__dirname, staticPathname)
+
+module.exports = {
+  localDistDir,
+  localStaticDir,
+  productionOrigin,
+  productionStaticHrefBase,
+  productionDistHrefBase,
+}
