@@ -30,6 +30,23 @@ injectGlobal`
     -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
     outline: none !important;
   }
+
+  #_hj_feedback_container {
+    opacity: 0;
+    transition: opacity 800ms 1000ms ease;
+    &>div {
+      display: none;
+    }
+    &.show {
+      opacity: 1;
+      &>div {
+        display: block;
+      }
+    }
+    @media (max-width: 374px) {
+      display: none;
+    }
+  }
 `
 
 const Page = styled.div`

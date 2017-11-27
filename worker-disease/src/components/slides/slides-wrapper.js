@@ -1,6 +1,7 @@
 /* global history */
 /* eslint no-restricted-globals: 0 */
 import * as styles from '../../constants/style-variables'
+import assign from 'lodash.assign'
 import get from 'lodash.get'
 import map from 'lodash.map'
 import NextPageBtn from './next-page-btn'
@@ -15,6 +16,7 @@ import Swipeable from 'react-swipeable'
 import throttle from 'lodash.throttle'
 
 const _ = {
+  assign,
   get,
   map,
   partition,
@@ -75,20 +77,22 @@ class Slides extends PureComponent {
     }
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   if (typeof window !== 'undefined' && window.location) {
-  //     const { currentIndex } = nextState
-  //     const { pathname } = window.location
-  //     if (typeof history !== 'undefined') {
-  //       if (currentIndex === 0) {
-  //         history.replaceState({}, '', pathname)
-  //       }
-  //       if (currentIndex > 0) {
-  //         history.replaceState({}, '', `${pathname}#${currentIndex}`)
-  //       }
-  //     }
-  //   }
-  // }
+  componentWillUpdate(nextProps, nextState) {
+    const { currentIndex } = nextState
+    if (typeof document !== 'undefined') {
+      const feedback = document.getElementById('_hj_feedback_container')
+      if (feedback) {
+        const feedbackClasses = feedback.classList
+        if (feedbackClasses) {
+          if (currentIndex === _.get(this._slides, 'length') - 1) {
+            feedbackClasses.add('show')
+          } else if (feedback.style.opacity !== 0) {
+            feedbackClasses.remove('show')
+          }
+        }
+      }
+    }
+  }
 
   onKeyDown(e) {
     switch (e.key) {
