@@ -157,8 +157,9 @@ class Slides extends PureComponent {
       return (
         <Slide
           key={`${id}-${index}`}
-          index={index}
           currentIndex={currentIndex}
+          id={id}
+          index={index}
           {...slide}
         />
       )

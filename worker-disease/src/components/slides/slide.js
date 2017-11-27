@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import VelocityComponent from 'velocity-react/velocity-component'
 import SlideContainer from './slide-container'
-import map from 'lodash/map'
+import map from 'lodash.map'
 import styled from 'styled-components'
 import { colors } from '../../constants/style-variables'
+import padStart from 'lodash.padstart'
+
+const _ = {
+  map,
+  padStart,
+}
 
 const BlackCard = styled.div`
   z-index: -5;
@@ -17,17 +23,25 @@ const BlackCard = styled.div`
   left: 0;
 `
 
-const _ = {
-  map,
-}
-
 class Slide extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       isFocus: this._isFocus(props),
     }
+    this._startTimestamp = undefined
+    if (!Date.now) {
+      Date.now = () => new Date().getTime()
+    }
   }
+
+  componentDidMount() {
+    const { isFocus } = this.state
+    const { index } = this.props
+    this._submitScreenViewEventIfNeeded(isFocus)
+    if (index === 0) this._startTimestamp = Date.now()
+  }
+
   componentWillReceiveProps(nextProps) {
     const prevPage = this.props.currentIndex
     const nextPage = nextProps.currentIndex
@@ -37,6 +51,59 @@ class Slide extends React.Component {
       })
     }
   }
+
+  componentWillUpdate(nextProps, nextState) {
+    const { id } = this.props
+    if (id !== 'slide') return
+    const thisFocus = this.state.isFocus
+    const nextFocus = nextState.isFocus
+    const viewTime = this._calculateSlideViewTime(thisFocus, nextFocus)
+    this._submitViewTimeEventIfNeeded(viewTime)
+    this._submitScreenViewEventIfNeeded(nextFocus)
+  }
+
+  _submitScreenViewEventIfNeeded(isFocus) {
+    const { index } = this.props
+    if (isFocus) {
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'infographics_tracking', {
+          event_category: 'infographic-workers-diseases',
+          event_action: 'view',
+          screen_name: `section-${_.padStart(index, 2, '0')}`,
+          event_label: `section-${_.padStart(index, 2, '0')}`,
+        })
+      }
+    }
+  }
+
+  _submitViewTimeEventIfNeeded(viewTime) {
+    const { index } = this.props
+    if (viewTime > 0) {
+      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'timing_complete', {
+          value: viewTime,
+          event_category: 'infographic-workers-diseases',
+          name: 'view',
+          event_label: `section-${_.padStart(index, 2, '0')}`,
+        })
+      }
+    }
+  }
+
+  _calculateSlideViewTime(thisFocus, nextFocus) {
+    /* record time when entering */
+    if (!thisFocus && nextFocus) {
+      this._startTimestamp = Date.now()
+      return
+    }
+    /* reset timestamp and return diff when leaving */
+    if (thisFocus && !nextFocus) {
+      const viewTime = Date.now() - this._startTimestamp
+      this._startTimestamp = undefined
+      return viewTime
+    }
+  }
+
   _isFocus(props) {
     const { currentIndex, displayOn, index } = props
     const isFocus = !displayOn ? (currentIndex === index) : (currentIndex >= displayOn[0] && currentIndex <= displayOn[1])
@@ -86,6 +153,7 @@ Slide.propTypes = {
   contents: PropTypes.arrayOf(PropTypes.object),
   currentIndex: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
+  id: PropTypes.oneOf(['slide', 'bg']).isRequired,
   displayOn: PropTypes.arrayOf(PropTypes.number),
 }
 
