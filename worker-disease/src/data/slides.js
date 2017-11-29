@@ -205,7 +205,7 @@ const slides = [
           <TextBox
             title="職病給付的第一波高潮：塵肺症"
             description={[
-              '塵肺症是台灣職業病給付冠軍，長期暴露於粉塵的勞工都是高風險群。當時工傷協會主導抗爭，使勞保局修訂辦法開放退休礦工申請殘廢給付，而有一波「礦工求償潮」，3年間求償金額高達 40 億元。',
+              '塵肺症是台灣職業病給付冠軍，<a href="https://www.twreporter.org/a/bookreview-occupational-disease-asbestos" target="_blank">長期暴露於粉塵的勞工都是高風險群</a>。當時工傷協會主導抗爭，使勞保局修訂辦法開放退休礦工申請殘廢給付，而有一波「礦工求償潮」，3 年間求償金額高達 40 億元。',
             ]}
             footnote="資料來源、諮詢：鄭雅文"
           />
@@ -246,7 +246,7 @@ const slides = [
           <TextBox
             title="職病給付的第三波高潮：職業性癌症"
             description={[
-              'RCA 地下水污染案一審勝訴，一次新增一百多件「職業性癌症」個案（全年共 146 件）。',
+              '<a href="https://www.twreporter.org/a/opinion-rca-occupational-disease" target="_blank">RCA 污染與工殤案</a>勞工一審勝訴，一次新增一百多件「職業性癌症」個案（全年共 146 件）。',
             ]}
             footnote="資料來源、諮詢：鄭雅文"
           />
@@ -550,7 +550,7 @@ const slides = [
             title="我得了職業病嗎？怎麼辦？"
             description={[
               '如果懷疑自己有職業病，可以諮詢<a href="http://www.tmsc.tw/center_c.php" target="_blank">各區職業傷病防治中心職醫科醫師</a>。',
-              '想申請職災給付及補助，可諮詢<a href="http://www.oshlink.org.tw/about/index/3" target="_blank">台灣職業安全服務連線</a>尋求協助。',
+              '想申請職災給付及補助，可諮詢<a href="http://www.oshlink.org.tw/about/index/3" target="_blank">台灣職業安全健康連線</a>尋求協助。',
             ]}
           />
         ),
@@ -565,7 +565,7 @@ const slides = [
         jsx: (
           <TextPage
             text={[
-              '台灣現有的職災困境，主要來自於職災相關認定散落在不同法條中。希望改善現有補償制度，已提倡多年的《職災保險法》，也<a href="https://tsai-tracker.twreporter.org/promise?ID=9">遲遲未有進展。</a>',
+              '台灣現有的職災困境，主要來自於職災相關認定散落在不同法條中。希望改善現有補償制度，已提倡多年的《職災保險法》，也<a href="https://tsai-tracker.twreporter.org/promise?ID=9" target="_blank">遲遲未有進展。</a>',
               '近日《勞基法》修法頻頻，一例一休修法甚至被批是助長過勞風險，恐讓台灣離國際公約明定的「人人享有安全衛生工作環境」越來越遠。',
               '檢視職災的統計數據，不只反映出台灣勞工工作環境是否安全，更牽涉到一個國家如何關懷、保障工作者的健康，因此所有制度調整，都須持續監督。',
               `<p><a href="https://tsai-tracker.twreporter.org" target="_blank"><img src="${tsaitracker}"></img></a></p>`,
