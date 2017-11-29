@@ -13,7 +13,8 @@
       "transform-assets-import-to-string",
       {
         "extensions": [".jpg", ".png", ".mp3"],
-        "baseDir": "static"
+        "baseDir": "/static",
+        "baseUri": "https://storage.googleapis.com/twreporter-infographics/occupational-diseases-in-taiwan-gcs"
       }
     ],
     [
