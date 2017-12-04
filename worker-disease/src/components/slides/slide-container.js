@@ -27,6 +27,8 @@ const CenteringContainer = styled.section`
   `}
   ${mq.tabletOnly`
     flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10%;
   `}
   ${mq.desktopAbove`
     flex-direction: row;
