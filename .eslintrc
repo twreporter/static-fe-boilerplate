@@ -38,7 +38,8 @@
     "arrow-body-style": 0,
     "camelcase": 0,
     "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
-    "consistent-return": 0
+    "consistent-return": 0,
+    "prefer-destructuring": ["error", {"object": true, "array": false}]
   },
   "plugins": [
     "react", "import"
