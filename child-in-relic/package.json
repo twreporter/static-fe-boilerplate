@@ -41,9 +41,10 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "@twreporter/react-components": "1.1.2-beta.3",
+    "@twreporter/react-components": "2.1.11",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-helmet": "^5.2.0",
     "react-router": "^2.5.1",
     "styled-components": "^2.2.1"
   },

@@ -1,6 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 import Article from './article'
 import Banner from './banner'
+import Bookmark from './bookmark'
 import Credits from './credits'
 import Header from './header'
 import ImgLeftTextRightBlock from './img-left-text-right-block'
@@ -107,6 +108,9 @@ export default class Root extends React.Component {
   render() {
     return (
       <Container>
+        <Bookmark
+          ifshowUp={this.state.toShowSideBar}
+        />
         <SideBar
           anchors={anchors}
           toShowAnchors={this.state.toShowSideBar}

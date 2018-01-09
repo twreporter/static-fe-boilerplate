@@ -26,8 +26,8 @@ injectGlobal`
 
   * {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
-    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
     outline: none !important;
   }
 
@@ -53,13 +53,18 @@ const Page = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 `
 
 export default class Root extends React.Component {
   render() {
     return (
       <Page>
-        <Slides slides={slides} background={colors.background} />
+        <Slides
+          slides={slides}
+          background={colors.background}
+          toShowBookmark={this.toShowBookmark}
+        />
       </Page>
     )
   }

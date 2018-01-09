@@ -1,4 +1,5 @@
 /* eslint no-unused-expressions: 0 */
+import { scrollLocker } from '../utils/scroll-manager'
 import Banner from './banner'
 import introData from '../data/intro'
 import LandingImg from './landing-img'
@@ -9,7 +10,8 @@ import Sections from './sections/section-factory'
 import SideBar from './side-bar'
 import styled, { injectGlobal } from 'styled-components'
 import Waypoint from 'react-waypoint'
-import { scrollLocker } from '../utils/scroll-manager'
+import Bookmarks from './bookmarks'
+
 
 const {
   SectionOne, SectionTwo, SectionThree, SectionFour,
@@ -50,6 +52,7 @@ const Intro = styled.div`
   width: 100%;
   background-color: #F2F2F2;
 `
+
 const getOffsetTop = () => {
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
 }
@@ -121,6 +124,9 @@ export default class Root extends React.Component {
   render() {
     return (
       <Container>
+        <Bookmarks
+          ifshowUp={this.state.toShowSideBar}
+        />
         <SideBar
           anchors={anchors}
           ifshowUp={this.state.toShowSideBar}
