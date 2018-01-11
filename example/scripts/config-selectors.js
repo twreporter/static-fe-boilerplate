@@ -1,3 +1,4 @@
+/* eslint no-console:0 */
 const CONFIGS = require('../config.json')
 
 const { GOOGLE_CLOUD_STORAGE_CONFIGS } = CONFIGS
@@ -23,15 +24,18 @@ const selectFolderPostFix = (deployType) => {
 }
 
 const selectCacheControl = (subfolderType, deployType) => {
+  const defaultCacheControl = 'public, max-age=300'
   const CONFIG = selectConfigByType(deployType)
   const { CACHE_CONTROL } = CONFIG
-  const defaultCacheControl = 'public, max-age=300'
-  if (!CACHE_CONTROL) return defaultCacheControl
+  if (!CACHE_CONTROL) {
+    console.warn(`There's no \`CACHE_CONTROL\` with ${deployType} in configs.`)
+    return defaultCacheControl
+  }
   switch (subfolderType) {
     case 'static':
-      return CACHE_CONTROL.DIST
-    case 'dist':
       return CACHE_CONTROL.STATIC
+    case 'dist':
+      return CACHE_CONTROL.DIST
     default:
       return defaultCacheControl
   }
