@@ -13,16 +13,7 @@
         "svgo": {
           "plugins": [{
             "cleanupIDs": false,
-            "removeDoctype": true,
-            "removeComments": true,
-            "removeMetadata": true,
-            "removeDesc": true,
-            "removeUselessDefs": true,
-            "removeEmptyAttrs": true,
-            "removeHiddenElems": true,
-            "removeEmptyText": true,
-            "removeEmptyContainers": true,
-            "convertColors": true
+            "removeScriptElement": true
           }]
         }
       }
