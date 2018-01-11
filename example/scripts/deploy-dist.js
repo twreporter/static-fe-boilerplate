@@ -25,10 +25,3 @@ deploy({
     gzip: true,
   },
 })
-  .then(() => {
-    console.log('Updating completed.')
-  })
-  .catch((e) => {
-    console.error(e)
-  })
-

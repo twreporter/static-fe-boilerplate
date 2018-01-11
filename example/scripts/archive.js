@@ -14,15 +14,24 @@ const log = message => (passedBy) => {
 
 async function archive({ projectName, productionFolderPostfix, targetSubfolderName, metadata }) {
   const publicDirName = `${projectName}-${productionFolderPostfix}`
-  const publicFileObjects = await getFiles(`${publicDirName}/${targetSubfolderName}/`)
-  if (publicFileObjects) {
-    console.log(`Start setting the metadata of files in ${publicDirName}`, metadata)
-    await setMetadata(publicFileObjects, metadata)
-      .then(log('> The metadata of all files have been set.'))
-      .catch((e) => {
-        console.error('Updating public files failed.')
-        throw e
-      })
+  const targetPath = `${publicDirName}/${targetSubfolderName}/`
+  try {
+    const publicFileObjects = await getFiles(targetPath)
+    if (publicFileObjects) {
+      console.log(`Start setting the metadata of files in ${publicDirName}`, metadata)
+      await setMetadata(publicFileObjects, metadata)
+        .then(log('> The metadata of all files have been set.'))
+        .catch((e) => {
+          console.error('Updating public files failed.')
+          throw e
+        })
+    } else {
+      console.log(`There's no file object in ${targetPath}.`)
+    }
+    console.log('==== Archiving is completed ====')
+  } catch (err) {
+    console.error('Error on deployment: ', err)
+    throw new Error()
   }
 }
 
@@ -34,9 +43,3 @@ archive({
     cacheControl: selectors.selectCacheControl(ARCHIVE_TARGET, 'archive'),
   },
 })
-  .then(() => {
-    console.log('Updating completed.')
-  })
-  .catch((e) => {
-    console.error(e)
-  })

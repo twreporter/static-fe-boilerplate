@@ -23,9 +23,3 @@ deploy({
   },
   uploadConfigs: {},
 })
-  .then(() => {
-    console.log('Updating completed.')
-  })
-  .catch((e) => {
-    console.error(e)
-  })
