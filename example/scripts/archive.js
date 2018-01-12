@@ -1,5 +1,4 @@
 /* eslint no-console:0 */
-const { logMesAndPassDownArg } = require('./log')
 const { setMetadata, getFiles } = require('./gcs-helpers')
 const CONFIGS = require('../config.json')
 const selectors = require('./config-selectors')
@@ -14,20 +13,13 @@ async function archive({ projectName, productionFolderPostfix, targetSubfolderNa
   try {
     const publicFileObjects = await getFiles(targetPath)
     if (publicFileObjects) {
-      console.log(`Start setting the metadata of files in ${publicDirName}`, metadata)
       await setMetadata(publicFileObjects, metadata)
-        .then(logMesAndPassDownArg('> The metadata of all files have been set.'))
-        .catch((e) => {
-          console.error('Updating public files failed.')
-          throw e
-        })
     } else {
       console.log(`There's no file object in ${targetPath}.`)
     }
     console.log('==== Archiving is completed ====')
   } catch (err) {
     console.error('Error on deployment: ', err)
-    throw new Error()
   }
 }
 
