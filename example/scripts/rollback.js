@@ -1,5 +1,6 @@
 /* eslint no-console:0 */
 const { getFiles, copyFilesTo, deleteFiles, setMetadata, makePublic } = require('./gcs-helpers')
+const { logMesAndPassDownArg } = require('./log')
 const CONFIGS = require('../config.json')
 const selectors = require('./config-selectors')
 
@@ -8,11 +9,6 @@ const { PROJECT_NAME } = CONFIGS
 const { selectCacheControl, selectFolderPostFix, selectSubFolder } = selectors
 
 const TARGET = process.env.TARGET || ''
-
-const log = message => (passedBy) => {
-  console.log(message)
-  return passedBy
-}
 
 const version = process.argv[2]
 
@@ -36,7 +32,7 @@ async function rollback({ projectName, targetSubfolderName, publicFolderPostfix,
     console.log(`Start clearing files in ${publicDirName}`)
     await getFiles(`${publicDirName}/${targetSubfolderName}/`)
       .then(publicFileObjects => deleteFiles(publicFileObjects))
-      .then(log(`> All files in ${publicDirName} are cleared.`))
+      .then(logMesAndPassDownArg(`> All files in ${publicDirName} are cleared.`))
       .catch((e) => {
         console.error('> Clearing failed.')
         throw e
@@ -45,7 +41,7 @@ async function rollback({ projectName, targetSubfolderName, publicFolderPostfix,
     // 3. copy target version to public folders
     console.log(`Start copy files that have been upload to ${publicDirName}...`)
     const copiedFileObjects = await copyFilesTo(targetVersionFileObjects, publicDirName)
-      .then(log(`> All files are copied to ${publicDirName}.`))
+      .then(logMesAndPassDownArg(`> All files are copied to ${publicDirName}.`))
       .catch((e) => {
         console.error('> Copying failed.')
         throw e
@@ -55,10 +51,10 @@ async function rollback({ projectName, targetSubfolderName, publicFolderPostfix,
     // 4-2. publish public directory
     console.log(`Start setting the metadata of files in ${publicDirName}/${targetSubfolderName}.`, metadata)
     await setMetadata(copiedFileObjects, metadata)
-      .then(log('> The metadata of all files have been set.'))
-      .then(log(`Start publishing all files in ${publicDirName}/${targetSubfolderName}`))
+      .then(logMesAndPassDownArg('> The metadata of all files have been set.'))
+      .then(logMesAndPassDownArg(`Start publishing all files in ${publicDirName}/${targetSubfolderName}`))
       .then(fileObjects => makePublic(fileObjects))
-      .then(log('> All files are published.'))
+      .then(logMesAndPassDownArg('> All files are published.'))
       .catch((e) => {
         console.error('> Updating public files failed.')
         throw e
