@@ -44,29 +44,41 @@ function joinStrings(array, separator = '') {
   return array.filter(checkIfIsValid).join(separator)
 }
 
+/*
+  Example.
+    Regular Path:
+      pathString = 'example-project-staging/static/mobile/logo.png'
+      -> pathObj = {
+        root: 'example-project-staging',
+        version: '',
+        path: 'static/mobile',
+        base: 'logo.png',
+      }
+    Backup Path:
+      pathString = 'example-project-backup/20180112-1625/static/mobile/logo.png'
+      -> pathObj = {
+        root: 'example-project-backup',
+        version: '20180112-1625',
+        path: 'static/mobile',
+        base: 'logo.png',
+      }
+*/
 function parseGCSPath(pathString = '') {
-  const splittedPath = pathString.split('/')
-  const root = splittedPath[0]
-  const finalIndex = splittedPath.length - 1
-  const lastElement = splittedPath[finalIndex]
-  const version = root.endsWith(BACKUP.POSTFIX) ? splittedPath[1] : null
-  const base = lastElement.includes('.') ? lastElement : null
-  const pathElements = []
-  if (version) {
-    pathElements.push(...splittedPath.slice(2, finalIndex))
-  } else {
-    pathElements.push(...splittedPath.slice(1, finalIndex))
+  const regexForBackupPath = new RegExp(`(^.+-${BACKUP.POSTFIX})\\/(.+?)\\/(.+)\\/(.+$)`, 'g')
+  const regexForRegularPath = /(^.+?)\/(.+)\/(.+$)/g
+  const pathObj = {}
+  if (regexForBackupPath.exec(pathString)) {
+    pathObj.root = RegExp.$1
+    pathObj.version = RegExp.$2
+    pathObj.path = RegExp.$3
+    pathObj.base = RegExp.$4
+  } else if (regexForRegularPath.exec(pathString)) {
+    pathObj.root = RegExp.$1
+    pathObj.version = ''
+    pathObj.path = RegExp.$2
+    pathObj.base = RegExp.$3
   }
-  if (!base) {
-    pathElements.push(lastElement)
-  }
-  const path = joinStrings(pathElements, '/')
-  return {
-    root,
-    version,
-    path,
-    base,
-  }
+  return pathObj
 }
 
 // function buildGCSPath({ root, version, path, base }) {
