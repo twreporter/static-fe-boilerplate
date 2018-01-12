@@ -1,8 +1,18 @@
 const path = require('path')
 const config = require('./config')
+const webpack = require('webpack')
 
 module.exports = (env) => {
   const isProduction = env.NODE_ENV === 'production'
+
+  const plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: isProduction ? '"production"' : '"development"',
+      },
+    }),
+  ]
+
   return {
     entry: {
       main: './src/client.js',
@@ -35,6 +45,12 @@ module.exports = (env) => {
         },
       ],
     },
+    plugins: isProduction ? plugins.concat([
+      new webpack.optimize.UglifyJsPlugin(),
+    ]) : plugins.concat([
+      // new BundleAnalyzerPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+    ]),
   }
 }
 

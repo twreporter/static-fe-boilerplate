@@ -1,9 +1,18 @@
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path')
 const webpack = require('webpack')
 const config = require('./config')
 
 module.exports = (env) => {
   const isProduction = env.NODE_ENV === 'production'
+
+  const plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: isProduction ? '"production"' : '"development"',
+      },
+    }),
+  ]
 
   return {
     entry: {
@@ -43,14 +52,12 @@ module.exports = (env) => {
         },
       ],
     },
-    plugins: [
+    plugins: isProduction ? plugins.concat([
+      new webpack.optimize.UglifyJsPlugin(),
+    ]) : plugins.concat([
+      // new BundleAnalyzerPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: isProduction ? '"production"' : '"development"',
-        },
-      }),
-    ],
+    ]),
   }
 }
 
