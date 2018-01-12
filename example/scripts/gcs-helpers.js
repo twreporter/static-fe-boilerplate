@@ -152,7 +152,7 @@ function copyFilesTo(fileObjs, destFolder) {
   console.log('Start copying files...')
   const promises = fileObjs.map((fileObj) => {
     const pathObj = parseGCSPath(fileObj.name)
-    const destination = `${destFolder}/${[].concat(pathObj.path).concat(pathObj.base).join('/')}`
+    const destination = `${destFolder}/${[].concat(pathObj.path, pathObj.base).join('/')}`
     return new Promise((resolve, reject) => {
       fileObj
         .copy(destination)
