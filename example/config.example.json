@@ -13,7 +13,8 @@
       "POSTFIX": "backup"
     },
     "STAGING": {
-      "POSTFIX": "staging",
+      "PREFIX": "staging",
+      "POSTFIX": "gcs",
       "CACHE_CONTROL": {
         "DIST": "public, max-age=10",
         "STATIC": "public, max-age=10"

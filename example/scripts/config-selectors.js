@@ -19,8 +19,18 @@ const selectConfigByType = (deployType) => {
   }
 }
 
-const selectFolderPostFix = (deployType) => {
+const selectFolderPostfix = (deployType) => {
   return selectConfigByType(deployType).POSTFIX
+}
+
+const selectFolderPrefix = (deployType) => {
+  return selectConfigByType(deployType).PREFIX
+}
+
+const selectRootFolder = (projectName, deployType) => {
+  const prefix = selectFolderPrefix(deployType)
+  const postfix = selectFolderPostfix(deployType)
+  return [].concat(prefix, projectName, postfix).filter(value => value).join('-')
 }
 
 const selectCacheControl = (subfolderType, deployType) => {
@@ -54,6 +64,6 @@ const selectSubFolder = (subfolderType) => {
 
 module.exports = {
   selectCacheControl,
-  selectFolderPostFix,
+  selectRootFolder,
   selectSubFolder,
 }

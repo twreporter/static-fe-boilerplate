@@ -30,13 +30,11 @@ function prepareFiles(pathOfFolderToUpload, backupDirName, targetSubfolderName) 
   return filesToUpload
 }
 
-async function deploy({ projectName, localFilesPath, targetSubfolderName, publicFolderPostfix, backupFolderPostfix, metadata, uploadConfigs }) {
-  const publicDirName = `${projectName}-${publicFolderPostfix}`
-  const backupDirName = `${projectName}-${backupFolderPostfix}`
+async function deploy({ localFilesPath, publicDirName, targetSubfolderName, backupDirName, metadata, uploadConfigs }) {
   try {
     // 1. clear staging folder
     await getFiles(`${publicDirName}/${targetSubfolderName}/`)
-      .then(publicFileObjects => deleteFiles(publicFileObjects))
+      .then(deleteFiles)
 
     // 2. upload files to versions
     const filesToUpload = prepareFiles(localFilesPath, backupDirName, targetSubfolderName)

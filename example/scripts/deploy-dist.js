@@ -6,17 +6,16 @@ const selectors = require('./config-selectors')
 const { DEPLOY_TYPE } = process.env
 const subfolderType = 'dist'
 
-const { selectCacheControl, selectFolderPostFix, selectSubFolder } = selectors
+const { selectCacheControl, selectRootFolder, selectSubFolder } = selectors
 
 const { PROJECT_NAME, LOCAL_CONFIGS } = CONFIGS
 const { DIST_PATH } = LOCAL_CONFIGS
 
 deploy({
-  projectName: PROJECT_NAME,
   localFilesPath: DIST_PATH,
+  publicDirName: selectRootFolder(PROJECT_NAME, DEPLOY_TYPE),
+  backupDirName: selectRootFolder(PROJECT_NAME, 'backup'),
   targetSubfolderName: selectSubFolder(subfolderType),
-  publicFolderPostfix: selectFolderPostFix(DEPLOY_TYPE),
-  backupFolderPostfix: selectFolderPostFix('backup'),
   metadata: {
     cacheControl: selectCacheControl(subfolderType, DEPLOY_TYPE),
     predefinedAcl: 'publicRead',

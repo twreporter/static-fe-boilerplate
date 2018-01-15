@@ -1,27 +1,21 @@
 /* eslint no-console:0 */
 const CONFIGS = require('../config.json')
 const nodePath = require('path')
-const { selectFolderPostFix } = require('./config-selectors')
+const { selectSubFolder, selectRootFolder } = require('./config-selectors')
 
 const { PROJECT_NAME, LOCAL_CONFIGS, GOOGLE_CLOUD_STORAGE_CONFIGS } = CONFIGS
 
-const { DIST_DIR_NAME, STATIC_DIR_NAME, BUCKET_NAME, BACKUP } = GOOGLE_CLOUD_STORAGE_CONFIGS
+const { BUCKET_NAME, BACKUP } = GOOGLE_CLOUD_STORAGE_CONFIGS
 
 const absRootPath = nodePath.resolve(__dirname, '../')
 
 function getPublicUrl(subfolderType, deployType) {
   const protocol = 'https'
   const host = 'storage.googleapis.com'
-  const publicDirName = `${PROJECT_NAME}-${selectFolderPostFix(deployType)}`
-  switch (subfolderType) {
-    case 'dist':
-      return `${protocol}://${host}/${BUCKET_NAME}/${publicDirName}/${DIST_DIR_NAME}`
-    case 'static':
-      return `${protocol}://${host}/${BUCKET_NAME}/${publicDirName}/${STATIC_DIR_NAME}`
-    case 'origin':
-    default:
-      return `${protocol}://${host}/${BUCKET_NAME}/${publicDirName}`
-  }
+  const rootFolder = selectRootFolder(PROJECT_NAME, deployType)
+  const subFolder = selectSubFolder(subfolderType)
+  const path = [].concat(host, BUCKET_NAME, rootFolder, subFolder).filter(value => value).join('/')
+  return `${protocol}://${path}`
 }
 
 function getLocalPath(subfolderType) {
@@ -39,7 +33,7 @@ function joinStrings(array, separator = '') {
   if (!Array.isArray(array)) return array
   const checkIfIsValid = (element) => {
     if (element === 0) return true
-    return !!element
+    return element
   }
   return array.filter(checkIfIsValid).join(separator)
 }
