@@ -5,11 +5,11 @@ const { selectCacheControl, selectRootFolder, selectSubFolder } = require('./con
 
 const { PROJECT_NAME } = CONFIGS
 
-const TARGET = process.env.TARGET || ''
+const { SUBFOLDER_TYPE } = process.env
 const version = process.argv[2]
 
 if (!version) {
-  throw new Error(`No version is specified. Check if the command you input fits the format \`npm run rollback:${TARGET} [version]\`.`)
+  throw new Error(`No version is specified. Check if the command you input fits the format \`npm run rollback:${SUBFOLDER_TYPE} [version]\`.`)
 }
 
 async function rollback({ backupDirName, publicDirName, targetSubfolderName, metadata, targetVersion }) {
@@ -41,9 +41,9 @@ async function rollback({ backupDirName, publicDirName, targetSubfolderName, met
 rollback({
   publicDirName: selectRootFolder(PROJECT_NAME, 'production'),
   backupDirName: selectRootFolder(PROJECT_NAME, 'backup'),
-  targetSubfolderName: selectSubFolder(TARGET),
+  targetSubfolderName: selectSubFolder(SUBFOLDER_TYPE),
   targetVersion: version,
   metadata: {
-    cacheControl: selectCacheControl(TARGET, 'production'),
+    cacheControl: selectCacheControl(SUBFOLDER_TYPE, 'production'),
   },
 })

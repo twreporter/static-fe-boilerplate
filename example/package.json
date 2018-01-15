@@ -14,10 +14,10 @@
     "deploy:stage-dist": "DEPLOY_TYPE=staging npm run build && DEPLOY_TYPE=staging babel-node scripts/deploy-dist.js",
     "deploy:prod-static": "DEPLOY_TYPE=production babel-node scripts/deploy-static.js",
     "deploy:prod-dist": "DEPLOY_TYPE=production npm run build && DEPLOY_TYPE=production babel-node scripts/deploy-dist.js",
-    "archive:dist": "SUBFOLDER=dist babel-node scripts/archive.js",
-    "archive:static": "SUBFOLDER=static babel-node scripts/archive.js",
-    "rollback:dist": "SUBFOLDER=dist babel-node scripts/rollback.js",
-    "rollback:static": "SUBFOLDER=static babel-node scripts/rollback.js"
+    "archive:dist": "SUBFOLDER_TYPE=dist babel-node scripts/archive.js",
+    "archive:static": "SUBFOLDER_TYPE=static babel-node scripts/archive.js",
+    "rollback:dist": "SUBFOLDER_TYPE=dist babel-node scripts/rollback.js",
+    "rollback:static": "SUBFOLDER_TYPE=static babel-node scripts/rollback.js"
   },
   "license": "MIT",
   "devDependencies": {

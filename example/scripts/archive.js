@@ -3,7 +3,7 @@ const { setMetadata, getFiles } = require('./gcs-helpers')
 const CONFIGS = require('../config.json')
 const { selectCacheControl, selectRootFolder, selectSubFolder } = require('./config-selectors')
 
-const ARCHIVE_TARGET = process.env.ARCHIVE_TARGET || ''
+const { SUBFOLDER_TYPE } = process.env
 
 const { PROJECT_NAME } = CONFIGS
 
@@ -24,8 +24,8 @@ async function archive({ publicDirName, targetSubfolderName, metadata }) {
 
 archive({
   publicDirName: selectRootFolder(PROJECT_NAME, 'production'),
-  targetSubfolderName: selectSubFolder(ARCHIVE_TARGET),
+  targetSubfolderName: selectSubFolder(SUBFOLDER_TYPE),
   metadata: {
-    cacheControl: selectCacheControl(ARCHIVE_TARGET, 'archive'),
+    cacheControl: selectCacheControl(SUBFOLDER_TYPE, 'archive'),
   },
 })
