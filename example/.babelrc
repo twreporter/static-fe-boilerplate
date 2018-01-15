@@ -12,7 +12,8 @@
       "inline-react-svg", {
         "svgo": {
           "plugins": [{
-            "cleanupIDs": false
+            "cleanupIDs": false,
+            "removeScriptElement": true
           }]
         }
       }

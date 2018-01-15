@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
-import config from '../../config'
+import { getPublicUrl } from '../../scripts/handle-path'
 
 const title = 'This is the Title'
 
-const isProduction = process.env.NODE_ENV === 'production'
+const { DEPLOY_TYPE, NODE_ENV } = process.env
+const isProduction = NODE_ENV === 'production'
+const publicUrl = getPublicUrl('origin', DEPLOY_TYPE)
 
 export default class Html extends PureComponent {
   static propTypes = {
@@ -20,7 +22,7 @@ export default class Html extends PureComponent {
         <head>
           <title>{title}</title>
           <style dangerouslySetInnerHTML={{ __html: styleTags }} />
-          {!isProduction ? null : <base href={`${config.productionOrigin}/`} />}
+          {!isProduction ? null : <base href={`${publicUrl}/`} />}
         </head>
         <body>
           <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
