@@ -93,11 +93,11 @@ If we are sure that the files won't change anymore, or the change will be minor,
 
 ```
 npm run archive:static
-``
+```
 
 ```
 npm run archive:dist
-``
+```
 
 ### Rollback to previous version on GCP
 
