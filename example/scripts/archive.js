@@ -1,7 +1,8 @@
 /* eslint no-console:0 */
+const { selectCacheControl, selectRootFolder, selectSubFolder } = require('./config-selectors')
 const { setMetadata, getFiles } = require('./gcs-helpers')
 const CONFIGS = require('../config.json')
-const { selectCacheControl, selectRootFolder, selectSubFolder } = require('./config-selectors')
+const CONSTANTS = require('./constants')
 
 const { SUBFOLDER_TYPE } = process.env
 
@@ -23,9 +24,9 @@ async function archive({ publicDirName, targetSubfolderName, metadata }) {
 }
 
 archive({
-  publicDirName: selectRootFolder(PROJECT_NAME, 'production'),
+  publicDirName: selectRootFolder(PROJECT_NAME, CONSTANTS.DEPLOY_TYPE.PRODUCTION),
   targetSubfolderName: selectSubFolder(SUBFOLDER_TYPE),
   metadata: {
-    cacheControl: selectCacheControl(SUBFOLDER_TYPE, 'archive'),
+    cacheControl: selectCacheControl(SUBFOLDER_TYPE, CONSTANTS.DEPLOY_TYPE.ARCHIVE),
   },
 })

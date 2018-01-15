@@ -1,7 +1,8 @@
 /* eslint no-console:0 */
 const { getFiles, copyFilesTo, deleteFiles, setMetadata, makePublic } = require('./gcs-helpers')
-const CONFIGS = require('../config.json')
 const { selectCacheControl, selectRootFolder, selectSubFolder } = require('./config-selectors')
+const CONFIGS = require('../config.json')
+const CONSTANTS = require('./constants')
 
 const { PROJECT_NAME } = CONFIGS
 
@@ -39,11 +40,11 @@ async function rollback({ backupDirName, publicDirName, targetSubfolderName, met
 }
 
 rollback({
-  publicDirName: selectRootFolder(PROJECT_NAME, 'production'),
-  backupDirName: selectRootFolder(PROJECT_NAME, 'backup'),
+  publicDirName: selectRootFolder(PROJECT_NAME, CONSTANTS.DEPLOY_TYPE.PRODUCTION),
+  backupDirName: selectRootFolder(PROJECT_NAME, CONSTANTS.DEPLOY_TYPE.BACKUP),
   targetSubfolderName: selectSubFolder(SUBFOLDER_TYPE),
   targetVersion: version,
   metadata: {
-    cacheControl: selectCacheControl(SUBFOLDER_TYPE, 'production'),
+    cacheControl: selectCacheControl(SUBFOLDER_TYPE, CONSTANTS.DEPLOY_TYPE.PRODUCTION),
   },
 })
