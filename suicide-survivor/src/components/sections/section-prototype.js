@@ -15,6 +15,7 @@ const Container = styled.div`
 const ImgContainer = styled.div`
   width: 100%;
   height: 100vh;
+  position: relative;
 `
 
 const AudioContainer = styled.div`
@@ -28,6 +29,7 @@ const AudioContainer = styled.div`
   ${mq.tablet`
     max-height: 1024px;
   `};
+  position: relative;
 `
 
 class Section extends React.PureComponent {

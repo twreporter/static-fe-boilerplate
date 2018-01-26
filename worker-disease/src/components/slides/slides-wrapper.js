@@ -14,6 +14,8 @@ import Slide from './slide'
 import styled from 'styled-components'
 import Swipeable from 'react-swipeable'
 import throttle from 'lodash.throttle'
+import config from '../../config.js'
+import pageMeta from '../../data/page-meta'
 
 const _ = {
   assign,
@@ -23,6 +25,46 @@ const _ = {
   set,
   throttle,
 }
+
+/*-----------Bookmark---------------*/
+
+
+const MobileWidgetFrame = styled.iframe`
+  height: 52px;
+  width: 52px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+`
+
+const HOST = config.host
+
+const bookmarkData = {
+  slug: 'occupational-diseases-in-taiwan-gcs',
+  host: 'https://www.twreporter.org',
+  style: 'interactive',
+  title: pageMeta.title,
+  desc: pageMeta.description,
+  thumbnail: 'https://storage.googleapis.com/twreporter-infographics/occupational-diseases-in-taiwan-gcs/static/opening-mobile.png',
+  category: '醫療．勞權',
+  published_date: '2017-11-28T08:00:00+08:00',
+}
+
+const bookmarkPostMessage = {
+  bookmarkData,
+  svgColor: '',
+}
+
+const MobileWidgetContainer = styled.div`
+  position: fixed;
+  z-index: ${props => (props.showMobile ? '50' : '-1')};
+  bottom: 4%;
+  right: 4%;
+  opacity: ${props => (props.showMobile ? '1' : '0')};
+  transition: opacity 200ms linear;
+`
+
+/*---------------------------------*/
 
 const wheelThreshold = 0
 
@@ -41,6 +83,15 @@ const ProgressBarConatiner = styled.div`
   z-index: ${styles.zIndex.progressBar};
   width: 100%;
   height: 5px;
+`
+
+const Test = styled.div`
+  background-color: red;
+  height: 52px;
+  width: 52px;
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
 `
 
 class Slides extends PureComponent {
@@ -91,6 +142,13 @@ class Slides extends PureComponent {
           }
         }
       }
+    }
+  }
+
+  componentDidMount() {
+    const bookmarkElement = document.getElementById('bookmarkIcon')
+    bookmarkElement.onload = () => {
+      bookmarkElement.contentWindow.postMessage(JSON.stringify(bookmarkPostMessage), `${HOST}`)
     }
   }
 
@@ -175,6 +233,16 @@ class Slides extends PureComponent {
         onKeyDown={this.onKeyDown}
         onWheel={this.onWheel}
       >
+        <MobileWidgetContainer
+          showMobile={currentIndex === 22}
+        >
+          <MobileWidgetFrame
+            id="bookmarkIcon"
+            title="bookmark-widget"
+            src={`${HOST}/widgets-bookmark-mobile`}
+            scrolling="no"
+          />
+        </MobileWidgetContainer>
         <Swipeable
           tabIndex="0"
           style={{ height: '100%', position: 'relative' }}

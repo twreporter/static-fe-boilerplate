@@ -1,13 +1,13 @@
 /* eslint-disable function-paren-newline */
+import { colors } from '../styles/common-variables'
 import get from 'lodash/get'
-import PropTypes from 'prop-types'
-import React from 'react'
-import Waypoint from 'react-waypoint'
-import smoothScroll from 'smoothscroll'
-import styled from 'styled-components'
 import mq from '../utils/media-query'
 import pathProcessor from '../utils/path-processor'
-import { colors } from '../styles/common-variables'
+import PropTypes from 'prop-types'
+import React from 'react'
+import smoothScroll from 'smoothscroll'
+import styled from 'styled-components'
+import Waypoint from 'react-waypoint'
 
 const _ = {
   get,
