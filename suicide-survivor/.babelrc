@@ -1,38 +1,33 @@
 {
-  "env": {
-    "server": {
-      "plugins": [
-      ]
-    }
-  },
   "plugins": [
     [
       "styled-components",
-    {
-      "ssr": true,
-      "displayName": true,
-      "preprocess": false
-    }
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
     ],
     [
       "inline-react-svg", {
         "svgo": {
-          "plugins": [
-          {
-            "cleanupIDs": false
-          }
-          ]
+          "plugins": [{
+            "cleanupIDs": false,
+            "removeScriptElement": true
+          }]
         }
       }
     ],
     [
       "transform-assets-import-to-string",
-    {
-      "extensions": [".jpg", ".png", ".mp3"],
-      "baseDir": "static"
-    }
+      {
+        "extensions": [".jpg", ".png", ".mp3"],
+        "baseDir": "static"
+      }
     ]
   ],
-  "presets": [["env", { "module": false }], "stage-0", "react"],
+  "presets": [
+    ["env", { "module": false }], "stage-0", "react"
+  ],
   "comments": false
 }

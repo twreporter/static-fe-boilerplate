@@ -1,28 +1,33 @@
 /* eslint no-console:0 */
+import { getPublicUrl, getLocalPath } from '../scripts/handle-path'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import Express from 'express'
+import fs from 'fs'
 import Html from './helpers/html'
+import http from 'http'
+import httpProxy from 'http-proxy'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Root from './components/root'
-import config from '../config'
-import fs from 'fs'
-import http from 'http'
-import httpProxy from 'http-proxy'
-import path from 'path'
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 // defines global variable
 global.__SERVER__ = true
 
 const scripts = []
 
-if (process.env.NODE_ENV === 'production') {
+const { DEPLOY_TYPE, NODE_ENV } = process.env
+
+const publicDistUrl = getPublicUrl('dist', DEPLOY_TYPE)
+const localDistDir = getLocalPath('dist')
+const localStaticDir = getLocalPath('static')
+
+if (NODE_ENV === 'production') {
   // load webpack bundle
-  fs.readdirSync(path.resolve(__dirname, '../dist')).forEach((file) => {
+  fs.readdirSync(localDistDir).forEach((file) => {
     const re = /main\..+\.bundle\.js/
     const found = file.match(re)
     if (found !== null) {
-      scripts.push(`https://storage.googleapis.com/twreporter-infographics/walk-with-survivor-of-suicide-gcs/dist/${file}`)
+      scripts.push(`${publicDistUrl}/${file}`)
     }
   })
   const sheet = new ServerStyleSheet()
@@ -39,14 +44,14 @@ if (process.env.NODE_ENV === 'production') {
     styleTags={sheet.getStyleTags()}
   />)
 
-  fs.writeFileSync(`${config.outputPath}/index.html`, html)
+  fs.writeFileSync(`${localDistDir}/index.html`, html)
 } else {
   const app = new Express()
   const server = new http.Server(app)
 
   // serve static files
-  app.use('/static', Express.static(path.join(__dirname, '..', 'static')))
-  app.use('/dist', Express.static(path.join(__dirname, '..', 'dist')))
+  app.use('/static', Express.static(localStaticDir))
+  app.use('/dist', Express.static(localDistDir))
   const proxy = httpProxy.createProxyServer({
     // webpack dev server
     target: 'http://localhost:5000',
