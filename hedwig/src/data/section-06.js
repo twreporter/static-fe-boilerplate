@@ -1,3 +1,7 @@
+import illustrator06Desktop from '../../static/illustrator-06-desktop.jpg'
+import illustrator06Mobile from '../../static/illustrator-06-mobile.jpg'
+import illustrator06Tablet from '../../static/illustrator-06-tablet.jpg'
+
 export default {
   author: {
     name: '鄭涵文',
@@ -9,9 +13,9 @@ export default {
   illustration: {
     image: {
       resizedTargets: {
-        mobile: 'static/illustrator-06-mobile.jpg',
-        tablet: 'static/illustrator-06-tablet.jpg',
-        desktop: 'static/illustrator-06-desktop.jpg',
+        mobile: illustrator06Mobile,
+        tablet: illustrator06Tablet,
+        desktop: illustrator06Desktop,
       },
       alt: '',
     },

@@ -32,7 +32,8 @@ import { screen } from './styles/utils'
 import Interview from './interview'
 
 injectGlobal`
-  body, html {
+  body {
+    font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   }
 `
 

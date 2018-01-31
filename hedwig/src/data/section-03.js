@@ -1,3 +1,7 @@
+import illustrator03Desktop from '../../static/illustrator-03-desktop.jpg'
+import illustrator03Mobile from '../../static/illustrator-03-mobile.jpg'
+import illustrator03Tablet from '../../static/illustrator-03-tablet.jpg'
+
 const section03 = {
   author: {
     name: '黃禹禛',
@@ -10,22 +14,22 @@ const section03 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-03-mobile.jpg',
+          path: illustrator03Mobile,
           width: 306,
           height: 217,
         },
         tablet: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-03-tablet.jpg',
+          path: illustrator03Tablet,
           width: 640,
           height: 452,
         },
         desktop: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-03-desktop.jpg',
+          path: illustrator03Desktop,
           width: 769,
           height: 544,
         },
         hd: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-03-desktop.jpg',
+          path: illustrator03Desktop,
           width: 1136,
           height: 804,
         },

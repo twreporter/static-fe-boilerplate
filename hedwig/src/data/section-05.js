@@ -1,3 +1,7 @@
+import illustrator05Desktop from '../../static/illustrator-05-desktop.jpg'
+import illustrator05Mobile from '../../static/illustrator-05-mobile.jpg'
+import illustrator05Tablet from '../../static/illustrator-05-tablet.jpg'
+
 export default {
   author: {
     name: '謝承佑',
@@ -9,9 +13,9 @@ export default {
   illustration: {
     image: {
       resizedTargets: {
-        mobile: 'static/illustrator-05-mobile.jpg',
-        tablet: 'static/illustrator-05-tablet.jpg',
-        desktop: 'static/illustrator-05-desktop.jpg',
+        mobile: illustrator05Mobile,
+        tablet: illustrator05Tablet,
+        desktop: illustrator05Desktop,
       },
       alt: '',
     },
