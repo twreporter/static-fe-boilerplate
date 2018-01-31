@@ -1,4 +1,10 @@
-import pathProcessor from '../utils/path-processor'
+import case2Audio from '../../static/case2_audio.mp3'
+import case2Desktop from '../../static/case2_desktop.jpg'
+import case2Tablet from '../../static/case2_tablet.jpg'
+import case2Mobile from '../../static/case2_mobile.jpg'
+import face2Desktop from '../../static/face2_desktop.png'
+import face2Tablet from '../../static/face2_tablet.png'
+import face2Mobile from '../../static/face2_mobile.png'
 
 const subtitles = [
   {
@@ -77,9 +83,9 @@ const data = {
   title: '當恐懼再現',
   image: {
     resizedTargets: {
-      mobile: pathProcessor('case2_mobile.jpg'),
-      tablet: pathProcessor('case2_tablet.jpg'),
-      desktop: pathProcessor('case2_desktop.jpg'),
+      mobile: case2Mobile,
+      tablet: case2Tablet,
+      desktop: case2Desktop,
     },
   },
   profile: {
@@ -111,11 +117,11 @@ const data = {
   subtitles,
   catchphrase: '李翌如想對母親說⋯⋯',
   catchphraseFace: {
-    mobile: pathProcessor('face2_mobile.png'),
-    tablet: pathProcessor('face2_tablet.png'),
-    desktop: pathProcessor('face2_desktop.png'),
+    mobile: face2Mobile,
+    tablet: face2Tablet,
+    desktop: face2Desktop,
   },
-  audioFile: 'case2_audio.mp3',
+  audioFile: case2Audio,
 }
 
 export default data

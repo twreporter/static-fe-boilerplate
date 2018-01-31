@@ -1,4 +1,9 @@
-import pathProcessor from '../utils/path-processor'
+import doctorDesktop from '../../static/doctor_desktop.jpg'
+import doctorTablet from '../../static/doctor_tablet.jpg'
+import doctorMobile from '../../static/doctor_mobile.jpg'
+import infographic1Desktop from '../../static/infographic1_desktop.png'
+import infographic1Tablet from '../../static/infographic1_tablet.png'
+import infographic1Mobile from '../../static/infographic1_mobile.png'
 
 const data = {
   title: '你並不孤單——<br>自殺者遺族的團體治療模式',
@@ -12,9 +17,9 @@ const data = {
     {
       type: 'image',
       src: {
-        desktop: pathProcessor('doctor_desktop.jpg'),
-        tablet: pathProcessor('doctor_tablet.jpg'),
-        mobile: pathProcessor('doctor_mobile.jpg'),
+        desktop: doctorDesktop,
+        tablet: doctorTablet,
+        mobile: doctorMobile,
       },
       caption: '台北馬偕紀念醫院精神醫學部／自殺防治中心主任方俊凱',
     },
@@ -55,9 +60,9 @@ const data = {
     {
       type: 'infographic',
       src: {
-        desktop: pathProcessor('infographic1_desktop.png'),
-        tablet: pathProcessor('infographic1_tablet.png'),
-        mobile: pathProcessor('infographic1_mobile.png'),
+        desktop: infographic1Desktop,
+        tablet: infographic1Tablet,
+        mobile: infographic1Mobile,
       },
       caption: '呂欣芹從自身經驗與訪談其他自殺者遺族中，歸納出6種普遍會出現的情緒，它們的先後順序不固定，是一種持續發展的過程，若能完成右邊的情緒調適，就能避免陷入左邊的各種危機。但每位遺族的經驗都是個別且不同的，這份圖表只是提供一些方向，幫助遺族強烈複雜的悲傷找到著力點。（資料提供／呂欣芹）',
     },

@@ -3,13 +3,13 @@ import Banner from './banner'
 import introData from '../data/intro'
 import LandingImg from './landing-img'
 import LandingText from './landing-text'
-import pathProcessor from '../utils/path-processor'
 import React from 'react'
 import Sections from './sections/section-factory'
 import SideBar from './side-bar'
 import styled, { injectGlobal } from 'styled-components'
 import Waypoint from 'react-waypoint'
 import { scrollLocker } from '../utils/scroll-manager'
+import blankAudio from '../../static/blank.mp3'
 
 const {
   SectionOne, SectionTwo, SectionThree, SectionFour,
@@ -93,7 +93,7 @@ export default class Root extends React.Component {
   }
 
   _AutoPlayHandler() {
-    const fakeAudio = new Audio(pathProcessor('blank.mp3'))
+    const fakeAudio = new Audio(blankAudio)
     fakeAudio.play()
       .then(() => {
         console.log('the browser has funstional auto-play')

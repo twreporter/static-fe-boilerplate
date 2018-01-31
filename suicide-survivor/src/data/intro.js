@@ -1,4 +1,6 @@
-import pathProcessor from '../utils/path-processor'
+import coverphotoDesktop from '../../static/coverphoto_desktop.jpg'
+import coverphotoMobile from '../../static/coverphoto_mobile.jpg'
+import coverphotoTablet from '../../static/coverphoto_tablet.jpg'
 
 const intro = {
   title: {
@@ -7,9 +9,9 @@ const intro = {
   },
   image: {
     resizedTargets: {
-      mobile: pathProcessor('coverphoto_mobile.jpg'),
-      tablet: pathProcessor('coverphoto_tablet.jpg'),
-      desktop: pathProcessor('coverphoto_desktop.jpg'),
+      mobile: coverphotoMobile,
+      tablet: coverphotoTablet,
+      desktop: coverphotoDesktop,
     },
   },
   credits: [
