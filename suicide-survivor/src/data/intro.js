@@ -7,6 +7,7 @@ const intro = {
     rowOne: '倖存者的餘聲——',
     rowTwo: '自殺者遺族的漫長旅途',
   },
+  publishedDate: '2017.11.18',
   image: {
     resizedTargets: {
       mobile: coverphotoMobile,
