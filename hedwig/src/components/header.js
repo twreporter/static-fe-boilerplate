@@ -48,7 +48,8 @@ const Background = styled.div`
 const Title = styled.h1`
   color: ${colors.white};
   font-size: ${fontSize};
-  font-weight: ${fontWeight.heavy};
+  font-weight: ${fontWeight.bold};
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
   ${mq.mobileOnly`
     font-size: 25px;
   `}

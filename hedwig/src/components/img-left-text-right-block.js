@@ -1,9 +1,10 @@
 /* eslint react/no-array-index-key:0 */
+import { fontWeight } from '../constants/style-variables'
+import { screen } from './styles/utils'
 import ImgWrapper from './img-wrapper'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import { screen } from './styles/utils'
 
 const mockup = {
   hd: {
@@ -204,6 +205,7 @@ const Answer = styled.p`
   line-height: 1.94;
   margin-bottom: 60px;
   margin: 0;
+  font-weight: ${fontWeight.normal};
 `
 
 const IllustrationDesc = styled.div`

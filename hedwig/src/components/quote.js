@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const Container = ContentContainer.extend`
   text-align: left;
-  font-weight: ${fontWeight.regular};
+  font-weight: ${fontWeight.normal};
   color: ${colors.textBlack};
   line-height: 1.94;
   text-align: left;
