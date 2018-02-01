@@ -42,6 +42,7 @@ const {
   title,
   content,
   credits,
+  publishedDate,
 } = article
 
 const Container = styled.div`
@@ -119,7 +120,7 @@ export default class Root extends React.Component {
               fireOnRapidScroll
             >
               <div>
-                <Header image={image} title={title} />
+                <Header image={image} title={title} publishedDate={publishedDate} />
                 <Banner />
               </div>
             </Waypoint>

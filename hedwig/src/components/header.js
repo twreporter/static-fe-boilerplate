@@ -49,6 +49,15 @@ const Title = styled.h1`
   color: ${colors.white};
   font-size: ${fontSize};
   font-weight: ${fontWeight.heavy};
+  ${mq.mobileOnly`
+    font-size: 25px;
+  `}
+  ${mq.desktopAbove`
+    white-space: pre-line;
+  `}
+`
+
+const Wrapper = styled.div`
   position: absolute;
   ${mq.mobileOnly`
     font-size: 25px;
@@ -71,11 +80,32 @@ const Title = styled.h1`
     bottom: 12.8%;
     max-width: ${titleMaxWidth.desktop};
     text-align: left;
-    white-space: pre-line;
   `}
   ${mq.hdAbove`
-    bottom: 20.1%;
+    bottom: 14.1%;
+`}
+`
+
+const Dash = styled.div`
+  margin: 25px 0;
+  ${mq.tabletOnly`
+    margin: 25px auto;
   `}
+  width: 30px;
+  height: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.5);
+  background-color: #fff;
+`
+
+const Date = styled.div`
+  font-size: 13px;
+  ${mq.tabletAbove`
+    font-size: 15px;
+  `}
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+  letter-spacing: .1px;
 `
 
 const fadeInSlideDown = keyframes`
@@ -124,12 +154,16 @@ class Header extends React.Component {
   }
 
   render() {
-    const { title, image } = this.props
+    const { title, image, publishedDate } = this.props
     const { mobile, tablet, desktop } = image.resizedTargets
     return (
       <Container>
         <Background mobile={mobile} tablet={tablet} desktop={desktop} />
-        <Title>{title}</Title>
+        <Wrapper>
+          <Title>{title}</Title>
+          <Dash />
+          <Date>{publishedDate}</Date>
+        </Wrapper>
         <IconContainer onClick={this._handleClick}><ArrowDownIcon /></IconContainer>
       </Container>
     )
@@ -138,6 +172,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  publishedDate: PropTypes.string.isRequired,
   image: PropTypes.shape({
     resizedTargets: PropTypes.shape({
       mobile: PropTypes.string.isRequired,
