@@ -1,3 +1,7 @@
+import illustrator02Desktop from '../../static/illustrator-02-desktop.jpg'
+import illustrator02Mobile from '../../static/illustrator-02-mobile.jpg'
+import illustrator02Tablet from '../../static/illustrator-02-tablet.jpg'
+
 const section02 = {
   author: {
     name: 'Acia yang',
@@ -10,22 +14,22 @@ const section02 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-02-mobile.jpg',
+          path: illustrator02Mobile,
           width: 306,
           height: 217,
         },
         tablet: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-02-tablet.jpg',
+          path: illustrator02Tablet,
           width: 640,
           height: 453,
         },
         desktop: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-02-desktop.jpg',
+          path: illustrator02Desktop,
           width: 769,
           height: 544,
         },
         hd: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-02-desktop.jpg',
+          path: illustrator02Desktop,
           width: 1136,
           height: 804,
         },

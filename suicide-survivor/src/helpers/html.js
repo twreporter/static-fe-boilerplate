@@ -1,7 +1,11 @@
 /* eslint react/jsx-curly-brace-presence: 0 */
-
+import { getPublicUrl } from '../../scripts/handle-path'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
+
+const { DEPLOY_TYPE, NODE_ENV } = process.env
+const isProduction = NODE_ENV === 'production'
+const publicUrl = getPublicUrl('origin', DEPLOY_TYPE)
 
 const title = '倖存者的餘聲——自殺者遺族的漫長旅途'
 const description = '自殺者遺族猶如歷劫歸來的人們，面對全新的生活，卻已被災難性事件烙上無可磨滅的印記。'
@@ -20,6 +24,7 @@ export default class Html extends PureComponent {
     return (
       <html lang="zh-TW">
         <head>
+          {!isProduction ? null : <base href={`${publicUrl}/`} />}
           <title>{title}</title>
           <meta name="description" content={description} />
           <meta name="twitter:title" content={title} />

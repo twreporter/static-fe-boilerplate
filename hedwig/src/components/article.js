@@ -17,7 +17,7 @@ const Container = ContentContainer.extend`
 const Paragraph = styled.p`
   font-size: 18px;
   color: ${colors.textBlack};
-  font-weight: ${fontWeight.regular};
+  font-weight: ${fontWeight.normal};
   line-height: 1.94;
   text-align: left;
   margin: 2em 0;

@@ -1,4 +1,10 @@
-import pathProcessor from '../utils/path-processor'
+import case3Audio from '../../static/case3_audio.mp3'
+import case3Desktop from '../../static/case3_desktop.jpg'
+import case3Tablet from '../../static/case3_tablet.jpg'
+import case3Mobile from '../../static/case3_mobile.jpg'
+import face3Desktop from '../../static/face3_desktop.png'
+import face3Tablet from '../../static/face3_tablet.png'
+import face3Mobile from '../../static/face3_mobile.png'
 
 const subtitles = [
   {
@@ -102,9 +108,9 @@ const data = {
   title: '一生的對話',
   image: {
     resizedTargets: {
-      mobile: pathProcessor('case3_mobile.jpg'),
-      tablet: pathProcessor('case3_tablet.jpg'),
-      desktop: pathProcessor('case3_desktop.jpg'),
+      mobile: case3Mobile,
+      tablet: case3Tablet,
+      desktop: case3Desktop,
     },
   },
   profile: {
@@ -134,11 +140,11 @@ const data = {
   subtitles,
   catchphrase: '游賀凱想對父親說⋯⋯',
   catchphraseFace: {
-    mobile: pathProcessor('face3_mobile.png'),
-    tablet: pathProcessor('face3_tablet.png'),
-    desktop: pathProcessor('face3_desktop.png'),
+    mobile: face3Mobile,
+    tablet: face3Tablet,
+    desktop: face3Desktop,
   },
-  audioFile: 'case3_audio.mp3',
+  audioFile: case3Audio,
 }
 
 export default data

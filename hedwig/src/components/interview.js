@@ -39,7 +39,7 @@ const Question = styled.h3`
 const Paragraph = styled.p`
   font-size: 18px;
   color: ${colors.textBlack};
-  font-weight: ${fontWeight.regular};
+  font-weight: ${fontWeight.normal};
   line-height: 1.94;
   text-align: left;
   margin: 0;

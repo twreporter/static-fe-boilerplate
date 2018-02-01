@@ -32,7 +32,8 @@ import { screen } from './styles/utils'
 import Interview from './interview'
 
 injectGlobal`
-  body, html {
+  body {
+    font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   }
 `
 
@@ -41,6 +42,7 @@ const {
   title,
   content,
   credits,
+  publishedDate,
 } = article
 
 const Container = styled.div`
@@ -118,7 +120,7 @@ export default class Root extends React.Component {
               fireOnRapidScroll
             >
               <div>
-                <Header image={image} title={title} />
+                <Header image={image} title={title} publishedDate={publishedDate} />
                 <Banner />
               </div>
             </Waypoint>

@@ -1,3 +1,7 @@
+import illustrator04Desktop from '../../static/illustrator-04-desktop.jpg'
+import illustrator04Mobile from '../../static/illustrator-04-mobile.jpg'
+import illustrator04Tablet from '../../static/illustrator-04-tablet.jpg'
+
 export default {
   author: {
     name: '彭鈺程',
@@ -9,9 +13,9 @@ export default {
   illustration: {
     image: {
       resizedTargets: {
-        mobile: 'static/illustrator-04-mobile.jpg',
-        tablet: 'static/illustrator-04-tablet.jpg',
-        desktop: 'static/illustrator-04-desktop.jpg',
+        mobile: illustrator04Mobile,
+        tablet: illustrator04Tablet,
+        desktop: illustrator04Desktop,
       },
       alt: '',
     },

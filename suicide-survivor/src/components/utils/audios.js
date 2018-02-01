@@ -1,6 +1,5 @@
 import { CPAP, SubtitleContainer, TextFrame, IconContainerPrototype } from './common-components'
 import mq from '../../utils/media-query'
-import pathProcessor from '../../utils/path-processor'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
@@ -231,7 +230,7 @@ class TWAudio extends React.Component {
 
   componentDidMount() {
     const { file, audioInitated } = this.props
-    const audio = new Audio(pathProcessor(file))
+    const audio = new Audio(file)
     this.audio = audio
     audioInitated(audio)
   }

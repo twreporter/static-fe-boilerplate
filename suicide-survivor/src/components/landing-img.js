@@ -7,6 +7,7 @@ import React from 'react'
 import smoothScroll from 'smoothscroll'
 import styled, { keyframes } from 'styled-components'
 import { scrollUnlocker } from '../utils/scroll-manager'
+import introData from '../data/intro'
 
 const fontSize = '42px'
 
@@ -16,14 +17,21 @@ const Container = styled.div`
   height: 100vh;
   z-index: 100;
 `
-const Title = styled.div`
-  color: ${colors.white};
-  font-size: ${fontSize};
-  font-weight: ${fontWeight.heavy};
+
+const CenteringWrapper = styled.div`
+  width: 80%;
+  min-width: 260px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`
+
+const Title = styled.h1`
+  margin: 0;
+  color: ${colors.white};
+  font-size: ${fontSize};
+  font-weight: ${fontWeight.heavy};
   width: 100%;
   ${mq.mobile`
     top: 53%;
@@ -33,6 +41,25 @@ const Title = styled.div`
 
 const TitleRow = styled.div`
   margin-bottom: 8px;
+`
+
+const Dash = styled.div`
+  margin: 25px auto;
+  width: 30px;
+  height: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.5);
+  background-color: #fff;
+`
+
+const Date = styled.div`
+  font-size: 13px;
+  ${mq.tabletAbove`
+    font-size: 15px;
+  `}
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+  letter-spacing: .1px;
 `
 
 const fadeInSlideDown = keyframes`
@@ -103,10 +130,14 @@ class Header extends React.Component {
         innerRef={(node) => { this.module = node }}
       >
         <BackgroundImg mobile={mobile} tablet={tablet} desktop={desktop} />
-        <Title>
-          <TitleRow>{title.rowOne}</TitleRow>
-          <TitleRow>{title.rowTwo}</TitleRow>
-        </Title>
+        <CenteringWrapper>
+          <Title>
+            <TitleRow>{title.rowOne}</TitleRow>
+            <TitleRow>{title.rowTwo}</TitleRow>
+          </Title>
+          <Dash />
+          <Date>{introData.publishedDate}</Date>
+        </CenteringWrapper>
         <IconContainer onClick={this._handleClick}><ArrowDownIcon /></IconContainer>
       </Container>
     )

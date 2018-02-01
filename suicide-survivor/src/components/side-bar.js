@@ -1,13 +1,14 @@
 /* eslint-disable function-paren-newline */
+import { colors } from '../styles/common-variables'
 import get from 'lodash/get'
+import mq from '../utils/media-query'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Waypoint from 'react-waypoint'
+import sidebarBtn from '../../static/sidebar_button.png'
+import sidebarBtnBack from '../../static/sidebar_button_back.png'
 import smoothScroll from 'smoothscroll'
 import styled from 'styled-components'
-import mq from '../utils/media-query'
-import pathProcessor from '../utils/path-processor'
-import { colors } from '../styles/common-variables'
+import Waypoint from 'react-waypoint'
 
 const _ = {
   get,
@@ -190,7 +191,7 @@ class Anchors extends React.Component {
           ifshowUp={ifshowUp}
           onClick={this.toggle}
           ifToggled={this.state.ifToggled}
-          src={this.state.ifToggled ? pathProcessor('sidebar_button_back.png') : pathProcessor('sidebar_button.png')}
+          src={this.state.ifToggled ? sidebarBtnBack : sidebarBtn}
         />
       </div>
     )

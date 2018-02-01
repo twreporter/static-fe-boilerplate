@@ -1,3 +1,7 @@
+import illustrator01Desktop from '../../static/illustrator-01-desktop.jpg'
+import illustrator01Mobile from '../../static/illustrator-01-mobile.jpg'
+import illustrator01Tablet from '../../static/illustrator-01-tablet.jpg'
+
 const section01 = {
   author: {
     name: 'Once Lee',
@@ -10,22 +14,22 @@ const section01 = {
     image: {
       resizedTargets: {
         mobile: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-mobile.jpg',
+          path: illustrator01Mobile,
           width: 306,
           height: 214,
         },
         tablet: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-tablet.jpg',
+          path: illustrator01Tablet,
           width: 640,
           height: 451,
         },
         desktop: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-desktop.jpg',
+          path: illustrator01Desktop,
           width: 771,
           height: 543,
         },
         hd: {
-          path: 'https://storage.googleapis.com/twreporter-infographics/hedwig-and-the-angry-inch-artist/static/illustrator-01-desktop.jpg',
+          path: illustrator01Desktop,
           width: 1136,
           height: 801,
         },

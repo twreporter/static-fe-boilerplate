@@ -1,5 +1,4 @@
 import { Paragraph } from './text-utils'
-import pathProcessor from '../../utils/path-processor'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
@@ -43,15 +42,6 @@ const IconContainer = styled.div`
   }
 `
 
-const Logo = styled.img`
-  position: absolute;
-  width: 23px;
-  height: 24px;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
-`
-
 export const Content = Paragraph.extend`
   color: gray;
 `
@@ -60,7 +50,6 @@ class InfoBox extends React.PureComponent {
   render() {
     const { data } = this.props
     const { content, title } = data
-    // <Logo src={pathProcessor('logo.png')} />
     return (
       <Container>
         <Divider />

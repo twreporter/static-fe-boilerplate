@@ -1,4 +1,10 @@
-import pathProcessor from '../utils/path-processor'
+import case1Audio from '../../static/case1_audio.mp3'
+import case1Desktop from '../../static/case1_desktop.jpg'
+import case1Mobile from '../../static/case1_mobile.jpg'
+import case1Tablet from '../../static/case1_tablet.jpg'
+import face1Desktop from '../../static/face1_desktop.png'
+import face1Mobile from '../../static/face1_mobile.png'
+import face1Tablet from '../../static/face1_tablet.png'
 
 const subtitles = [
   {
@@ -118,9 +124,9 @@ const data = {
   title: '贖罪與共存',
   image: {
     resizedTargets: {
-      mobile: pathProcessor('case1_mobile.jpg'),
-      tablet: pathProcessor('case1_tablet.jpg'),
-      desktop: pathProcessor('case1_desktop.jpg'),
+      mobile: case1Mobile,
+      tablet: case1Tablet,
+      desktop: case1Desktop,
     },
   },
   profile: {
@@ -147,11 +153,11 @@ const data = {
   subtitles,
   catchphrase: '夏雪想對姊姊說⋯⋯',
   catchphraseFace: {
-    mobile: pathProcessor('face1_mobile.png'),
-    tablet: pathProcessor('face1_tablet.png'),
-    desktop: pathProcessor('face1_desktop.png'),
+    mobile: face1Mobile,
+    tablet: face1Tablet,
+    desktop: face1Desktop,
   },
-  audioFile: 'case1_audio.mp3',
+  audioFile: case1Audio,
 }
 
 // catchphrase face === audio recorder substitute
