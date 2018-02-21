@@ -21,7 +21,7 @@ export default class Html extends PureComponent {
       <html lang="zh-TW">
         <head>
           <title>{title}</title>
-          <style dangerouslySetInnerHTML={{ __html: styleTags }} />
+          <div dangerouslySetInnerHTML={{ __html: styleTags }} />
           {!isProduction ? null : <base href={`${publicUrl}/`} />}
         </head>
         <body>
