@@ -1,0 +1,52 @@
+{
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "inline-react-svg", {
+        "svgo": {
+          "plugins": [
+            {
+              "cleanupIDs": true
+            },
+            {
+              "removeAttrs": {
+                "attrs": [
+                  "serif.id",
+                  "xmlns.serif",
+                  "data.name"
+                ]
+              }
+            },
+            {
+              "removeScriptElement": true
+            },
+            {
+              "removeTitle": true
+            },
+            {
+              "removeUselessDefs": true
+            }
+          ]
+        }
+      }
+    ],
+    [
+      "transform-assets-import-to-string",
+      {
+        "extensions": [".jpg", ".png", ".mp3", ".ttf", ".css"],
+        "baseDir": "static"
+      }
+    ]
+  ],
+  "presets": [
+    ["env", { "module": false }], "stage-0", "react"
+  ],
+  "comments": false
+}
