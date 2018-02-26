@@ -1,12 +1,11 @@
-// import reportPDF from '../static/appraisal-report.pdf'
-import config from '../config.json'
-import formImg from '../static/form.png'
 import HeaderOne1 from '../static/justice_header1_01.png'
 import HeaderOne2 from '../static/justice_header1_02.png'
 import HeaderOne3 from '../static/justice_header1_03.png'
 import HeaderOneMobile1 from '../static/justice_header1_mobile01.png'
 import HeaderOneMobile2 from '../static/justice_header1_mobile02.png'
 import HeaderOneMobile3 from '../static/justice_header1_mobile03.png'
+import config from '../config.json'
+import formImg from '../static/form.png'
 import leadingImg from '../static/leading-video-poster.png'
 import name1 from '../static/luo-bing-cheng-name.png'
 import name2 from '../static/zheng-xing-ze-name.png'
@@ -14,6 +13,8 @@ import name3 from '../static/lin-yong-song-name.png'
 import name4 from '../static/chi-yueh-chun-name.png'
 import name5 from '../static/su-you-chen-name.png'
 import name6 from '../static/lin-meng-huang-name.png'
+import ogImage from '../static/og-image.png'
+import portraitFormImg from '../static/portrait-form.png'
 import poster1 from '../static/luo-bing-cheng-poster.png'
 import poster2 from '../static/zheng-xing-ze-poster.png'
 import poster3 from '../static/lin-yong-song-poster.png'
@@ -431,7 +432,7 @@ const thirdSection = [
     type: 'image',
     content: [
       formImg, // src
-      '', // srcSet
+      portraitFormImg, // portrait img
       '監察院調查李復國測謊瑕疵', // image alt
       '（資料來源：監察院）', // description
     ],
@@ -759,7 +760,7 @@ const headMeta = {
   canonical: `https://www.twreporter.org/i/${config.PROJECT_NAME}-gcs`,
   title: '這些人平反後，真能避免下一個冤案？',
   desc: '你也許從新聞上聽過這幾個名字：蘇建和、江國慶、徐自強、鄭性澤。他們都曾遭人誣陷或屈打成招，背負不屬於自己的罪名，人生從此分崩離析。冤案傷害了所有人，在冤案的框架下，所有關係人都是受害者。冤案到底是怎麼形成的？有沒有人因此被究責、檢討？還是說一切都沒有改變？',
-  image: '',
+  image: ogImage,
 }
 
 export default {

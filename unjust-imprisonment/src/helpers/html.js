@@ -56,6 +56,7 @@ export default class Html extends PureComponent {
           <link href="https://www.twreporter.org/images/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
           <link href="https://www.twreporter.org/images/icon-hires.png" rel="icon" sizes="192x192" />
           <link href="https://www.twreporter.org/images/icon-normal.png" rel="icon" sizes="128x128" />
+          <link href="https://www.twreporter.org/asset/favicon.png" rel="shortcut icon" type="image/png" />
           <link ref="canonical" href={canonical} />
         </head>
         <body>
