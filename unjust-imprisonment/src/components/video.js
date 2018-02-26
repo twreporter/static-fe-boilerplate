@@ -38,7 +38,6 @@ const FlexItem = styled.img`
   ${screen.mobileOnly`
     order: ${props => props.mobileOrder};
     margin-top: ${props => (props.isLast ? '20px' : '0px')};
-    padding-right: ${props => (props.isLast ? '30%' : 0)};
   `}
 `
 
@@ -120,13 +119,22 @@ class Video extends React.PureComponent {
   }
 
   _onEnter() {
+    this._onEnterTime = Date.now()
+
     if (this.player && this.wasPlayingInThePreviousStage) {
-      this.player.currentTime = 0
-      this.handlePlayer(true)
+      // add buffer to prevent from rapid scroll
+      setTimeout(() => {
+        if (this._onEnterTime > 0) {
+          this.player.currentTime = 0
+          this.handlePlayer(true)
+        }
+      }, 1000)
     }
   }
 
   _onLeave() {
+    this._onEnterTime = 0
+
     if (this.player) {
       this.handlePlayer(false)
     }
@@ -196,8 +204,8 @@ class Video extends React.PureComponent {
             <img width="100%" src={underlineImg} alt="underline of video" role="presentation" />
             <FlexItems>
               <FlexItem src={toPlay ? pauseIcon : playIcon} onClick={this.toggleVideo} role="presentation" mobileOrder="2" height="55px" />
-              <FlexItem src={content[3]} role="presentation" mobileOrder="1" height="40px" />
-              <FlexItem src={content[4]} role="presentation" mobileOrder="3" isLast height="30px" />
+              <FlexItem src={content[3]} role="presentation" mobileOrder="1" height="50px" />
+              <FlexItem src={content[4]} role="presentation" mobileOrder="3" isLast height="50px" />
             </FlexItems>
           </InfoBox>
         </Container>
