@@ -12,7 +12,6 @@ import layout from '../layout'
 const StyledAnchor = styled.div`
   cursor: pointer;
   position: relative;
-  height: 100%;
   color: ${props => (props.highlight ? theme.colors.text.paragraph : theme.colors.gray50)};
   border-right: 2px solid ${props => (props.highlight ? theme.colors.text.paragraph : theme.colors.gray50)};
   opacity: ${props => (props.highlight ? '1' : '0.6')};

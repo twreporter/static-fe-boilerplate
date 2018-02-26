@@ -77,6 +77,12 @@ const firstSection = [
     ],
   },
   {
+    type: 'paragraph',
+    content: [
+      '「台中十三姨KTV殺警案」於2017年下旬大逆轉，原本被控殺警的鄭性澤經再審獲判無罪。辯護律師羅秉成以「扣扣子」比喻冤案，說冤案始於第一顆扣錯的扣子，卻又不像穿衣服可以重來，因為前一顆扣子是別人扣的，且司法系統不願面對已經造成的錯誤，乾脆將錯就錯下去。',
+    ],
+  },
+  {
     type: 'video',
     content: [
       poster1, // poster img
@@ -84,12 +90,6 @@ const firstSection = [
       'luo-bing-cheng.mp4', // video src mp4 format
       name1, // name of character in the video
       title1, // video title
-    ],
-  },
-  {
-    type: 'paragraph',
-    content: [
-      '「台中十三姨KTV殺警案」於2017年下旬大逆轉，原本被控殺警的鄭性澤經再審獲判無罪。辯護律師羅秉成以「扣扣子」比喻冤案，說冤案始於第一顆扣錯的扣子，卻又不像穿衣服可以重來，因為前一顆扣子是別人扣的，且司法系統不願面對已經造成的錯誤，乾脆將錯就錯下去。',
     ],
   },
   {
