@@ -174,7 +174,7 @@ class Video extends React.PureComponent {
       <Waypoint
         onEnter={this.onEnter}
         onLeave={this.onLeave}
-        bottomOffset="60%"
+        bottomOffset={toPlay ? '0%' : '50%'}
         fireOnRapidScroll
         scrollableAncestor="window"
       >
