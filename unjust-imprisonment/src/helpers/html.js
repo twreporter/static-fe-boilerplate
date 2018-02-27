@@ -27,11 +27,11 @@ export default class Html extends PureComponent {
   static propTypes = {
     scripts: PropTypes.arrayOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
-    styleTags: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+    styleElement: PropTypes.arrayOf(PropTypes.element).isRequired,
   }
 
   render() {
-    const { scripts, content, styleTags } = this.props
+    const { scripts, content, styleElement } = this.props
     return (
       <html lang="zh-TW">
         <head>
@@ -48,7 +48,6 @@ export default class Html extends PureComponent {
           <meta property="og:type" content="article" />
           <meta property="og:url" content={canonical} />
           <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1" />
-          <div dangerouslySetInnerHTML={{ __html: styleTags }} />
           <meta charSet="utf-8" />
           <link href="https://www.twreporter.org/images/apple-touch-icon.png" rel="apple-touch-icon" />
           <link href="https://www.twreporter.org/images/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
@@ -58,6 +57,7 @@ export default class Html extends PureComponent {
           <link href="https://www.twreporter.org/images/icon-normal.png" rel="icon" sizes="128x128" />
           <link href="https://www.twreporter.org/asset/favicon.png" rel="shortcut icon" type="image/png" />
           <link ref="canonical" href={canonical} />
+          {styleElement}
         </head>
         <body>
           <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
