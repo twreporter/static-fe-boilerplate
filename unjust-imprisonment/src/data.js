@@ -725,33 +725,39 @@ const bottomTags = [
 
 const relateds = [
   {
+    title: '三位法官經驗談：把被告當作自己 你希望自己怎樣被審判？',
+    desc: '判決時要明確地講出心證，然後接受檢驗。明確地做出判斷，交代理由，直球對決啦，把他們心目中的「法」講出來。',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20180226181154-1ec4f6d1edf3c17f0729e54990370cd7-tiny.jpg',
+    url: 'https://www.twreporter.org/a/miscarriage-of-justice-judge-view',
+  },
+  {
     title: '從冤獄倖存之後——專訪蘇建和、徐自強談重生之路',
     desc: '每個被誤關的人到頭來都有一個補償數字，但這些數字買得回不可復返的人生嗎？',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171116191537-52b0d9f0883b33616113847316d84b1d-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171116191537-52b0d9f0883b33616113847316d84b1d-tiny.jpg',
     url: 'https://www.twreporter.org/a/compensation-for-wrongful-detentions',
   },
   {
     title: '【鄭性澤案宣判】一封遲到15年的信，與沒有期限的祝福',
     desc: '「今天以前，我是一個沒有明天的人，從這一刻起，我要重新開始我的人生。在這裡，我祝福你，也祝福你的家人！」',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171026172005-dd8b6402a97625d3a51392550903a460-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171026172005-dd8b6402a97625d3a51392550903a460-tiny.jpg',
     url: 'https://www.twreporter.org/a/cheng-hsing-tse-free-at-last',
   },
   {
     title: '【平反之後】專訪鄭性澤：放下過去那個痛苦的自己',
     desc: '精神上或思想上去怨恨這些事情，對我來說也沒有意義，不能改變什麼。 過去就過去了。 ',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171028185732-ef34443c561c2f8897c710fa0d637886-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171028185732-ef34443c561c2f8897c710fa0d637886-tiny.jpg',
     url: 'https://www.twreporter.org/a/cheng-hsing-tse-finally-free-interview',
   },
   {
     title: '【林金貴案再審】天使藏在細節裡',
     desc: '「冤案救援就是，你會變成逼自己要從另外一個視角，回去看自己過去做的每一個決定、每一個辯護策略，因為你等於是從事後的觀點去回推。」',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170428145749-b927b7f22366b8b226679bd80ff76983-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170428145749-b927b7f22366b8b226679bd80ff76983-tiny.jpg',
     url: 'https://www.twreporter.org/a/ling-ching-kue',
   },
   {
     title: '紀錄片《徐自強的練習題》 一道質問人性的習題',
     desc: '我們到底相信性惡，還是性善；懷疑一個人的時候，是有罪推定，或無罪推定；我們或許不會遭遇這麼離譜的冤案，但當我們經歷所有人的不信任，又該如何去面對？',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170704125233-668bf44a9bb07c42f6e96375ce7e1b60-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170704125233-668bf44a9bb07c42f6e96375ce7e1b60-tiny.jpg',
     url: 'https://www.twreporter.org/a/director-chi-yueh-chun',
   },
 ]
