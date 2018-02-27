@@ -41,11 +41,11 @@ export default class Html extends PureComponent {
   static propTypes = {
     scripts: PropTypes.arrayOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
-    styleTags: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+    styleElement: PropTypes.arrayOf(PropTypes.element).isRequired,
   }
 
   render() {
-    const { scripts, content, styleTags } = this.props
+    const { scripts, content, styleElement } = this.props
     return (
       <html lang="zh-TW">
         <head>
@@ -63,7 +63,7 @@ export default class Html extends PureComponent {
           <meta property="og:type" content="article" />
           <meta property="og:url" content={ogUrl} />
           <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1" />
-          <style dangerouslySetInnerHTML={{ __html: styleTags }} />
+          {styleElement}
           <CssFont />
           {siteIcons}
         </head>
