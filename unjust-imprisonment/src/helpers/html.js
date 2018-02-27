@@ -64,8 +64,6 @@ export default class Html extends PureComponent {
           {scripts.map(script => <script key={script} type="text/javascript" src={script} />)}
         </body>
         <script dangerouslySetInnerHTML={{ __html: typeKitCode }} />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69336956-1" />
-        <script dangerouslySetInnerHTML={{ __html: 'window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag(\'js\', new Date()); gtag(\'config\', \'UA-69336956-1\');' }} />
         <script dangerouslySetInnerHTML={{
           __html: `(function(h,o,t,j,a,r){
               h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
