@@ -80,7 +80,7 @@ const selectLetterByLanguage = (lang) => {
 
 const Time = styled.div`
   text-align: right;
-  color: #a67a44;
+  color: rgba(168, 125, 72, .7);
 `
 
 const Current = styled.span``
@@ -130,7 +130,7 @@ class InlineControl extends React.PureComponent {
         </Row>
         <div style={{ height: '2px', position: 'relative', marginBottom: '14px' }}>
           <ProgressBar
-            containerBg="#dbdbdb"
+            containerBg="rgba(168, 125, 72, .2)"
             indicatorBg="#a67a44"
             percent={current / duration * 100}
           />
