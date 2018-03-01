@@ -107,7 +107,7 @@ export default class Root extends React.PureComponent {
           <ArticleContainer>
             <SideBar
               anchors={anchors}
-              show={this.state.toShowSideBar}
+              show={this.state.toShowSideBar && !this.props.isIE}
               setPlaying={this._setPlaying}
             >
               <Article content={introData} />

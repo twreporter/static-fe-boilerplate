@@ -1,5 +1,4 @@
 /* eslint react/no-array-index-key: 0 */
-import ImgWrapper from '@twreporter/react-components/lib/shared/components/img-wrapper'
 import PropTypes from 'prop-types'
 import React from 'react'
 import layout from '../layout'
@@ -7,6 +6,42 @@ import screen from '../utils/media-query'
 import styled from 'styled-components'
 import theme from '../theme'
 
+const ImgFallback = styled.div`
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: ${(props) => {
+    return `url(${props.url})`
+  }};
+  background-position: center center;
+`
+
+class ImgWrapper extends React.PureComponent {
+  render() {
+    const { src, alt, srcSet } = this.props
+    return (
+      <ImgFallback
+        url={src}
+      >
+        {this.props.children}
+      </ImgFallback>
+    )
+  }
+}
+
+ImgWrapper.defaultProps = {
+  alt: '',
+  children: null,
+  src: '',
+  srcSet: '',
+}
+
+ImgWrapper.propTypes = {
+  alt: PropTypes.string,
+  children: PropTypes.element,
+  src: PropTypes.string.isRequired,
+  srcSet: PropTypes.string,
+}
 
 const TableCell = styled.div`
   display: table-cell;
