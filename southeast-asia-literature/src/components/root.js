@@ -24,6 +24,11 @@ import vietnamData from '../data/vietnam'
 import philippineData from '../data/philippine'
 import Footer from '@twreporter/react-components/lib/footer'
 
+import set from 'lodash.set'
+
+const _ = {
+  set,
+}
 
 // const _ = {
 //   map,
@@ -51,6 +56,10 @@ injectGlobal`
   a, a:link, a:visited {
     text-decoration: none;
   }
+
+  #_hj_feedback_container {
+    display: none;
+  }
 `
 
 const ArticleContainer = styled.div`
@@ -64,6 +73,12 @@ export default class Root extends React.PureComponent {
     this.state = {
       playing: null,
       toShowSideBar: false,
+    }
+  }
+  componentWillUpdate() {
+    if (typeof document !== 'undefined') {
+      const hjWidget = document.getElementById('_hj_feedback_container')
+      _.set(hjWidget, 'style.display', 'block')
     }
   }
 
