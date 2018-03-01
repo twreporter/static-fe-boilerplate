@@ -10,6 +10,7 @@ import styled, { injectGlobal } from 'styled-components'
 import Waypoint from 'react-waypoint'
 import Header from './header'
 import Banner from './banner'
+import Relateds from './relateds'
 import headerData from '../data/header'
 import AuthorIntro from './author-intro'
 import Credits from './credits'
@@ -22,6 +23,7 @@ import myanmarData from '../data/myanmar'
 import malaysiaData from '../data/malaysia'
 import vietnamData from '../data/vietnam'
 import philippineData from '../data/philippine'
+import relatedsData from '../data/relateds'
 import Footer from '@twreporter/react-components/lib/footer'
 
 import set from 'lodash.set'
@@ -138,6 +140,9 @@ export default class Root extends React.PureComponent {
             <Credits credits={creditsData} />
           </ArticleContainer>
         </Waypoint>
+        <Relateds
+          posts={relatedsData}
+        />
         <Footer />
       </React.Fragment>
     )
