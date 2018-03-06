@@ -15,11 +15,17 @@ import React from 'react'
 import Related from './related'
 import SideBar from './side-bar'
 import Video from './video'
+import Waypoint from 'react-waypoint'
 import data from '../data'
 import screen from '../screen'
+import set from 'lodash.set'
 import styled, { injectGlobal } from 'styled-components'
 import teamIntroImg from '../../static/team-intro.png'
 import titleImg from '../../static/title.png'
+
+const _ = {
+  set,
+}
 
 const {
   anchors, bottomTags, leadingVideoContent, firstSection,
@@ -37,6 +43,10 @@ injectGlobal`
   body, svg text, svg text>tspan {
     font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     background-color: #fff;
+  }
+
+  #_hj_feedback_container {
+    display: none;
   }
 `
 
@@ -78,7 +88,22 @@ class Root extends React.Component {
     this.state = {
       isAutoPlay: false,
       toShowConfirmation: true,
+      toShowHotjarWidget: false,
     }
+  }
+
+  componentDidUpdate() {
+    if (typeof document !== 'undefined') {
+      console.log('this.state.toShowHotjarWidget:', this.state.toShowHotjarWidget)
+      const hjWidget = document.getElementById('_hj_feedback_container')
+      _.set(hjWidget, 'style.display', this.state.toShowHotjarWidget ? 'block' : 'none')
+    }
+  }
+
+  _toggleHotjarWidget(isToggled) {
+    this.setState({
+      toShowHotjarWidget: isToggled,
+    })
   }
 
   _setAutoPlay(isAutoPlay) {
@@ -198,11 +223,19 @@ class Root extends React.Component {
             alt={headMeta.title}
           />
         </Title>
-        <LeadingVideo
-          content={leadingVideoContent[0].content}
-          initialVideo={this.initialLeadingVideo}
-          isAutoPlay={isAutoPlay}
-        />
+        <Waypoint
+          onEnter={() => { this._toggleHotjarWidget(false) }}
+          onLeave={() => { this._toggleHotjarWidget(true) }}
+          scrollableAncestor="window"
+        >
+          <div>
+            <LeadingVideo
+              content={leadingVideoContent[0].content}
+              initialVideo={this.initialLeadingVideo}
+              isAutoPlay={isAutoPlay}
+            />
+          </div>
+        </Waypoint>
         <SideBar
           anchors={anchors}
         >

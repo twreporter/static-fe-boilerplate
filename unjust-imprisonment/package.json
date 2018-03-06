@@ -57,9 +57,11 @@
     "@twreporter/react-components": "4.0.2-beta-2",
     "lodash.get": "^4.4.2",
     "lodash.reduce": "^4.6.0",
+    "lodash.set": "^4.3.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-waypoint": "^8.0.1",
     "styled-components": "^2.2.1"
   }
 }
