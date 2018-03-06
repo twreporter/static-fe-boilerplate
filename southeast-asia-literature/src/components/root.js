@@ -75,13 +75,21 @@ export default class Root extends React.PureComponent {
     this.state = {
       playing: null,
       toShowSideBar: false,
+      toShowHotjarWidget: false,
     }
   }
-  componentWillUpdate() {
+
+  componentDidUpdate() {
     if (typeof document !== 'undefined') {
       const hjWidget = document.getElementById('_hj_feedback_container')
-      _.set(hjWidget, 'style.display', 'block')
+      _.set(hjWidget, 'style.display', this.state.toShowHotjarWidget ? 'block' : 'none')
     }
+  }
+
+  _toggleHotjarWidget(isToggled) {
+    this.setState({
+      toShowHotjarWidget: isToggled,
+    })
   }
 
   _setPlaying = (idToPlay, cb) => {
@@ -140,9 +148,17 @@ export default class Root extends React.PureComponent {
             <Credits credits={creditsData} />
           </ArticleContainer>
         </Waypoint>
-        <Relateds
-          posts={relatedsData}
-        />
+        <Waypoint
+          onEnter={() => { this._toggleHotjarWidget(true) }}
+          onLeave={() => { this._toggleHotjarWidget(false) }}
+          scrollableAncestor="window"
+        >
+          <div>
+            <Relateds
+              posts={relatedsData}
+            />
+          </div>
+        </Waypoint>
         <Footer />
       </React.Fragment>
     )
