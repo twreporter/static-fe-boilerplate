@@ -38,23 +38,6 @@ injectGlobal`
     font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     background-color: #fff;
   }
-
-  #_hj_feedback_container {
-    opacity: 0;
-    transition: opacity 800ms 1000ms ease;
-    &>div {
-      display: none;
-    }
-    &.show {
-      opacity: 1;
-      &>div {
-        display: block;
-      }
-    }
-    @media (max-width: 374px) {
-      display: none;
-    }
-  }
 `
 
 const Logo = styled.a`
