@@ -75,7 +75,7 @@ if (NODE_ENV === 'production') {
     const html = ReactDOMServer.renderToStaticMarkup(<Html
       scripts={scripts}
       content={content}
-      styleTags={sheet.getStyleTags()}
+      styleElement={sheet.getStyleElement()}
     />)
 
     res.status(200)

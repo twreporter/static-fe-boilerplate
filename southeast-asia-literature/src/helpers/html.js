@@ -41,11 +41,11 @@ export default class Html extends PureComponent {
   static propTypes = {
     scripts: PropTypes.arrayOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
-    styleTags: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+    styleElement: PropTypes.arrayOf(PropTypes.element).isRequired,
   }
 
   render() {
-    const { scripts, content, styleTags } = this.props
+    const { scripts, content, styleElement } = this.props
     return (
       <html lang="zh-TW">
         <head>
@@ -63,7 +63,7 @@ export default class Html extends PureComponent {
           <meta property="og:type" content="article" />
           <meta property="og:url" content={ogUrl} />
           <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, initial-scale=1" />
-          <style dangerouslySetInnerHTML={{ __html: styleTags }} />
+          {styleElement}
           <CssFont />
           {siteIcons}
         </head>
@@ -71,6 +71,18 @@ export default class Html extends PureComponent {
           <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
           {scripts.map(script => <script key={script} type="text/javascript" src={script} />)}
           <script dangerouslySetInnerHTML={{ __html: typeKitCode }} />
+          <script dangerouslySetInnerHTML={{
+            __html: `(function(h,o,t,j,a,r){
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:376929,hjsv:6};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `,
+          }}
+          />
         </body>
       </html>
     )

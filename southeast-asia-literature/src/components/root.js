@@ -10,6 +10,7 @@ import styled, { injectGlobal } from 'styled-components'
 import Waypoint from 'react-waypoint'
 import Header from './header'
 import Banner from './banner'
+import Relateds from './relateds'
 import headerData from '../data/header'
 import AuthorIntro from './author-intro'
 import Credits from './credits'
@@ -22,8 +23,14 @@ import myanmarData from '../data/myanmar'
 import malaysiaData from '../data/malaysia'
 import vietnamData from '../data/vietnam'
 import philippineData from '../data/philippine'
+import relatedsData from '../data/relateds'
 import Footer from '@twreporter/react-components/lib/footer'
 
+import set from 'lodash.set'
+
+const _ = {
+  set,
+}
 
 // const _ = {
 //   map,
@@ -51,6 +58,10 @@ injectGlobal`
   a, a:link, a:visited {
     text-decoration: none;
   }
+
+  #_hj_feedback_container {
+    display: none;
+  }
 `
 
 const ArticleContainer = styled.div`
@@ -64,7 +75,21 @@ export default class Root extends React.PureComponent {
     this.state = {
       playing: null,
       toShowSideBar: false,
+      toShowHotjarWidget: false,
     }
+  }
+
+  componentDidUpdate() {
+    if (typeof document !== 'undefined') {
+      const hjWidget = document.getElementById('_hj_feedback_container')
+      _.set(hjWidget, 'style.display', this.state.toShowHotjarWidget ? 'block' : 'none')
+    }
+  }
+
+  _toggleHotjarWidget(isToggled) {
+    this.setState({
+      toShowHotjarWidget: isToggled,
+    })
   }
 
   _setPlaying = (idToPlay, cb) => {
@@ -90,7 +115,7 @@ export default class Root extends React.PureComponent {
           <ArticleContainer>
             <SideBar
               anchors={anchors}
-              show={this.state.toShowSideBar}
+              show={this.state.toShowSideBar && !this.props.isIE}
               setPlaying={this._setPlaying}
             >
               <Article content={introData} />
@@ -122,6 +147,17 @@ export default class Root extends React.PureComponent {
             </SideBar>
             <Credits credits={creditsData} />
           </ArticleContainer>
+        </Waypoint>
+        <Waypoint
+          onEnter={() => { this._toggleHotjarWidget(true) }}
+          onLeave={() => { this._toggleHotjarWidget(false) }}
+          scrollableAncestor="window"
+        >
+          <div>
+            <Relateds
+              posts={relatedsData}
+            />
+          </div>
         </Waypoint>
         <Footer />
       </React.Fragment>

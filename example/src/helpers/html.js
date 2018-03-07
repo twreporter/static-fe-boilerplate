@@ -12,16 +12,16 @@ export default class Html extends PureComponent {
   static propTypes = {
     scripts: PropTypes.arrayOf(PropTypes.string).isRequired,
     content: PropTypes.string.isRequired,
-    styleTags: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+    styleElement: PropTypes.arrayOf(PropTypes.element).isRequired,
   }
 
   render() {
-    const { scripts, content, styleTags } = this.props
+    const { scripts, content, styleElement } = this.props
     return (
       <html lang="zh-TW">
         <head>
           <title>{title}</title>
-          <div dangerouslySetInnerHTML={{ __html: styleTags }} />
+          {styleElement}
           {!isProduction ? null : <base href={`${publicUrl}/`} />}
         </head>
         <body>

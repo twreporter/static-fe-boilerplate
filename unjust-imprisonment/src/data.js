@@ -1,12 +1,11 @@
-// import reportPDF from '../static/appraisal-report.pdf'
-import config from '../config.json'
-import formImg from '../static/form.png'
 import HeaderOne1 from '../static/justice_header1_01.png'
 import HeaderOne2 from '../static/justice_header1_02.png'
 import HeaderOne3 from '../static/justice_header1_03.png'
 import HeaderOneMobile1 from '../static/justice_header1_mobile01.png'
 import HeaderOneMobile2 from '../static/justice_header1_mobile02.png'
 import HeaderOneMobile3 from '../static/justice_header1_mobile03.png'
+import config from '../config.json'
+import formImg from '../static/form.png'
 import leadingImg from '../static/leading-video-poster.png'
 import name1 from '../static/luo-bing-cheng-name.png'
 import name2 from '../static/zheng-xing-ze-name.png'
@@ -14,6 +13,8 @@ import name3 from '../static/lin-yong-song-name.png'
 import name4 from '../static/chi-yueh-chun-name.png'
 import name5 from '../static/su-you-chen-name.png'
 import name6 from '../static/lin-meng-huang-name.png'
+import ogImage from '../static/og-image.png'
+import portraitFormImg from '../static/portrait-form.png'
 import poster1 from '../static/luo-bing-cheng-poster.png'
 import poster2 from '../static/zheng-xing-ze-poster.png'
 import poster3 from '../static/lin-yong-song-poster.png'
@@ -76,6 +77,12 @@ const firstSection = [
     ],
   },
   {
+    type: 'paragraph',
+    content: [
+      '「台中十三姨KTV殺警案」於2017年下旬大逆轉，原本被控殺警的鄭性澤經再審獲判無罪。辯護律師羅秉成以「扣扣子」比喻冤案，說冤案始於第一顆扣錯的扣子，卻又不像穿衣服可以重來，因為前一顆扣子是別人扣的，且司法系統不願面對已經造成的錯誤，乾脆將錯就錯下去。',
+    ],
+  },
+  {
     type: 'video',
     content: [
       poster1, // poster img
@@ -83,12 +90,6 @@ const firstSection = [
       'luo-bing-cheng.mp4', // video src mp4 format
       name1, // name of character in the video
       title1, // video title
-    ],
-  },
-  {
-    type: 'paragraph',
-    content: [
-      '「台中十三姨KTV殺警案」於2017年下旬大逆轉，原本被控殺警的鄭性澤經再審獲判無罪。辯護律師羅秉成以「扣扣子」比喻冤案，說冤案始於第一顆扣錯的扣子，卻又不像穿衣服可以重來，因為前一顆扣子是別人扣的，且司法系統不願面對已經造成的錯誤，乾脆將錯就錯下去。',
     ],
   },
   {
@@ -431,7 +432,7 @@ const thirdSection = [
     type: 'image',
     content: [
       formImg, // src
-      '', // srcSet
+      portraitFormImg, // portrait img
       '監察院調查李復國測謊瑕疵', // image alt
       '（資料來源：監察院）', // description
     ],
@@ -724,33 +725,39 @@ const bottomTags = [
 
 const relateds = [
   {
+    title: '三位法官經驗談：把被告當作自己 你希望自己怎樣被審判？',
+    desc: '判決時要明確地講出心證，然後接受檢驗。明確地做出判斷，交代理由，直球對決啦，把他們心目中的「法」講出來。',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20180226181154-1ec4f6d1edf3c17f0729e54990370cd7-tiny.jpg',
+    url: 'https://www.twreporter.org/a/miscarriage-of-justice-judge-view',
+  },
+  {
     title: '從冤獄倖存之後——專訪蘇建和、徐自強談重生之路',
     desc: '每個被誤關的人到頭來都有一個補償數字，但這些數字買得回不可復返的人生嗎？',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171116191537-52b0d9f0883b33616113847316d84b1d-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171116191537-52b0d9f0883b33616113847316d84b1d-tiny.jpg',
     url: 'https://www.twreporter.org/a/compensation-for-wrongful-detentions',
   },
   {
     title: '【鄭性澤案宣判】一封遲到15年的信，與沒有期限的祝福',
     desc: '「今天以前，我是一個沒有明天的人，從這一刻起，我要重新開始我的人生。在這裡，我祝福你，也祝福你的家人！」',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171026172005-dd8b6402a97625d3a51392550903a460-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171026172005-dd8b6402a97625d3a51392550903a460-tiny.jpg',
     url: 'https://www.twreporter.org/a/cheng-hsing-tse-free-at-last',
   },
   {
     title: '【平反之後】專訪鄭性澤：放下過去那個痛苦的自己',
     desc: '精神上或思想上去怨恨這些事情，對我來說也沒有意義，不能改變什麼。 過去就過去了。 ',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171028185732-ef34443c561c2f8897c710fa0d637886-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20171028185732-ef34443c561c2f8897c710fa0d637886-tiny.jpg',
     url: 'https://www.twreporter.org/a/cheng-hsing-tse-finally-free-interview',
   },
   {
     title: '【林金貴案再審】天使藏在細節裡',
     desc: '「冤案救援就是，你會變成逼自己要從另外一個視角，回去看自己過去做的每一個決定、每一個辯護策略，因為你等於是從事後的觀點去回推。」',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170428145749-b927b7f22366b8b226679bd80ff76983-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170428145749-b927b7f22366b8b226679bd80ff76983-tiny.jpg',
     url: 'https://www.twreporter.org/a/ling-ching-kue',
   },
   {
     title: '紀錄片《徐自強的練習題》 一道質問人性的習題',
     desc: '我們到底相信性惡，還是性善；懷疑一個人的時候，是有罪推定，或無罪推定；我們或許不會遭遇這麼離譜的冤案，但當我們經歷所有人的不信任，又該如何去面對？',
-    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170704125233-668bf44a9bb07c42f6e96375ce7e1b60-mobile.jpg',
+    thumbnail: 'https://storage.googleapis.com/twreporter-multimedia/images/20170704125233-668bf44a9bb07c42f6e96375ce7e1b60-tiny.jpg',
     url: 'https://www.twreporter.org/a/director-chi-yueh-chun',
   },
 ]
@@ -759,7 +766,7 @@ const headMeta = {
   canonical: `https://www.twreporter.org/i/${config.PROJECT_NAME}-gcs`,
   title: '這些人平反後，真能避免下一個冤案？',
   desc: '你也許從新聞上聽過這幾個名字：蘇建和、江國慶、徐自強、鄭性澤。他們都曾遭人誣陷或屈打成招，背負不屬於自己的罪名，人生從此分崩離析。冤案傷害了所有人，在冤案的框架下，所有關係人都是受害者。冤案到底是怎麼形成的？有沒有人因此被究責、檢討？還是說一切都沒有改變？',
-  image: '',
+  image: ogImage,
 }
 
 export default {

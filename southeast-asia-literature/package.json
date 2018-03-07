@@ -45,9 +45,10 @@
     "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
-    "@twreporter/react-components": "4.0.1",
+    "@twreporter/react-components": "4.0.2-beta-2",
     "lodash.get": "^4.4.2",
     "lodash.map": "^4.6.0",
+    "lodash.set": "^4.3.2",
     "prop-types": "^15.6.0",
     "raf": "^3.4.0",
     "react": "^16.0.0",

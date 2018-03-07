@@ -77,9 +77,11 @@ class Confirmation extends React.PureComponent {
             </Text>
           </Content>
           <React.Fragment>
-            <Cancel onClick={onCancel}>
-              {cancelText}
-            </Cancel>
+            {cancelText ?
+              <Cancel onClick={onCancel}>
+                {cancelText}
+              </Cancel> : null
+            }
             <Confirm onClick={onConfirm}>
               {confirmText}
             </Confirm>
@@ -91,16 +93,17 @@ class Confirmation extends React.PureComponent {
 }
 
 Confirmation.defaultProps = {
-  cancelText: '否',
+  cancelText: '',
   confirmText: '是',
   contentText: '',
+  onCancel: () => {},
 }
 
 Confirmation.propTypes = {
   cancelText: PropTypes.string,
   confirmText: PropTypes.string,
   contentText: PropTypes.string,
-  onCancel: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
   onConfirm: PropTypes.func.isRequired,
 }
 export default Confirmation

@@ -70,11 +70,11 @@ function _memberToBox(member, index, members) {
   let box = null
   const separator = (index !== members.length - 1) ? '、' : null
   if (!linkTo) {
-    box = (<Member key={index}>{name}</Member>)
+    box = (<Member key={index}>{name}{separator}</Member>)
   } else {
-    box = (<MemberWithLink key={index} href={linkTo} target="_blank">{name}</MemberWithLink>)
+    box = (<MemberWithLink key={index} href={linkTo} target="_blank">{name}{separator}</MemberWithLink>)
   }
-  return [box, separator]
+  return box
 }
 
 function _authorToBox(credit, index) {

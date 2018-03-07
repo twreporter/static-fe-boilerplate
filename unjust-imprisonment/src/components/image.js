@@ -22,11 +22,15 @@ class Image extends React.PureComponent {
     const { content } = this.props
     return (
       <Container>
-        <img
-          width="100%"
-          src={content[0]}
-          alt={content[2]}
-        />
+        <picture>
+          <source media="(orientation: portrait)" srcSet={content[1]} />
+          <source media="(max-width: 768px)" srcSet={content[1]} />
+          <img
+            width="100%"
+            src={content[0]}
+            alt={content[2]}
+          />
+        </picture>
         <Description>{content[3]}</Description>
       </Container>
     )
