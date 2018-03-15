@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
 const { logMesAndPassDownArg } = require('./log')
-const { gzipStaticFileTypes } = require('./gzip-static-flie-type')
+const { gzipFileTypes } = require('./gzip-flie-type')
 const CONFIGS = require('../config.json')
 const get = require('lodash.get')
 const Storage = require('@google-cloud/storage')
@@ -23,7 +23,7 @@ const bucket = storage.bucket(BUCKET_NAME)
 function uploadFiles(files = [], options = {}) {
   console.log('Start uploading files...')
   const promises = files.map(({ from, to }) => {
-    const shouldGzipOnFly = gzipStaticFileTypes.some((filetype) => {
+    const shouldGzipOnFly = gzipFileTypes.some((filetype) => {
       return from.endsWith(filetype)
     })
     const optionsWithDest = Object.assign({}, options, { destination: to, gzip: shouldGzipOnFly })
