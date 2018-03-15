@@ -1,4 +1,4 @@
-import { CinemagraphHelper } from '@twreporter/react-components'
+import { CinemagraphHelper } from '@twreporter/react-components/lib/cinemagraph'
 
 import mobileBg001 from '../../static/mobile/mobile-001-768x1024-bg.jpg'
 import mobileBg003 from '../../static/mobile/mobile-003-768x1024-bg.jpg'
@@ -92,15 +92,15 @@ cinemagraph003.addLayer('FG')
   .setImagePath(desktopFg003, 'desktop')
   .setImagePath(tabletFg003, 'tablet')
   .setImagePath(mobileFg003, 'mobile')
-  .setBgPosition('26% bottom', 'all')
-  .setBgSize('contain', 'all')
+  .setBgPosition('center center', 'all')
+  .setBgSize('cover', 'all')
   .setCustomKeyframes({
     from: {
-      transform: 'scale(1.1) translateX(-40px) translateZ(0)',
+      transform: 'scale(1.24) translateX(-11px) translateZ(0)',
       'transform-origin': 'center bottom',
     },
     to: {
-      transform: 'scale(.95) translateX(0) translateZ(0)',
+      transform: 'scale(1) translateX(0) translateZ(0)',
       'transform-origin': 'center bottom',
     },
   }, 'all')

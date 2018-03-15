@@ -1,4 +1,4 @@
-import { FullpageSlidesConstants } from '@twreporter/react-components'
+import { FullpageSlidesConstants } from '@twreporter/react-components/lib/fullpage-slides'
 import { cinemagraph001, cinemagraph003, cinemagraph009, cinemagraph024 } from './cinemagraph'
 import * as subtitles from './subtitles'
 
