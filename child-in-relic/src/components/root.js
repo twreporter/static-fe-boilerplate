@@ -1,4 +1,4 @@
-import { FullpageSlides } from '@twreporter/react-components'
+import { FullpageSlides } from '@twreporter/react-components/lib/fullpage-slides'
 import { injectGlobal } from 'styled-components'
 import slidesMeta from '../data/slides-meta'
 import React from 'react'
