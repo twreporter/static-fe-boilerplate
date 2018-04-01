@@ -49,7 +49,7 @@ export default function withAreaWrapper(animationBlock, WrappedComponent) {
     }
 
     render() {
-      const { title, paragraphs, annotations, fontColors, ...passThroughProps } = this.props
+      const { title, titleImg, paragraphs, annotations, fontColors, ...passThroughProps } = this.props
       const paragraphsJSX = paragraphs.map((paragraph, index) => {
         return (
           <StyledParagraph
@@ -74,13 +74,24 @@ export default function withAreaWrapper(animationBlock, WrappedComponent) {
 
       return (
         <StyledAreaContainer>
-          <StyledTitle
-            color={fontColors.title}
-          >{title}
-          </StyledTitle>
+          <header
+            style={{
+              margin: '30px auto',
+              width: `${288 / 375 * 100}%`,
+            }}
+          >
+            <img
+              alt={title}
+              src={titleImg}
+              width="100%"
+            />
+            <StyledTitle>
+              {title}
+            </StyledTitle>
+          </header>
           <Waypoint
             onEnter={this.onEnter}
-            bottomOffset="70%"
+            bottomOffset="60%"
             fireOnRapidScroll
           >
             <AnimationBlock

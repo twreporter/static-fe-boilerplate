@@ -15,6 +15,11 @@ import city5 from '../../static/area-10/a10-city-5.png'
 import reusedComponents from './reused-components'
 import styled from 'styled-components'
 import withAreaWrapper from './area-wrapper'
+import merge from 'lodash.merge'
+
+const _ = {
+  merge,
+}
 
 const {
   StyledOpacityAnimatedBlock,
@@ -165,7 +170,7 @@ class Area10 extends React.PureComponent {
     const blocks = []
     for (let i = 0; i < column.amount; i += 1) {
       // 8 is babies distance
-      blocks.push(Object.assign({}, column, {
+      blocks.push(_.merge({}, column, {
         top: column.top - (i * 12),
       }))
     }
@@ -202,7 +207,7 @@ class Area10 extends React.PureComponent {
     const durations = {
       babies: 800,
       districts: 300,
-      numbers: 300,
+      numbers: 500,
       offset: 200,
     }
     return (

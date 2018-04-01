@@ -14,6 +14,9 @@ injectGlobal`
   * {
     box-sizing: border-box;
   }
+  body {
+    font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", Roboto, "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  }
 `
 
 const typeKitCode = `(function(d) {
@@ -36,10 +39,10 @@ export default class Html extends PureComponent {
   render() {
     const { scripts, content, styleElement } = this.props
     const meta = {
-      title: '',
-      image: '',
-      desc: '',
-      canonical: '',
+      title: '消逝的孩子，如何墜落醫療網黑洞',
+      image: 'https://www.twreporter.org/twreporter-infographics/staging-child-health-care-infographic-gcs/static/og-image.png',
+      desc: '台灣在2018年正式邁入高齡社會，銀髮海嘯下孩子身影更顯稀落。過去一年來孩子生得少、卻死得多：逾1,800名兒童死去，死亡率名列已開發國末段班。當出生的孩子都留不住，催生口號更顯空洞。 為何卻有那麼多孩子來不及長大？兒童醫療體系出了什麼問題？',
+      canonical: 'https://www.twreporter.org/i/child-health-care-infographic-gcs',
     }
     return (
       <html lang="zh-TW">

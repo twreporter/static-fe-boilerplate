@@ -12,7 +12,7 @@ const StyledIntro = StyledParagraph.extend`
   margin: 25px auto 0 auto;
   font-size: 20px;
   line-height: 1.7;
-  color: #82a29f;
+  color: #6A8280;
   @media only screen and (min-width: 768px) {
     font-size: 24px;
   }
@@ -60,7 +60,7 @@ export default class Opening extends React.Component {
           />
         </StyledIllustratorContainer>
         <StyledIntro>
-          台灣將在2018年正式邁入高齡社會，銀髮海嘯下孩子身影更顯稀落，過去一年來孩子生得少、卻死得多，逾1,800名兒童死去，死亡率名列已開發國末段班，當出生的孩子都留不住，催生口號更顯空洞。
+          台灣在2018年正式邁入高齡社會，銀髮海嘯下孩子身影更顯稀落，過去一年來孩子生得少、卻死得多，逾1,800名兒童死去，死亡率名列已開發國末段班，當出生的孩子都留不住，催生口號更顯空洞。
         </StyledIntro>
         <StyledIntro>
           台灣擁有諾貝爾獎得主都盛讚的「世界最佳健保體系」，為什麼他們來不及長大？兒童醫療體系出了什麼問題？我們是否能及時補破網，不再漏接？

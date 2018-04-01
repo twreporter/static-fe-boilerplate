@@ -15,17 +15,22 @@ import text6 from '../../static/area-3/a3-text-6.png'
 import text7 from '../../static/area-3/a3-text-7.png'
 import reusedComponents from './reused-components'
 import withAreaWrapper from './area-wrapper'
+import merge from 'lodash.merge'
+
+const _ = {
+  merge,
+}
 
 const { StyledScaleAnimatedBlock } = reusedComponents
 
-const d3 = Object.assign({}, d3Shape, d3Selection, d3Transition, d3Interpolate, d3Ease)
+const d3 = _.merge({}, d3Shape, d3Selection, d3Transition, d3Interpolate, d3Ease)
 
 const duration = 500
 
 const mockup = {
   animationBlock: {
     width: 341,
-    height: 413,
+    height: 417,
   },
   circle: {
     width: 260,
@@ -34,45 +39,45 @@ const mockup = {
   },
   indicators: [
     {
-      _width: 48,
-      left: 194,
-      top: 171,
+      _width: 94,
+      left: 182,
+      top: 183,
       src: text1,
     },
     {
-      _width: 89,
-      left: 200,
-      top: 244,
+      _width: 76,
+      left: 204,
+      top: 277,
       src: text2,
     },
     {
-      _width: 48,
-      left: 214,
-      top: 274,
+      _width: 71,
+      left: 106,
+      top: 308,
       src: text3,
     },
     {
-      _width: 36,
-      left: 195,
-      top: 286,
+      _width: 70,
+      left: 54,
+      top: 246,
       src: text4,
     },
     {
-      _width: 89,
-      left: 91,
-      top: 283,
+      _width: 86,
+      left: 57,
+      top: 193,
       src: text5,
     },
     {
-      _width: 71,
-      left: 57,
-      top: 208,
+      _width: 89,
+      left: 108,
+      top: 31,
       src: text6,
     },
     {
-      _width: 48,
-      left: 113,
-      top: 148,
+      _width: 89,
+      left: 145,
+      top: 57,
       src: text7,
     },
   ],
@@ -118,13 +123,13 @@ class Area3 extends React.Component {
 
   _renderPieChart() {
     const dataset = [
-      { name: '交通事故', percent: 21, color: '#f2f2f2', stroke: '#fff' },
-      { name: '其他意外事故', percent: 11, color: '#f2f2f2', stroke: '#fff' },
-      { name: '不明死因', percent: 6, color: '#f2f2f2', stroke: '#fff' },
-      { name: '故意傷害', percent: 5, color: '#f2f2f2', stroke: '#fff' },
-      { name: '周產期相關', percent: 28, color: '#fff', stroke: '#f2f2f2' },
-      { name: '先天畸形', percent: 17, color: '#fff', stroke: 'f2f2f2' },
-      { name: '惡性腫瘤', percent: 12, color: '#f2f2f2', stroke: '#fff' },
+      { name: '周產期相關', percent: 28, color: 'rgb(111,157,210)', stroke: '#fff' },
+      { name: '先天畸形', percent: 17, color: 'rgb(111,157,210)', stroke: '#fff' },
+      { name: '交通事故', percent: 21, color: 'rgb(233,199,185)', stroke: '#fff' },
+      { name: '惡性腫瘤', percent: 12, color: 'rgb(233,199,185)', stroke: '#fff' },
+      { name: '其他意外事故', percent: 11, color: 'rgb(233,199,185)', stroke: '#fff' },
+      { name: '不明死因', percent: 6, color: 'rgb(233,199,185)', stroke: '#fff' },
+      { name: '故意傷害', percent: 5, color: 'rgb(233,199,185)', stroke: '#fff' },
     ]
 
     const arc = d3.arc()

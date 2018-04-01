@@ -1,14 +1,13 @@
 import React from 'react'
-import moreImg from '../../static/footer/read-more.png'
+import line from '../../static/area-12/line.png'
+import readMore from '../../static/footer/read-more.png'
+import readMoreHover from '../../static/footer/read-more-hover.png'
+import topicIcon from '../../static/footer/topic.png'
 import styled from 'styled-components'
 
-const Relateds = styled.ul`
-  padding: 0;
-`
-
-const Related = styled.li`
+const Related = styled.div`
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 13px;
 `
 
 const RelatedIcon = styled.img`
@@ -25,16 +24,37 @@ const RelatedText = styled.span`
   font-size: 18px;
   color: #fff;
   vertical-align: middle;
+  text-decoration: none;
+  line-height: 1.56;
 
   @media only screen and (min-width: 768px) {
     font-size: 22px;
   }
 `
 
-const Line = styled.div`
-  width: 150px;
-  border: 1px solid white;
-  margin: 40px auto;
+const Link = styled.a`
+  display: block;
+  position: relative;
+
+  > img:first-child {
+    visibility: visible;
+  }
+
+  > img:last-child {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+  }
+  :hover {
+    > img:first-child {
+      visibility: hidden;
+    }
+
+    > img:last-child {
+      visibility: visible;
+    }
+  }
 `
 
 const Team = styled.ul`
@@ -58,22 +78,34 @@ const Team = styled.ul`
 export default class Footer extends React.PureComponent {
   render() {
     return (
-      <footer>
-        <Relateds>
-          <Related>
-            <RelatedIcon src={moreImg} />
-            <RelatedText>child-health-care-save-their-lives</RelatedText>
-          </Related>
-          <Related>
-            <RelatedIcon src={moreImg} />
-            <RelatedText>child-health-care-children-hospital-no-resource</RelatedText>
-          </Related>
-          <Related>
-            <RelatedIcon src={moreImg} />
-            <RelatedText>child-health-care-children-remote-areas</RelatedText>
-          </Related>
-        </Relateds>
-        <Line />
+      <footer
+        style={{
+          marginTop: '35px',
+        }}
+      >
+        <Related>
+          <RelatedIcon src={topicIcon} />
+          <RelatedText>完整專題請見：</RelatedText>
+        </Related>
+        <Link href="https://www.twreporter.org/topics/child-health-care-taiwan" target="_blank">
+          <img alt="專題報導" src={readMore} width="100%" />
+          <img alt="專題報導" src={readMoreHover} width="100%" />
+        </Link>
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: '100px',
+            marginBottom: '40px',
+          }}
+        >
+          <img
+            alt="底線"
+            src={line}
+            style={{
+              width: `${126 / 375 * 100}%`,
+            }}
+          />
+        </div>
         <Team>
           <li>文字、資料分析｜蔣宜婷、陳貞樺</li>
           <li>設計｜黃禹禛</li>

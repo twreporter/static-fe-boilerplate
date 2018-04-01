@@ -21,6 +21,7 @@ const ChartBox = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 `
 
 const slideRight = keyframes`
@@ -43,6 +44,26 @@ const slideLeft = keyframes`
   }
 `
 
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+`
+
+const slideDown = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+`
+
 const MaskBox = styled.div`
   position: absolute;
   width: 100%;
@@ -50,7 +71,7 @@ const MaskBox = styled.div`
   top: 0;
   left: 0;
   overflow: hidden;
-  animation: ${slideRight} 1s linear;
+  animation: ${props => (props.direction === 'up' ? slideUp : slideRight)} 1s linear;
 `
 
 const ChartImg = styled.img`
@@ -58,13 +79,12 @@ const ChartImg = styled.img`
   width: 100%;
   top: 0;
   left: 0;
-  animation: ${slideLeft} 1s linear;
+  animation: ${props => (props.direction === 'up' ? slideDown : slideLeft)} 1s linear;
 `
 
-export default class LineChart extends React.PureComponent {
+export default class Chart extends React.PureComponent {
   render() {
-    const { toAnimate, imgs, position } = this.props
-    console.log('toAnimate:', toAnimate)
+    const { toAnimate, direction, imgs, position } = this.props
     return (
       <React.Fragment>
         <Bg src={imgs.bg} />
@@ -73,8 +93,11 @@ export default class LineChart extends React.PureComponent {
         >
           { toAnimate ? (
             <ChartBox>
-              <MaskBox>
+              <MaskBox
+                direction={direction}
+              >
                 <ChartImg
+                  direction={direction}
                   src={imgs.chart}
                 />
               </MaskBox>
@@ -86,7 +109,8 @@ export default class LineChart extends React.PureComponent {
   }
 }
 
-LineChart.propTypes = {
+Chart.propTypes = {
+  direction: PropTypes.string.isRequired,
   imgs: PropTypes.shape({
     bg: PropTypes.string.isRequired,
     chart: PropTypes.string.isRequired,

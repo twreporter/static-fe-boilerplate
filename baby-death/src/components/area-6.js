@@ -7,7 +7,7 @@ const { StyledAreaContainer, StyledTitle, StyledParagraph, StyledAnnotation } = 
 
 export default class Area6 extends React.PureComponent {
   render() {
-    const { title, paragraphs, annotations, fontColors } = this.props
+    const { title, titleImg, paragraphs, annotations, fontColors } = this.props
     const paragraphsJSX = paragraphs.map((paragraph, index) => {
       return (
         <StyledParagraph
@@ -32,10 +32,21 @@ export default class Area6 extends React.PureComponent {
 
     return (
       <StyledAreaContainer>
-        <StyledTitle
-          color={fontColors.title}
-        >{title}
-        </StyledTitle>
+        <header
+          style={{
+            margin: '30px auto',
+            width: `${288 / 375 * 100}%`,
+          }}
+        >
+          <img
+            alt={title}
+            src={titleImg}
+            width="100%"
+          />
+          <StyledTitle>
+            {title}
+          </StyledTitle>
+        </header>
         <RouteSVG style={{ overflow: 'visible' }} />
         {paragraphsJSX}
         {annotationsJSX}

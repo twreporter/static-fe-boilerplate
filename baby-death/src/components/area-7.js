@@ -10,6 +10,11 @@ import reusedComponents from './reused-components'
 import smoke from '../../static/area-7/a7-smoke.png'
 import styled from 'styled-components'
 import withAreaWrapper from './area-wrapper'
+import merge from 'lodash.merge'
+
+const _ = {
+  merge,
+}
 
 const { StyledOpacityAnimatedBlock } = reusedComponents
 
@@ -53,11 +58,11 @@ const mockup = {
 }
 
 mockup.ambulances = mockup.cities.map((ele) => {
-  return Object.assign({}, ele, { src: ambulance })
+  return _.merge({}, ele, { src: ambulance })
 })
 
 mockup.smokes = mockup.cities.map((ele) => {
-  return Object.assign({}, ele, {
+  return _.merge({}, ele, {
     src: smoke,
     _width: 27,
     left: ele.left + ele._width + 5,
@@ -74,7 +79,7 @@ const StyledCity = styled.img`
 
 const StyledAmbulance = StyledCity.extend`
   will-change: transform;
-  transform: translateX(${props => (props.toShow ? -(((props.left / props._width) * 100) + 100) : '0')}%);
+  transform: translateX(${props => (props.toShow ? -(((props.left / props._width) * 100) + 105) : '0')}%);
   transition: transform ${props => props.duration}ms ease-out ${props => props.delay}ms;
 `
 

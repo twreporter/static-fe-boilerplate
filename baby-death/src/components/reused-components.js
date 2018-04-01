@@ -1,17 +1,7 @@
 import styled from 'styled-components'
 
 const StyledTitle = styled.h2`
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.5;
-  color: ${props => props.color};
-  margin-bottom: 20px;
-  white-space: pre-line;
-
-  @media only screen and (min-width: 768px) {
-    font-size: 42px;
-  }
+  display: none;
 `
 
 const StyledParagraph = styled.p`
@@ -70,6 +60,9 @@ const StyledSlideDownAnimatedBlocks = StyledAnimatedBlock.extend`
   z-index: ${props => props.zIndex};
 `
 
+const StyledSlideUpAnimatedBlocks = StyledSlideDownAnimatedBlocks.extend`
+  transform: translateY(${props => (props.toShow ? '0px' : '100px')});
+`
 
 export default {
   StyledTitle,
@@ -79,4 +72,5 @@ export default {
   StyledScaleAnimatedBlock,
   StyledOpacityAnimatedBlock,
   StyledSlideDownAnimatedBlocks,
+  StyledSlideUpAnimatedBlocks,
 }

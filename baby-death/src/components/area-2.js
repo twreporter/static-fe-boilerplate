@@ -1,13 +1,7 @@
 /* eslint react/no-array-index-key:0 */
 import React from 'react'
 import bg from '../../static/area-2/a2-bg.png'
-import cloth from '../../static/area-2/a2-cloth.png'
-import diaper from '../../static/area-2/a2-diaper.png'
-import text1 from '../../static/area-2/a2-text-1.png'
-import text2 from '../../static/area-2/a2-text-2.png'
-import text3 from '../../static/area-2/a2-text-3.png'
-import text4 from '../../static/area-2/a2-text-4.png'
-import text5 from '../../static/area-2/a2-text-5.png'
+import angel from '../../static/area-2/a2-angel.png'
 import data1 from '../../static/area-2/a2-data-1.png'
 import data2 from '../../static/area-2/a2-data-2.png'
 import data3 from '../../static/area-2/a2-data-3.png'
@@ -16,135 +10,86 @@ import data5 from '../../static/area-2/a2-data-5.png'
 import withAreaWrapper from './area-wrapper'
 import reusedComponents from './reused-components'
 import styled from 'styled-components'
+import merge from 'lodash.merge'
 
-const { StyledSlideDownAnimatedBlocks, StyledScaleAnimatedBlock } = reusedComponents
+const _ = {
+  merge,
+}
+
+const { StyledSlideUpAnimatedBlocks, StyledScaleAnimatedBlock } = reusedComponents
 
 const mockup = {
   animationBlock: {
-    width: 357,
-    height: 319,
+    width: 345,
+    height: 341,
   },
-  clothes: [
+  angels: [
     {
-      left: 5,
-      top: 11,
-      src: cloth,
-    },
-    {
-      left: 76,
-      top: 11,
-      src: cloth,
-    },
-    {
-      left: 147,
-      top: 11,
-      src: cloth,
-    },
-    {
-      left: 218,
-      top: 11,
-      src: cloth,
-    },
-    {
-      left: 289,
-      top: 11,
-      src: cloth,
-    },
-  ],
-  diapers: [
-    {
-      left: 19,
-      top: 70,
-      amount: 16,
-      src: diaper,
-    },
-    {
-      left: 90,
-      top: 70,
+      _width: 50,
+      left: 6,
+      top: 237,
       amount: 9,
-      src: diaper,
+      src: angel,
     },
     {
-      left: 161,
-      top: 70,
+      _width: 50,
+      left: 76,
+      top: 237,
       amount: 6,
-      src: diaper,
+      src: angel,
     },
     {
-      left: 233,
-      top: 70,
+      _width: 50,
+      left: 146,
+      top: 237,
       amount: 5,
-      src: diaper,
+      src: angel,
     },
     {
-      left: 303,
-      top: 70,
-      amount: 3,
-      src: diaper,
+      _width: 50,
+      left: 216,
+      top: 237,
+      amount: 5,
+      src: angel,
+    },
+    {
+      _width: 50,
+      left: 286,
+      top: 237,
+      amount: 4,
+      src: angel,
     },
   ],
   numbers: [
     {
-      _width: 58,
-      left: 10,
-      top: 230,
+      _width: 50,
+      left: 8,
+      top: 0,
       src: data1,
     },
     {
-      _width: 58,
-      left: 81,
-      top: 169,
+      _width: 50,
+      left: 77,
+      top: 76,
       src: data2,
     },
     {
-      _width: 35,
-      left: 157,
-      top: 144,
+      _width: 32,
+      left: 152,
+      top: 102,
       src: data3,
     },
     {
-      _width: 58,
-      left: 223,
-      top: 136,
+      _width: 50,
+      left: 217,
+      top: 102,
       src: data4,
     },
     {
-      _width: 35,
-      left: 299,
-      top: 118,
+      _width: 32,
+      left: 292,
+      top: 128,
       src: data5,
-    },
-  ],
-  nations: [
-    {
-      _width: 58,
-      left: 8,
-      top: 289,
-      src: text1,
-    },
-    {
-      _width: 40,
-      left: 89,
-      top: 289,
-      src: text2,
-    },
-    {
-      _width: 58,
-      left: 151,
-      top: 289,
-      src: text3,
-    },
-    {
-      _width: 40,
-      left: 231,
-      top: 289,
-      src: text4,
-    },
-    {
-      _width: 40,
-      left: 300,
-      top: 289,
-      src: text5,
     },
   ],
 }
@@ -156,16 +101,8 @@ const StyledBackground = styled.img`
   width: 100%;
 `
 
-const StyledCloth = styled.img`
-  position: absolute;
-  width: ${(58 / mockup.animationBlock.width) * 100}%;
-  left: ${props => (props.left / mockup.animationBlock.width) * 100}%;
-  top: ${props => (props.top / mockup.animationBlock.height) * 100}%;
-  z-index: 100;
-`
-
 class Area2 extends React.PureComponent {
-  _renderNations(blocks, duration = 0, delay = 500) {
+  _renderNumbers(blocks, duration = 0, delay = 500) {
     const partialDur = duration / blocks.length
     return blocks.map((block, index) => {
       return (
@@ -181,46 +118,29 @@ class Area2 extends React.PureComponent {
     })
   }
 
-  _renderNumbers(blocks, duration = 0, delay = 500) {
-    return this._renderNations(blocks, duration, delay)
-  }
-
-  _renderDiapers(blocks, duration = 0, delay = 500) {
+  _renderAngels(blocks, duration = 0, delay = 500) {
     return blocks.map((block) => {
-      return this._renderDiapersColumn(block, duration, delay)
+      return this._renderAngelsPerColumn(block, duration, delay)
     })
   }
 
-  _renderDiapersColumn(column, duration = 0, delay = 500) {
+  _renderAngelsPerColumn(column, duration = 0, delay = 500) {
     const partialDur = duration / column.amount
     const blocks = []
     for (let i = 0; i < column.amount; i += 1) {
       // 8 is diaper distance
-      blocks.push(Object.assign({}, column, { top: column.top + (i * 8) }))
+      blocks.push(_.merge({}, column, { top: column.top - (i * 25) }))
     }
-
     return blocks.map((block, index) => {
       return (
-        <StyledSlideDownAnimatedBlocks
+        <StyledSlideUpAnimatedBlocks
           animationBlock={mockup.animationBlock}
           duration={partialDur}
           delay={(index * partialDur) + delay}
           key={`${block.src}_${index}`}
           toShow={this.props.toAnimate}
           zIndex={blocks.length - index}
-          _width={34}
           {...block}
-        />
-      )
-    })
-  }
-
-  _renderClothes() {
-    return mockup.clothes.map((_cloth, index) => {
-      return (
-        <StyledCloth
-          key={`${_cloth.src}_${index}`}
-          {..._cloth}
         />
       )
     })
@@ -228,9 +148,8 @@ class Area2 extends React.PureComponent {
 
   render() {
     const durations = {
-      nations: 300,
-      diapers: 500,
-      numbers: 300,
+      angels: 2000,
+      numbers: 500,
       offset: 300,
     }
     return (
@@ -238,10 +157,8 @@ class Area2 extends React.PureComponent {
         <StyledBackground
           src={bg}
         />
-        {this._renderDiapers(mockup.diapers, durations.diapers, durations.nations + durations.offset)}
-        {this._renderClothes()}
-        {this._renderNations(mockup.nations, durations.nations, 0)}
-        {this._renderNumbers(mockup.numbers, durations.numbers, durations.nations + durations.diapers + (durations.offset * 2))}
+        {this._renderAngels(mockup.angels, durations.angels, durations.offset)}
+        {this._renderNumbers(mockup.numbers, durations.numbers, durations.angels + durations.offset)}
       </React.Fragment>
     )
   }

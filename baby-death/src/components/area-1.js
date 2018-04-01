@@ -1,4 +1,4 @@
-import LineChart from './line-chart'
+import Chart from './chart'
 import React from 'react'
 import bg from '../../static/area-1/a1-bg.png'
 import chart from '../../static/area-1/a1-data.png'
@@ -20,7 +20,7 @@ const mockup = {
 class Area1 extends React.PureComponent {
   render() {
     return (
-      <LineChart
+      <Chart
         position={{
           width: `${mockup.chartBox._width / mockup.animationBlock.width * 100}%`,
           height: `${mockup.chartBox._height / mockup.animationBlock.height * 100}%`,
