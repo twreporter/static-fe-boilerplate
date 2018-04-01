@@ -1,0 +1,34 @@
+{
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "inline-react-svg", {
+        "svgo": {
+          "plugins": [{
+            "cleanupIDs": false,
+            "removeScriptElement": true,
+            "removeUnknownsAndDefaults": true
+          }]
+        }
+      }
+    ],
+    [
+      "transform-assets-import-to-string",
+      {
+        "extensions": [".jpg", ".png", ".mp3"],
+        "baseDir": "static"
+      }
+    ]
+  ],
+  "presets": [
+    ["env", { "module": false }], "stage-0", "react"
+  ],
+  "comments": false
+}
