@@ -110,7 +110,7 @@ export default class RankingWithIndex extends PureComponent {
             </Legend>
           </Legends>
           <Comment>註1：每項指標以 10 大球星中該項最高分為滿分，按比例計算得分後加權。</Comment>
-          <Comment>註2：2018 年俄羅斯世界盃並未列入計算</Comment>
+          <Comment>註2：2018 年俄羅斯世界盃列入計算</Comment>
           <Comment>註3：詳細資料請見
             <a href="https://docs.google.com/spreadsheets/d/1HyIPQJStYb6QW4R3MInpDrHkh5k-R4-VA_qu3Y9VGzk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
               <span>「《報導者》「世足球星誰稱王」測驗－球員數據表」</span>

@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const text = {
   title: '猜猜世足成就最多的前5名球星',
-  subTitle: '（2018年不列入計算）',
+  subTitle: '（2018年有列入計算）',
 }
 
 const styledConstants = {
