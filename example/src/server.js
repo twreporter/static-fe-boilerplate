@@ -1,33 +1,33 @@
 /* eslint no-console:0 */
-import { getPublicUrl, getLocalPath } from '../scripts/handle-path'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import Express from 'express'
 import fs from 'fs'
 import Html from './helpers/html'
 import http from 'http'
 import httpProxy from 'http-proxy'
+import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Root from './components/root'
 
-// defines global variable
 global.__SERVER__ = true
 
+const { NODE_ENV, BASE_URL } = process.env
+
 const scripts = []
-
-const { DEPLOY_TYPE, NODE_ENV } = process.env
-
-const publicDistUrl = getPublicUrl('dist', DEPLOY_TYPE)
-const localDistDir = getLocalPath('dist')
-const localStaticDir = getLocalPath('static')
+const localDistDir = path.resolve(__dirname, '../dist')
+const localStaticDir = path.resolve(__dirname, '../static')
 
 if (NODE_ENV === 'production') {
+  if (!BASE_URL) {
+    console.warn('If you want to build the `<base>` element in HTML file, you must give the environment variable `BASE_URL`. See: https://github.com/twreporter/static-fe-boilerplate#build')
+  }
   // load webpack bundle
   fs.readdirSync(localDistDir).forEach((file) => {
     const re = /main\..+\.bundle\.js/
     const found = file.match(re)
     if (found !== null) {
-      scripts.push(`${publicDistUrl}/${file}`)
+      scripts.push(`dist/${file}`)
     }
   })
   const sheet = new ServerStyleSheet()
@@ -39,6 +39,7 @@ if (NODE_ENV === 'production') {
   const content = ReactDOMServer.renderToString(jsx)
 
   const html = ReactDOMServer.renderToStaticMarkup(<Html
+    baseUrl={BASE_URL}
     scripts={scripts}
     content={content}
     styleElement={sheet.getStyleElement()}
