@@ -41,7 +41,7 @@ if (NODE_ENV === 'production') {
   const html = ReactDOMServer.renderToStaticMarkup(<Html
     scripts={scripts}
     content={content}
-    styleElement={sheet.getElement()}
+    styleElement={sheet.getStyleElement()}
   />)
 
   fs.writeFileSync(`${localDistDir}/index.html`, html)
