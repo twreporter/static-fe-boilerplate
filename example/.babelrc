@@ -27,7 +27,6 @@
     ]
   ],
   "presets": [
-    ["env", { "module": false }], "stage-0", "react"
-  ],
+    ["env", { "target": { "node": "current" } }], "stage-0", "react"],
   "comments": false
 }
