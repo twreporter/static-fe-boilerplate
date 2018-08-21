@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const config = require('./webpack.config.js')({ NODE_ENV: 'development' })
 
 const options = {
+  headers: {'Access-Control-Allow-Origin': '*'},
   hot: true,
   host: 'localhost',
   port: 5000,
