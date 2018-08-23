@@ -11,7 +11,7 @@ module.exports = (env) => {
     output: {
       filename: isProduction ? '[name].[hash].bundle.js' : '[name].dev.bundle.js',
       path: path.resolve(__dirname, './dist'),
-      publicPath: '/dist/',
+      publicPath: isProduction ? '/dist/' : 'http://localhost:5000/dist/',
     },
     module: {
       rules: [
