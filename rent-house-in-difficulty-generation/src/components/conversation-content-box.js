@@ -10,7 +10,8 @@ import {
   MobileArrowIcon,
   DesktopArrowIcon,
   Instruction,
-  PressKeyToContinue
+  PressKeyToContinue,
+  EndText
 } from './conversation-item-style'
 import highlight from '../utils/get-highlight-texts'
 import imgSrc from '../data/img-src'
@@ -27,6 +28,7 @@ export const TUTORIAL = '故事中會出現選項讓你跟租客對話，點擊�
 export const INSTRUCTION = '請選擇你想問他的問題'
 export const PRESSKEYTXT = '按空白鍵繼續'
 export const TALKTOOTHERS = '和其他人聊聊吧'
+export const ENDWORDING = '（ 對話結束 ）'
 
 const CONTENTTYPE = {
   selection: 'selection',
@@ -382,6 +384,11 @@ class ContentBox extends PureComponent {
                   onClick={hasNext ? () => flipDialoguePage('next') : () => {}}
                 >
                   <p>{highlight(paginatedContent[dialoguePage])}</p>
+                  {
+                    !hasNext ?
+                    <EndText>{ENDWORDING}</EndText>
+                    : null
+                  }
                 </Dialogue>
                 <PressKeyToContinue
                   show={dialoguePage==0 && hasNext}

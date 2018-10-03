@@ -64,6 +64,14 @@ export const Dialogue = styled.div`
   }
 `
 
+export const EndText = styled.span`
+  display: block;
+  font-size: ${theme.typography.font.size.medium};
+  font-weight: ${theme.typography.font.weight.medium};
+  line-height: ${theme.typography.lineHeight.regular};
+  text-align: right;
+`
+
 export const ButtonText = styled.p `
   margin: 0;
   font-size: ${theme.typography.font.size.medium};
