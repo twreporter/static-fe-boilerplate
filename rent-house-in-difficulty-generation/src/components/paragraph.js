@@ -58,6 +58,14 @@ class Paragraph extends React.PureComponent {
               {ele.content[0]}
             </Link>
           )
+        } else if (ele.type === 'italic-font') {
+          return (
+            <i
+              key={`p_i_${index}`}
+            >
+              {ele.content[0]}
+            </i>
+          )
         }
         return ele
       })

@@ -50,13 +50,13 @@ const Role = styled.div`
   position: relative;
   cursor: pointer;
   background: #d8d8d8;
+  border: solid 2px #262626;
   ${screen.tabletOnly`
     border: solid 1.7px #262626;  
-    `}
+  `}
   ${screen.tabletAbove`
     width: calc(100% / ${props => props.total});
     margin: 0 13.5px;
-    border: solid 2px #262626;
   `}
   ${screen.mobileBelow`
     display: flex;
@@ -66,6 +66,25 @@ const Role = styled.div`
   `}
   ${screen.miniOnly`
     height: 120px;
+  `}
+`
+
+const BoxShadow = styled.div `
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: border .5s ease-in-out;  
+  ${screen.desktopAbove`
+    border: ${props => props.isSelected ? "solid 8px #000000" : "solid 2px #262626"};
+    &:hover {
+      border: solid 8px #262626;
+    }
+  `}
+  ${screen.tabletBelow`
+    border: ${props => props.isSelected ? "solid 6px #000000" : "solid 2px #262626"};
   `}
 `
 
@@ -174,7 +193,7 @@ class ConversationSelector extends React.Component {
     onStorySelect(`${id}-${roleIndex + 1}`, false)
   }
   render() {
-    const { content, id, onStorySelect } = this.props
+    const { content, id, onStorySelect, selectedRoleIndex } = this.props
     const roleNumber = content.length
     return (
       <Container>
@@ -200,6 +219,7 @@ class ConversationSelector extends React.Component {
                   <Description>
                     <p>{role.description}</p>
                   </Description>
+                  <BoxShadow isSelected={roleIndex === selectedRoleIndex - 1} />
                 </Role>
               )
             })

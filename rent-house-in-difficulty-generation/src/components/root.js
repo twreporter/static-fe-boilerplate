@@ -16,7 +16,6 @@ import HiddenScriptText from './hidden-script-text'
 import Image from './image'
 import InfoBox from './infobox'
 import IntroParagraph from './intro-paragraph'
-import ItalicParagraph from './italic-paragraph'
 import Opening from './opening'
 import Paragraph from './paragraph'
 import React from 'react'
@@ -134,9 +133,7 @@ export default class Root extends React.Component {
         Component = HeaderTwo
       } else if (block.type === 'hidden-script-text') {
         Component = HiddenScriptText
-      } else if (block.type == 'italic-paragraph') {
-        Component = ItalicParagraph
-      }
+      } 
 
       if (Component == HeaderOne) {
         return (

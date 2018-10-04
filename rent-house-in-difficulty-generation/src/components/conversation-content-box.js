@@ -384,11 +384,6 @@ class ContentBox extends PureComponent {
                   onClick={hasNext ? () => flipDialoguePage('next') : () => {}}
                 >
                   <p>{highlight(paginatedContent[dialoguePage])}</p>
-                  {
-                    !hasNext ?
-                    <EndText>{ENDWORDING}</EndText>
-                    : null
-                  }
                 </Dialogue>
                 <PressKeyToContinue
                   show={dialoguePage==0 && hasNext}
