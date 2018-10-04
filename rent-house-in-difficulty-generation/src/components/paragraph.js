@@ -4,6 +4,7 @@ import BaseComponents from './base'
 import Link from './link'
 import PropTypes from 'prop-types'
 import React from 'react' // eslint-disable-next-line
+import smoothScroll from 'smoothscroll'
 import styled from 'styled-components'
 import theme from '../utils/theme'
 
@@ -18,6 +19,14 @@ const StyledParagraph = BaseComponents.SmallContainer.extend`
 `.withComponent('p')
 
 class Paragraph extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.innerScroll = this._innerScroll.bind(this)
+  }
+  _innerScroll(e,id) {
+    e.preventDefault()
+    smoothScroll(document.getElementById(id))
+  }
   render() {
     const { content } = this.props
     if (Array.isArray(content) && content.length > 1) {
@@ -43,7 +52,8 @@ class Paragraph extends React.PureComponent {
           return (
             <Link
               key={`p_link_${index}`}
-              href={ele.content[1]}
+              href={'#'}
+              onClick={(e) => this.innerScroll(e, ele.content[1])}
             >
               {ele.content[0]}
             </Link>
