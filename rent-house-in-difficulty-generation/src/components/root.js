@@ -55,11 +55,11 @@ injectGlobal`
   a {
     text-decoration: none;
   }
-  button: active {
+  button:active {
     outline: none;
     border: none;
   }
-  button: focus {
+  button:focus {
     outline: 0;
   }
 `
@@ -84,6 +84,7 @@ export default class Root extends React.Component {
   }
   _smoothscrollToTargetAnchor() {
     const anchorQuery = getQueryVarable(ANCHOR_SEARCH_KEY)
+    console.log(anchorQuery)
     if (anchorQuery) {
       const targetAnchor = document.getElementById(anchorQuery)
 
