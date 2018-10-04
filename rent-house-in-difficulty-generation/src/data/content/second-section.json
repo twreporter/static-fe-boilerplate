@@ -319,7 +319,7 @@
   {
     "type": "paragraph",
     "content": [
-      "「年輕人只住得起雅房或分租套房，因為他只承擔得起這樣的價格漲幅啊。全家房型的家庭式公寓，或是大坪數的物件根本不用想，」林宗宏分析，目前社會所面臨薪資不上漲與低生育率的問題，都會反映應在房市結構上。"
+      "「年輕人只住得起雅房或分租套房，因為他只承擔得起這樣的價格漲幅啊。全家房型的家庭式公寓，或是大坪數的物件根本不用想，」林宗弘分析，目前社會所面臨薪資不上漲與低生育率的問題，都會反映應在房市結構上。"
     ]
   },
   {
@@ -364,6 +364,24 @@
     "type": "paragraph",
     "content": [
       "「我後來發現花天板會漏水，房東說要找人來修，後來我發現根本就修不好。」某天Eric下班後發現賴以為生的筆電被整個浸溼，水不停從天花板流出，一問之下才知道原來是隔壁棟水塔壞掉，漏水問題多年一直無法解決。「房東真的很鳥，其實他一開始就知道修不好，但在帶看的時候都沒講，」他氣憤地說。"
+    ]
+  },
+  {
+    "type": "role-card-in-paragraph",
+    "content": [
+      [
+        "role-c2-mobile",
+        "role-c2-mobile"
+      ],
+      "left",
+      "conversation-tenant-1",
+      "點擊聽小資族的租屋故事"
+    ],
+    "_arguments": [
+      "content[0]: The file name of image( [desktop, mobile])",
+      "content[1]: The image should be on the left or right ?",
+      "content[2]: Which conversation ID the link should be navigated to ?",
+      "content[3]: The text on the anchor to display"
     ]
   },
   {
@@ -467,6 +485,24 @@
     "type": "paragraph",
     "content": [
       "40歲的謝錚誼育有3個孩子，她與先生決定搬出家中自立門戶時，兩人帶著兩小，加上肚中的孩子，一路尋尋覓覓想找到適合全家的租屋處，但發現要找到容納一家五口又便宜的房子，真的很難。他們無法負擔太貴的房租，因為光是生活費就壓得夫妻兩人喘不過氣。"
+    ]
+  },
+  {
+    "type": "role-card-in-paragraph",
+    "content": [
+      [
+        "role-b2-mobile",
+        "role-b2-mobile"
+      ],
+      "left",
+      "conversation-tenant-2",
+      "點擊聽雙薪家庭的租屋故事"
+    ],
+    "_arguments": [
+      "content[0]: The file name of image( [desktop, mobile])",
+      "content[1]: The image should be on the left or right ?",
+      "content[2]: Which conversation ID the link should be navigated to ?",
+      "content[3]: The text on the anchor to display"
     ]
   },
   {
@@ -707,6 +743,24 @@
     "type": "paragraph",
     "content": [
       "「稅通常是影響房東意願的罩門，」徐銘達直指房東長久以來不願意將物件攤在陽光下的原因。在台灣，自住跟出租影響3種稅：假設房東將原本自住的房屋改登記為出租用，將會新增租賃所得稅，以及房屋稅差2倍、地價稅差3倍。「我在民間做租屋仲介24年，9成房東沒報稅，這是大家公開知道的祕密，如果堅持要報，業績就掉9成。這是我心中很大的痛，不是不想合法，我合法就先活不下去啊！」他說。"
+    ]
+  },
+  {
+    "type": "role-card-in-paragraph",
+    "content": [
+      [
+        "role-e2-mobile",
+        "role-e2-mobile"
+      ],
+      "left",
+      "conversation-landlord-2",
+      "點擊聽房屋代管業者的租屋故事"
+    ],
+    "_arguments": [
+      "content[0]: The file name of image( [desktop, mobile])",
+      "content[1]: The image should be on the left or right ?",
+      "content[2]: Which conversation ID the link should be navigated to ?",
+      "content[3]: The text on the anchor to display"
     ]
   },
   {

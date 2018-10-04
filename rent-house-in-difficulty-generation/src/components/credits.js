@@ -36,11 +36,12 @@ const CreditBox = styled.div`
   ${screen.mobileOnly`
     max-width: 100%;
     overflow: hidden;
-    white-space: wrap;
+    white-space: normal;
   `}
 `
 
 const JobTitle = styled.span`
+  display: inline-block;
   font-weight: ${fontWeight.regular};
   color: ${fontColor};
   font-size: ${fontSize};
@@ -53,6 +54,7 @@ const JobTitle = styled.span`
 `
 
 const Member = styled.span`
+  display: inline-block;
   font-weight: ${fontWeight.regular};
   color: ${fontColor};
   font-size: ${fontSize};
@@ -61,9 +63,7 @@ const Member = styled.span`
 const TeamIntro = Member.extend``
 
 const MemberWithLink = styled.a`
-  font-weight: ${fontWeight.regular};
-  color: ${fontColor};
-  font-size: ${fontSize};
+  display: inline-block;
   text-decoration: none;
 `
 
@@ -74,7 +74,7 @@ function _memberToBox(member, index, members) {
   if (!linkTo) {
     box = (<Member key={index}>{name}{separator}</Member>)
   } else {
-    box = (<MemberWithLink key={index} href={linkTo} target="_blank">{name}{separator}</MemberWithLink>)
+    box = (<MemberWithLink key={index} href={linkTo} target="_blank"><Member>{name}{separator}</Member></MemberWithLink>)
   }
   return box
 }

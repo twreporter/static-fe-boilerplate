@@ -216,6 +216,24 @@
     ]
   },
   {
+    "type": "role-card-in-paragraph",
+    "content": [
+      [
+        "role-a2-mobile",
+        "role-a2-mobile"
+      ],
+      "left",
+      "conversation-tenant-3",
+      "點擊聽蝸居老人的租屋故事"
+    ],
+    "_arguments": [
+      "content[0]: The file name of image( [desktop, mobile])",
+      "content[1]: The image should be on the left or right ?",
+      "content[2]: Which conversation ID the link should be navigated to ?",
+      "content[3]: The text on the anchor to display"
+    ]
+  },
+  {
     "type": "paragraph",
     "content": [
       "79歲的詹阿伯做過銀行行員，還到日本經營貿易，年輕時曾過上一段好日子，做夢也想不到晚年會淪落至此。因為有子女，一個月最多只能領到7,450元的中低收老人生活津貼，但因種種不足外人道的家庭變故，子女並未實際負擔扶養義務，獨身一人在外租屋，去年底經過民間單位與里長的介紹才住進來。"
@@ -344,6 +362,24 @@
     "type": "paragraph",
     "content": [
       "「10個房客中最起碼會有2～3成拖欠房租， 那還是小事，破壞修起來才是大問題，有時候很想不要租了，但是我想想，也許就是運氣不好碰到了，但後來又一直碰到，」房東鍾先生說，他和崔媽媽基金會長期配合，將家裡多出來的四層樓街屋出租給老年或弱勢租客，最近才剛跑完法院，處理完和房客的糾紛。"
+    ]
+  },
+  {
+    "type": "role-card-in-paragraph",
+    "content": [
+      [
+        "role-d2-mobile",
+        "role-d2-mobile"
+      ],
+      "left",
+      "conversation-landlord-1",
+      "點擊聽房東的租屋故事"
+    ],
+    "_arguments": [
+      "content[0]: The file name of image( [desktop, mobile])",
+      "content[1]: The image should be on the left or right ?",
+      "content[2]: Which conversation ID the link should be navigated to ?",
+      "content[3]: The text on the anchor to display"
     ]
   },
   {

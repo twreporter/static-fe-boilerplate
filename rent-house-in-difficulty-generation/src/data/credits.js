@@ -56,7 +56,7 @@ const data = [
     members: [
       {
         name: '方泰鈞',
-        linkTo: 'https://www.twreporter.org/author/571de7badae62379576d7f3d',
+        linkTo: 'https://www.twreporter.org/author/5bb1a1527ee5431b00e8fc9e',
       },
       {
         name: '郭子揚',
