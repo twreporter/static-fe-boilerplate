@@ -24,10 +24,10 @@ if (NODE_ENV === 'production') {
   }
   // load webpack bundle
   fs.readdirSync(localDistDir).forEach((file) => {
-    const re = /main\..+\.bundle\.js/
+    const re = /\..+\.bundle\.js/
     const found = file.match(re)
     if (found !== null) {
-      scripts.push(`dist/${file}`)
+      scripts.unshift(`dist/${file}`)
     }
   })
   const sheet = new ServerStyleSheet()
@@ -62,6 +62,7 @@ if (NODE_ENV === 'production') {
     proxy.web(req, res)
   })
   // load dev webpack bundle
+  scripts.push('dist/vendor.dev.bundle.js')
   scripts.push('dist/main.dev.bundle.js')
 
   app.use((req, res) => {

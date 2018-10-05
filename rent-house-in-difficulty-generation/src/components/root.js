@@ -83,7 +83,6 @@ export default class Root extends React.Component {
   }
   _smoothscrollToTargetAnchor() {
     const anchorQuery = getQueryVarable(ANCHOR_SEARCH_KEY)
-    console.log(anchorQuery)
     if (anchorQuery) {
       const targetAnchor = document.getElementById(anchorQuery)
 

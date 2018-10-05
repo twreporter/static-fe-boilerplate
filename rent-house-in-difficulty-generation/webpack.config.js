@@ -10,6 +10,7 @@ module.exports = (env) => {
     },
     output: {
       filename: isProduction ? '[name].[hash].bundle.js' : '[name].dev.bundle.js',
+      chunkFilename: '[name]-[chunkhash].js',
       path: path.resolve(__dirname, './dist'),
       publicPath: isProduction ? './dist/' : 'http://localhost:5000/dist/',
     },
@@ -31,6 +32,10 @@ module.exports = (env) => {
           NODE_ENV: isProduction ? '"production"' : '"development"',
         },
       }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: ({ resource }) => /node_modules/.test(resource),
+      })
     ],
   }
   if (isProduction) {
