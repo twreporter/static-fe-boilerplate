@@ -1,0 +1,109 @@
+[
+  {
+    "type": "title",
+    "content": [
+      "租客心聲",
+      ""
+    ]
+  },
+  {
+    "type": "header-two",
+    "content": [
+      "挑選一個租客，聽聽他的故事。",
+      "left"
+    ]
+  },
+  {
+    "type": "hidden-script-text",
+    "content": [
+      "util-text",
+      "script-1",
+      "script-2",
+      "script-3",
+      "script-4",
+      "script-5"
+    ]
+  },
+  {
+    "type": "conversation-selector",
+    "id": "conversation-tenant",
+    "content": [
+      {
+        "profile": "role-c2",
+        "description": "Eric，32歲，租屋資歷13年的上班族，從學生時期就開始租房",
+        "script": "script-3"
+      },
+      {
+        "profile": "role-b2",
+        "description": "小誼，40歲，4個小孩的媽媽，與先生沒有買房選擇租屋生活",
+        "script": "script-2"
+      },
+      {
+        "profile": "role-a2",
+        "description": "老詹，81歲，中低收入戶，與一群老人住在萬華的地下室蝸居",
+        "script": "script-1"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      "政府近年雖推出公宅與包租代管等居住政策，但仍無法直接解決租屋市場核心問題。除了租客，房東與租屋房仲似乎也有苦難言，他們的心聲是什麼？"
+    ]
+  },
+  {
+    "type": "header-two",
+    "content": [
+      "房仲與房東也有話要說，挑選一個人物，聽聽他的故事。",
+      "left"
+    ]
+  },
+  {
+    "type": "conversation-selector",
+    "id": "conversation-landlord",
+    "content": [{
+        "profile": "role-d2",
+        "description": "老蕭，78歲，在台北擁有多套出租物件，當房東已經20幾年了",
+        "script": "script-4"
+      },
+      {
+        "profile": "role-e2",
+        "description": "阿徐，50歲，房屋代管公司高階主管，熟悉租屋市場問題",
+        "script": "script-5"
+      }
+    ]
+  },
+  {
+    "type": "header-two",
+    "content": [
+      "租客們背後的故事"
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      "3個租客、房東與房仲的故事皆是由真實人物改編。《報導者》實際探訪多處老人蝸居處，呈現本應安享天年的長輩，現實中螻蟻般的人生；也從放棄買房的青年與雙薪家庭不得不的租屋選擇裡，描繪他們租屋生活的困境與對於未來生活的想像。"
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      "台灣的租屋市場向來以小規模個體戶為主，房東逃漏稅幾乎已被當成一種理所當然的默契，長期以來形塑出房東與房客權力不對等的關係。我們也透過深入訪談資深市場從業者等相關人士，剖析這個龐大地下經濟市場的原因、癥結與轉機。"
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      "隨著《住宅法》與租賃專法「租賃住宅市場發展及管理條例」陸續上路，居住與租屋議題彷彿逐漸獲得政府正視，嘗試透過法令與政策介入保障各方權益，並使市場更透明，但在實際調查中發現執行的成效甚低（以「包租代管」政策為例），對許多弱勢者而言更是看得到、吃不到，只能繼續回到窳陋的非法隔間裡棲居。理想與現實的差距到底有多遠？"
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      "想了解更多租房市場的問題，請繼續閱讀以下3篇深度報導。"
+    ]
+  },
+ {
+    "type": "share-button"
+  }
+]
