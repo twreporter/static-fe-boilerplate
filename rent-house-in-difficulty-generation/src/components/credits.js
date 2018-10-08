@@ -14,10 +14,8 @@ const jobSeparator = '｜'
 
 const Container = BaseComponent.SmallContainer.extend`
   text-align: left;
-  margin-top: 0;
-  margin-bottom: 55px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding-bottom: 55px;
 `
 
 const SeperateLine = styled.div`

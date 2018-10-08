@@ -44,7 +44,6 @@ injectGlobal`
     overflow-x: hidden;
     width: 100%;
     margin: 0;
-    background: ${theme.colors.bg.app};
     color: #FFFFFF;
     font-family: "source-han-sans-traditional", "Noto Sans TC", "PingFang TC", "Apple LiGothic Medium", "Roboto", "Microsoft JhengHei", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   }
@@ -61,6 +60,11 @@ injectGlobal`
   button:focus {
     outline: 0;
   }
+`
+
+const Background = styled.div`
+  width: 100%;
+  background: ${theme.colors.bg.app};
 `
 
 export default class Root extends React.Component {
@@ -204,13 +208,15 @@ export default class Root extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Opening firstAnchorId={anchors[0].id}/>
-        <HeadBar anchors={anchors}>
-          {this._renderSections(SECTIONSDATA)}
-        </HeadBar>
-        <DonationBox />
-        <CCParagraph content={[ccAuthorize]}/>
-        <Credits credits={creditsData}/>
+        <Background>
+          <Opening firstAnchorId={anchors[0].id}/>
+          <HeadBar anchors={anchors}>
+            {this._renderSections(SECTIONSDATA)}
+          </HeadBar>
+          <DonationBox />
+          <CCParagraph content={[ccAuthorize]}/>
+          <Credits credits={creditsData}/>
+        </Background>
         <Footer />
       </React.Fragment>
     )

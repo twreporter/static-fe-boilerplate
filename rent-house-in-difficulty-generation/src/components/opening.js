@@ -30,6 +30,7 @@ const mockup = {
 }
 
 const Container = BaseComponents.LargeContainer.extend`
+  max-width: 100%;
   position: relative;
   white-space: pre-wrap;
   margin: 0 auto;
@@ -65,7 +66,7 @@ const Background = styled.div`
 const StyledArrow = styled.img`
   position: absolute;
   left: 50%;
-  bottom: 5px;
+  bottom: 15px;
   transform: translateX(-50%);
   width: 20px;
   cursor: pointer;
@@ -74,6 +75,9 @@ const StyledArrow = styled.img`
   animation-iteration-count: infinite;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
+  ${screen.tabletOnly`
+    bottom: 75px;
+  `}
 `
 
 const Logo = styled.a`
