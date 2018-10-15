@@ -9,3 +9,6 @@ yarn-error.log
 # Ignore transpiled files
 dist/
 lib/
+
+.nyc_output/
+coverage/
