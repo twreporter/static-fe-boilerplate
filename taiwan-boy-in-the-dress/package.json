@@ -1,6 +1,6 @@
 {
   "name": "@twreporter/boys-wear-skirt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A boilerplate for building boys-wear-skirt static files",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run start-webpack-dev-server\" \"npm run start-dev-server\"",
