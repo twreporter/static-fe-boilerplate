@@ -52,11 +52,36 @@ const Container = styled.div`
   }
 `
 
+const Title = styled.h3 `
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  color: ${colors.text};
+  font-size: ${fontSize.textBoxTitle.mobile};
+  font-weight: ${fontWeight.bold};
+  margin-bottom: 12px;
+  ${mq.desktopAbove`
+    font-size: ${fontSize.textBoxTitle.desktop};
+    margin-bottom: 25px;
+  `}
+`
+
+const Text = styled.div``
+
 class TextPage extends React.PureComponent {
   render() {
-    const { text } = this.props
+    const { title, text } = this.props
+    const titleJSX = !title ? null : <Title>{title}</Title>
     const textHtml = Array.isArray(text) ? text.map((string => (!string ? '' : `<p>${string}</p>`))).join('') : text
-    return <Container dangerouslySetInnerHTML={{ __html: textHtml }} />
+    const textJSX = !textHtml ? null : <Text dangerouslySetInnerHTML={{ __html: textHtml }} />
+    return (
+      <Container>
+        {titleJSX}
+        {textJSX}
+      </Container>
+    ) 
   }
 }
 
