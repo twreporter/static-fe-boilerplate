@@ -1,13 +1,14 @@
-import * as animations from '../../constants/velocity-animations'
-import PropTypes from 'prop-types'
-import React from 'react'
-import VelocityComponent from 'velocity-react/velocity-component'
-import SlideContainer from './slide-container'
-import map from 'lodash/map'
-import styled from 'styled-components'
 import { colors } from '../../constants/style-variables'
 import { gtag } from '../../constants/metadata'
+import * as animations from '../../constants/velocity-animations'
+import Background from '../background'
+import map from 'lodash/map'
 import padStart from 'lodash/padStart'
+import PropTypes from 'prop-types'
+import React from 'react'
+import SlideContainer from './slide-container'
+import styled from 'styled-components'
+import VelocityComponent from 'velocity-react/velocity-component'
 
 const _ = {
   map,
@@ -144,7 +145,7 @@ class Slide extends React.Component {
     return (
       <SlideContainer type={containerType} isFocus={isFocus} isBg={isBg}>
         {this._buildContentsJSX(contents)}
-        {currentIndex === 0 ? <BlackCard /> : null}
+        {currentIndex === 0 ? <BlackCard><Background /></BlackCard> : null}
       </SlideContainer>
     )
   }
