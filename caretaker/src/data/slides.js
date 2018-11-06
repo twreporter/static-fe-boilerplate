@@ -149,7 +149,7 @@ const slides = [
       {
         jsx: (
           <TextBox
-            title=""
+            title="OECD國家家庭自付比台灣第2"
             description={[
               '台灣健保支出佔國內生產毛額3.6%，但民眾醫療相關自費負擔日漸吃重，家庭自付費用占經常性醫療保健支出比重達36.1%，在2016年全部OECD國家中僅次南韓為第2高。',
             ]}
@@ -186,7 +186,7 @@ const slides = [
       {
         enter: imageEnter,
         leave: leaveStay,
-        jsx: (<ImageWrapper><Image src={graphic03} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic04} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -211,7 +211,7 @@ const slides = [
       {
         enter: imageEnter,
         leave: leaveStay,
-        jsx: (<ImageWrapper><Image src={graphic04} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic05} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -222,7 +222,7 @@ const slides = [
               '住院：17天',
               '看護：$11,000(5天)',
               '其他：太太請假14天成本(事假無薪，估計$40,000)',
-              '實際負擔：$93,928($98,928?)',
+              '實際負擔：$98,928',
             ]}
             footnote=""
           />
@@ -235,7 +235,7 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic05} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic06} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -260,7 +260,7 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic06} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic03} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -281,12 +281,12 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic07} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic08} /></ImageWrapper>),
       },
       {
         jsx: (
           <TextBox
-            title=""
+            title="國人一年住院看護費逾661億"
             description={[
               '民間監督健保聯盟根據2017年健保給付資料分析，國人全年住院件數為3,297,000件，平均每件住院天數為9.55日。以一天看護費2,100元計算，看護需求規模一年高達661億元。',
             ]}
@@ -301,7 +301,7 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic08} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image src={graphic07} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -338,7 +338,7 @@ const slides = [
       {
         jsx: (
           <TextBox
-            title=""
+            title="共享經濟，全責照護省很大"
             description={[
               '醫院若實行全責照護，以健保拭浴、冰敷等基礎護理估算，平均每天每床約1,500元(以人力1:4床計)。',
               '若全責照護納入健保，民眾差額負擔500元或700元，每年全民可省504億到441億元看護費。',
@@ -359,7 +359,7 @@ const slides = [
       {
         jsx: (
           <TextBox
-            title=""
+            title="納入健保，要多付多少保費？"
             description={[
               '當民眾自付500元，健保約支出315億；若付700元，健保約支出252億。以前者計算，增加的健保支出若全由民眾埋單，每月保費約多114元；若與政府、雇主按比例分攤，民眾每月約多付42.2元保費。',
             ]}
@@ -376,6 +376,7 @@ const slides = [
         enter: noDelayEnter,
         jsx: (
           <TextPage
+            title="納入健保，要多付多少保費？"
             text={[
               '高齡化和少子化下，無人陪病的「住院孤兒」將愈來愈多，住院只能仰賴看護。',
               '有一天，當你生病時，花不花得起錢請看護？誰來當你的看護？醫院住院照護缺的一角，台灣何時能補上，不再拖垮許多家庭、甚至全體社會？',
