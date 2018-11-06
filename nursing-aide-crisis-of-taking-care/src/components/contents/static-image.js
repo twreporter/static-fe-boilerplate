@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import mq from '../../utils/media-query'
 
 const ImageWrapper = styled.div`
-  ${mq.mobileOnly`
+  ${mq.mobileBelow`
     height: 50%;
     width: auto;
     >svg, >img {

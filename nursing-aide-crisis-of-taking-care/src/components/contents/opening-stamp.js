@@ -1,4 +1,4 @@
-import stamp from '../../../static/nursing/opening-stamp.png'
+import stamp from '../../../static/opening-stamp.png'
 import styled from 'styled-components'
 import mq from '../../utils/media-query'
 

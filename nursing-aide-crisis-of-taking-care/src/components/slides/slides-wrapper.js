@@ -185,8 +185,8 @@ class Slides extends PureComponent {
           <Background />
           <ProgressBarConatiner>
             <ProgressBar
-              containerBg={styles.colors.pinkishGrey}
-              indicatorBg={styles.colors.dullOrange}
+              containerBg={styles.colors.progressContainer}
+              indicatorBg={styles.colors.progressIndicator}
               percent={(currentIndex / (_.get(this._slides, 'length') - 1)) * 100}
             />
           </ProgressBarConatiner>

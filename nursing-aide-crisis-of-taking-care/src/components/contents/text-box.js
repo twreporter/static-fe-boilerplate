@@ -6,7 +6,7 @@ import mq from '../../utils/media-query'
 
 const underline = css`
   text-decoration: none;
-  box-shadow: inset 0 -.5em rgba(219, 174, 37, 0.3);
+  box-shadow: inset 0 -.5em ${colors.textHighlight};
 `
 
 const Container = styled.div`
@@ -31,6 +31,9 @@ const Title = styled.h3`
   font-size: ${fontSize.textBoxTitle.mobile};
   font-weight: ${fontWeight.bold};
   margin-bottom: 12px;
+  ${mq.tinyOnly`
+    font-size: ${fontSize.textBoxTitle.tiny};
+  `}
   ${mq.desktopAbove`
     font-size: ${fontSize.textBoxTitle.desktop};
     margin-bottom: 25px;
@@ -43,6 +46,9 @@ const Description = styled.div`
   font-weight: ${fontWeight.light};
   line-height: 1.62;
   text-align: justify;
+  ${mq.mobileBelow`
+    line-height: ${props => (props.compact ? 1.25 : 1.62)};
+  `}
   ${mq.desktopAbove`
     font-size: ${fontSize.textBoxDescription.desktop};
     line-height: 1.75;
@@ -78,10 +84,10 @@ const Footnote = styled.div`
 
 class TextBox extends React.PureComponent {
   render() {
-    const { title, description, footnote } = this.props
+    const { title, description, footnote, compact } = this.props
     const titleJSX = !title ? null : <Title>{title}</Title>
     const descritionHtml = description.map((string => (!string ? '' : `<p>${string}</p>`))).join('')
-    const descriptionJSX = !description ? null : <Description dangerouslySetInnerHTML={{ __html: descritionHtml }} />
+    const descriptionJSX = !description ? null : <Description compact={compact} dangerouslySetInnerHTML={{ __html: descritionHtml }} />
     const footnoteJSX = !footnote ? null : <Footnote>{footnote}</Footnote>
     return (
       <Container>
@@ -94,12 +100,14 @@ class TextBox extends React.PureComponent {
 }
 
 TextBox.propTypes = {
+  compact: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.arrayOf(PropTypes.string),
   footnote: PropTypes.string,
 }
 
 TextBox.defaultProps = {
+  compact: false,
   title: '',
   description: [],
   footnote: '',

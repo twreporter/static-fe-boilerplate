@@ -6,8 +6,11 @@ import RelatedItem from './related-item'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  ${mq.tinyOnly`
+    padding-top: 25px;
+  `}
   ${mq.mobileOnly`
-    padding-top: 22%;
+    padding-top: 30px;
   `}
 `
 
@@ -23,20 +26,22 @@ const LogoWrapper = styled.a`
 `
 
 const Team = styled.div`
-  margin-top: 2.54em;
-  margin-bottom: 1.4em;
+  margin: 2.54em auto 1.4em auto;
   text-align: center;
   color: ${colors.text};
   opacity: 0.8;
   font-weight: ${fontWeight.normal};
   font-size: ${fontSize.team.mobile};
+  ${mq.mobileBelow`
+    width: 80%;
+  `}
   ${mq.desktopAbove`
     font-size: ${fontSize.team.destop};
     margin-bottom: 2.4em;
   `}
   p {
     margin: 0;
-    margin-bottom: 1.14em;
+    margin-bottom: 1em;
   }
   p:last-child {
     margin: 0;
@@ -48,16 +53,16 @@ class Colophon extends React.PureComponent {
     return (
       <Container>
         <RelatedItem
-          description="致死率極高的惡性間皮瘤，因為與石綿暴露的因果關係相當明確，在許多國家都是職業病補償大宗，但在台灣卻困難重重。"
-          imageSrc="https://storage.googleapis.com/twreporter-multimedia/images/20171017151337-4450561d64afde60d37cd23746720a6a-tiny.jpg"
-          title="致命粉塵的犧牲者：職業病被個人化的台灣社會"
-          to="https://www.twreporter.org/a/bookreview-occupational-disease-asbestos"
+          description="《報導者》與立委吳玉琴辦公室進行19家醫學中心看護調查，揭露醫院內的「照護黑洞」，不僅影響醫療品質、也損及病家權益。"
+          imageSrc="https://storage.googleapis.com/twreporter-multimedia/images/20181105222603-29ba42d5075131500bba492e0a02d4bc-tiny.jpg"
+          title="你不知的住院真相：看護7成外包，風險誰扛？"
+          to="https://www.twreporter.org/a/nursing-aide-crisis-of-taking-care-survey"
         />
         <RelatedItem
-          description="事發至今已近4個多月，羅玉芬的過勞職災終於得到重新認定機會，對家屬來說，不平的申訴之路終於往前跨出一小步。"
-          imageSrc="https://storage.googleapis.com/twreporter-multimedia/images/20170905135019-94174b03fc05cfbc1d05611dff43b3d9-tiny.jpeg"
-          title="【全聯員工之死】 資方提供班表不實 重啟過勞職災認定"
-          to="https://www.twreporter.org/a/death-of-pxmart-labor"
+          description="台大新竹分院的全院共聘照護制，是台灣第三波全責照護實驗的指針。它如何讓照服員和家屬安心信任新制度？"
+          imageSrc="https://storage.googleapis.com/twreporter-multimedia/images/20181105225450-f2e935c604be6985de35dcefd769381a-tiny.jpg"
+          title="台大新竹分院的照服員共聘制，會是全責照護的曙光嗎？"
+          to="https://www.twreporter.org/a/nursing-aide-crisis-of-taking-care-total-care"
         />
         <Team>
           <p>文：楊惠君、葉瑜娟、陳麗婷</p>
@@ -65,6 +70,7 @@ class Colophon extends React.PureComponent {
           <p>工程：余崇任</p>
           <p>PM：陳貞樺</p>
           <p>編輯：張詩芸</p>
+          <p>諮詢、 感謝：周照芳、滕西華、吳玉琴、陳曼寧</p>
         </Team>
         <LogoWrapper href="https://www.twreporter.org" target="_blank"><Logo /></LogoWrapper>
       </Container>

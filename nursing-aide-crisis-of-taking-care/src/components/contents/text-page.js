@@ -10,6 +10,9 @@ const underline = css`
 `
 
 const Container = styled.div`
+  ${mq.tinyOnly`
+    padding-top: 30px;
+  `}
   ${mq.mobileOnly`
     padding-top: 40px;
   `}
@@ -52,7 +55,7 @@ const Container = styled.div`
   }
 `
 
-const Title = styled.h3 `
+const Title = styled.h3`
   display: block;
   margin: 0;
   padding: 0;
@@ -62,6 +65,9 @@ const Title = styled.h3 `
   font-size: ${fontSize.textBoxTitle.mobile};
   font-weight: ${fontWeight.bold};
   margin-bottom: 12px;
+  ${mq.tinyOnly`
+    line-height: 1.48;
+  `}
   ${mq.desktopAbove`
     font-size: ${fontSize.textBoxTitle.desktop};
     margin-bottom: 25px;
@@ -71,8 +77,19 @@ const Title = styled.h3 `
 const Text = styled.div``
 
 class TextPage extends React.PureComponent {
+  static propTypes = {
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
+    title: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  static defaultProps = {
+    title: '',
+    children: null,
+  }
+
   render() {
-    const { title, text } = this.props
+    const { children, title, text } = this.props
     const titleJSX = !title ? null : <Title>{title}</Title>
     const textHtml = Array.isArray(text) ? text.map((string => (!string ? '' : `<p>${string}</p>`))).join('') : text
     const textJSX = !textHtml ? null : <Text dangerouslySetInnerHTML={{ __html: textHtml }} />
@@ -80,13 +97,10 @@ class TextPage extends React.PureComponent {
       <Container>
         {titleJSX}
         {textJSX}
+        {children}
       </Container>
-    ) 
+    )
   }
-}
-
-TextPage.propTypes = {
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 }
 
 export default TextPage

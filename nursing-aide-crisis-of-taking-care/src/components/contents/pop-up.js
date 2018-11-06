@@ -1,4 +1,4 @@
-import { fontWeight } from '../../constants/style-variables'
+import { colors, fontWeight } from '../../constants/style-variables'
 import mq from '../../utils/media-query'
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
@@ -25,7 +25,7 @@ const PopUpContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   z-index: 98;
-  ${mq.mobileOnly`
+  ${mq.mobileBelow`
     width: 100%;
     animation: ${openAnimation('100%')} 200ms ease-out;
   `}
@@ -41,12 +41,16 @@ const PopUpContainer = styled.div`
 
 const Toggle = styled.div`
   border-radius: 100% 0 0 0;
-  background: #e75f55;
+  background: ${colors.popupToggle};
   position: absolute;
   right: 0;
   bottom: 0;
   width: 52px;
   height: 52px;
+  ${mq.tinyOnly`
+    width: 42px;
+    height: 42px;
+  `}
   z-index: 99;
   cursor: pointer;
   &::after {
@@ -68,6 +72,9 @@ const PopUpContent = styled.div`
   color: #eeeeee;
   width: 84%;
   top: 30px;
+  ${mq.tinyOnly`
+    top: 0;
+  `}
   ${mq.tabletOnly`
     top: 5%;
   `}
@@ -83,7 +90,7 @@ const PopUpContent = styled.div`
   }
   p {
     font-weight: ${fontWeight.light};
-    ${mq.mobileOnly`
+    ${mq.mobileBelow`
       font-size: 16px;
     `}
     font-size: 18px;

@@ -35,6 +35,9 @@ const Title = styled.h1`
   line-height: 1;
   margin: 0;
   margin-bottom: 15px;
+  ${mq.tinyOnly`
+    font-size: ${styles.fontSize.openingTitle.tiny};
+  `}
   ${mq.tabletOnly`
     font-size: ${styles.fontSize.openingTitle.tablet};
   `}
@@ -49,8 +52,11 @@ const Subtitle = styled.p`
   font-weight: ${styles.fontWeight.normal};
   font-size: ${styles.fontSize.openingSubtitle.mobile};
   line-height: 1;
-  margin: 0;
-  margin-bottom: 16px;
+  margin: 0 auto 16px auto;
+  ${mq.tinyOnly`
+    font-size: ${styles.fontSize.openingSubtitle.tiny};
+    width: 90%;
+  `}
   ${mq.tabletOnly`
     font-size: ${styles.fontSize.openingSubtitle.tablet};
   `}
@@ -94,7 +100,7 @@ class OpeningWords extends React.PureComponent {
     return (
       <Container>
         <Title>被隱藏的醫療帳單</Title>
-        <Subtitle>一年600億住院看護費用</Subtitle>
+        <Subtitle>一年600億住院看護費用誰該埋單？</Subtitle>
         <LogoWrapper><Logo /></LogoWrapper>
       </Container>
     )

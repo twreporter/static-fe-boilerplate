@@ -1,7 +1,11 @@
 import { css } from 'styled-components'
 
 export const breakPoints = {
+  tiny: {
+    max: 320,
+  },
   mobile: {
+    min: 321,
     max: 767,
   },
   tablet: {
@@ -18,7 +22,17 @@ export const breakPoints = {
 }
 
 const mq = {
+  tinyOnly: (...args) => css`
+    @media (max-width: ${breakPoints.tiny.max}px) {
+      ${css(...args)}
+    }
+  `,
   mobileOnly: (...args) => css`
+    @media (min-width: ${breakPoints.mobile.min}px) and (max-width: ${breakPoints.mobile.max}px) {
+      ${css(...args)}
+    }
+  `,
+  mobileBelow: (...args) => css`
     @media (max-width: ${breakPoints.mobile.max}px) {
       ${css(...args)}
     }

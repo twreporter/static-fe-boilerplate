@@ -37,6 +37,9 @@ const TextBox = styled.div`
   justify-content: center;
   width: calc(100% - ${itemHeight.mobile});
   padding: 15px 20px;
+  ${mq.tabletBelow`
+    padding: 12px 12px;
+  `}
   background-color: #d8d8d8;
   ${mq.desktopAbove`
     padding: 8px 14px;

@@ -14,23 +14,27 @@ export const fontWeight = {
 
 export const colors = {
   white: '#FFFFFF',
-  dullOrange: '#DBAE25',
-  pinkishGrey: '#BEBEBE',
+  broswerTheme: '#A5BF97',
+  progressContainer: '#d6d6d6',
+  progressIndicator: '#A5BF97',
+  popupToggle: '#A5BF97',
   text: '#4a4a4a',
-  textHighlight: '#DBAE25',
+  textHighlight: 'rgba(221, 201, 203, 0.86)',
   footnote: '#7A7A7A',
   background: '#eeeeee',
   linkHover: '#6A5C2C',
   link: '#DBAE25',
-  pageText: '#404040',
+  pageText: '#4a4a4a',
 }
 
 export const fontSize = {
   textBoxTitle: {
+    tiny: '17px',
     mobile: '18px',
     desktop: '24px',
   },
   textBoxDescription: {
+    tiny: '14px',
     mobile: '18px',
     desktop: '20px',
   },
@@ -39,11 +43,13 @@ export const fontSize = {
     desktop: '14px',
   },
   openingTitle: {
+    tiny: '34px',
     mobile: '36px',
     tablet: '36px',
     desktop: '45px',
   },
   openingSubtitle: {
+    tiny: '18px',
     mobile: '20px',
     tablet: '24px',
     desktop: '30px',

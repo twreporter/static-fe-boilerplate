@@ -16,7 +16,3 @@ export const defaultLeave = {
   duration: 200,
   interruptBehavior: 'finish',
 }
-
-export const defaultStyle = {
-  // opacity: 0,
-}

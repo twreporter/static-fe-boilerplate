@@ -21,7 +21,7 @@ const CenteringContainer = styled.section`
     }
     return zIndex.slidesContainerFocus
   }};
-  ${mq.mobileOnly`
+  ${mq.mobileBelow`
     flex-direction: column;
     justify-content: flex-start;
   `}

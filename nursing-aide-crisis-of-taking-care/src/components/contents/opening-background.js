@@ -1,6 +1,6 @@
 import mq from '../../utils/media-query'
-import openingBgDesktop from '../../../static/nursing/opening-desktop.png'
-import openingBgMobile from '../../../static/nursing/opening-mobile.png'
+import openingBgDesktop from '../../../static/opening-desktop.png'
+import openingBgMobile from '../../../static/opening-mobile.png'
 import styled from 'styled-components'
 
 const Background = styled.div`

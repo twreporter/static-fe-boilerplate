@@ -1,9 +1,14 @@
-import React from 'react'
-import TextBox from '../components/contents/text-box'
+import Colophon from '../components/contents/colophon'
+import GoToTopic from '../components/contents/go-to-topic'
 import ImageWrapper from '../components/contents/static-image'
-import styled from 'styled-components'
-import PopUp from '../components/contents/pop-up'
+import OpeningBackground from '../components/contents/opening-background'
 import OpeningStamp from '../components/contents/opening-stamp'
+import OpeningWords from '../components/contents/opening-words'
+import PopUp from '../components/contents/pop-up'
+import React from 'react'
+import styled from 'styled-components'
+import TextBox from '../components/contents/text-box'
+import TextPage from '../components/contents/text-page'
 
 import graphic01 from '../../static/graphic/graphic-1.png'
 import graphic02 from '../../static/graphic/graphic-2.png'
@@ -15,12 +20,7 @@ import graphic07 from '../../static/graphic/graphic-7.png'
 import graphic08 from '../../static/graphic/graphic-8.png'
 import graphic09 from '../../static/graphic/graphic-9.png'
 import graphic10 from '../../static/graphic/graphic-10.png'
-
-import OpeningBackground from '../components/contents/opening-background'
-import OpeningWords from '../components/contents/opening-words'
-import TextPage from '../components/contents/text-page'
-
-import Colophon from '../components/contents/colophon'
+import topicImageSrc from '../../static/topic-image.jpg'
 
 const Image = styled.img`
   width: 100%;
@@ -144,12 +144,12 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic01} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image smallScreenHeight="calc(100% - 216px)" src={graphic01} /></ImageWrapper>),
       },
       {
         jsx: (
           <TextBox
-            title="OECD國家家庭自付比台灣第2"
+            title="OECD第2高的醫療費用家庭自付比"
             description={[
               '台灣健保支出佔國內生產毛額3.6%，但民眾醫療相關自費負擔日漸吃重，家庭自付費用占經常性醫療保健支出比重達36.1%，在2016年全部OECD國家中僅次南韓為第2高。',
             ]}
@@ -164,7 +164,7 @@ const slides = [
       {
         enter: imageEnter,
         leave: leaveStay,
-        jsx: (<ImageWrapper><Image src={graphic02} /></ImageWrapper>),
+        jsx: (<ImageWrapper smallScreenHeight="calc(100% - 270px)" ><Image src={graphic02} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -191,13 +191,13 @@ const slides = [
       {
         jsx: (
           <TextBox
+            compact
             title=""
             description={[
               '疾病：脊椎滑脫，進行椎間盤切除後融合及骨釘固定手術',
               '住院：5天',
-              '自費骨釘：$117,132',
-              '看護：$11,000（5天）',
-              '實際負擔：$128,132',
+              '<u>看護：$11,000（5天）</u>',
+              '<u>帳單支出＋實際負擔共計：$131,019</u>',
             ]}
             footnote=""
           />
@@ -216,13 +216,14 @@ const slides = [
       {
         jsx: (
           <TextBox
+            compact
             title=""
             description={[
               '疾病：腦瘤，手術切除',
               '住院：17天',
-              '看護：$11,000(5天)',
-              '其他：太太請假14天成本(事假無薪，估計$40,000)',
-              '實際負擔：$98,928',
+              '<u>看護：$11,000（5天）</u>',
+              '其他：太太請假14天成本（事假無薪，估計$40,000）',
+              '<u>帳單支出＋實際負擔共計：$98,928</u>',
             ]}
             footnote=""
           />
@@ -240,14 +241,15 @@ const slides = [
       {
         jsx: (
           <TextBox
+            compact
             title=""
             description={[
               '疾病：血管性失智，因人工全髖關節置換術入院',
               '住院：6天',
-              '看護成本：$4,400(6天，以原僱用家庭看護每月$22,000計算)',
+              '<u>看護成本：$4,400（6天，以原僱用家庭看護每月$22,000計算）</u>',
               '自費救護車2趟：$3,200',
               '自費輪椅、護具支架：$20,000',
-              '實際負擔：$38,367',
+              '<u>帳單支出＋實際負擔共計：$38,367</u>',
             ]}
             footnote=""
           />
@@ -260,14 +262,14 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic03} /></ImageWrapper>),
+        jsx: (<ImageWrapper smallScreenHeight="calc(100% - 270px)" ><Image src={graphic03} /></ImageWrapper>),
       },
       {
         jsx: (
           <TextBox
             title="住院請看護，每天2千起跳"
             description={[
-              '《報導者》的「住院看護大調查」統整各院看護行情，24小時費用約2,000～2,400元；12小時約為1,200～1,400元。',
+              '《報導者》的「全台醫學中心看護大調查」統整各院看護行情，24小時費用約2,000～2,400元；12小時約為1,200～1,400元。',
               '還有許多潛規則：隔離病房、需要復健的病人要加錢，無法只請半天的看護等。',
             ]}
             footnote=""
@@ -281,7 +283,7 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic08} /></ImageWrapper>),
+        jsx: (<ImageWrapper><Image smallScreenHeight="calc(100% - 216px)" src={graphic08} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -301,7 +303,7 @@ const slides = [
     contents: [
       {
         enter: imageEnter,
-        jsx: (<ImageWrapper><Image src={graphic07} /></ImageWrapper>),
+        jsx: (<ImageWrapper smallScreenHeight="calc(100% - 270px)" ><Image src={graphic07} /></ImageWrapper>),
       },
       {
         jsx: (
@@ -324,9 +326,9 @@ const slides = [
         jsx: (
           <PopUp>
             <h3>看護費用總支出計算方式</h3>
-            <p>3,297,000(全年住院件數)X9.55(平均住院天數)X2,100元(平均坊間每日看護費用)=661億</p>
-            <p>民眾自付500元：即每日省1600元X3,297,000(全年住院件數)X9.55(平均住院天數=約省下504億元</p>
-            <p>民眾自付700元：即每日省1400元X3,297,000(全年住院件數)X9.55(平均住院天數) =約省下441億元</p>
+            <p>3,297,000（全年住院件數）× 9.55（平均住院天數）× 2,100元（平均坊間每日看護費用）＝ 661億元</p>
+            <p>民眾自付500元：即每日省1,600元 × 3,297,000（全年住院件數）× 9.55（平均住院天數）＝ 約省下504億元</p>
+            <p>民眾自付700元：即每日省1,400元 × 3,297,000（全年住院件數）× 9.55（平均住院天數）＝ 約省下441億元</p>
             <p>以自付500元為例，就可以節省504元喔！</p>
           </PopUp>
         ),
@@ -340,7 +342,7 @@ const slides = [
           <TextBox
             title="共享經濟，全責照護省很大"
             description={[
-              '醫院若實行全責照護，以健保拭浴、冰敷等基礎護理估算，平均每天每床約1,500元(以人力1:4床計)。',
+              '醫院若實行全責照護，以健保拭浴、冰敷等基礎護理估算，平均每天每床約1,500元（以人力1:4床計）。',
               '若全責照護納入健保，民眾差額負擔500元或700元，每年全民可省504億到441億元看護費。',
             ]}
             footnote=""
@@ -376,12 +378,19 @@ const slides = [
         enter: noDelayEnter,
         jsx: (
           <TextPage
-            title="納入健保，要多付多少保費？"
+            title="「住院孤兒」時代在即，誰來照護病床前的我們？"
             text={[
               '高齡化和少子化下，無人陪病的「住院孤兒」將愈來愈多，住院只能仰賴看護。',
               '有一天，當你生病時，花不花得起錢請看護？誰來當你的看護？醫院住院照護缺的一角，台灣何時能補上，不再拖垮許多家庭、甚至全體社會？',
             ]}
-          />
+          >
+            <GoToTopic
+              href="https://www.twreporter.org/topics/nursing-aide-crisis-of-taking-care"
+              imageSrc={topicImageSrc}
+              prefix="完整專題請見：【病床邊的照護危機：一年660億住院看護需求，誰來把關？】"
+              shortPrefix="看完整專題：病床邊的照護危機"
+            />
+          </TextPage>
         ),
       },
     ],
@@ -395,26 +404,6 @@ const slides = [
       },
     ],
   },
-  // {
-  //   containerType: 'centering',
-  //   contents: [
-  //     {
-  //       jsx: (<ImageWrapper><Xxxxxxxxxxxxxxxxxxxxxxxxxxxx /></ImageWrapper>),
-  //     },
-  //     {
-  //       jsx: (
-  //         <TextBox
-  //           title="xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  //           description={[
-  //             'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-  //             'xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-  //           ]}
-  //           footnote="xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  //         />
-  //       ),
-  //     },
-  //   ],
-  // },
 ]
 
 export default slides

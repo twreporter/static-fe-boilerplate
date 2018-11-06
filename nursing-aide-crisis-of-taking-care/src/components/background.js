@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import mq from '../utils/media-query'
-import mobileBgLeft from '../../static/nursing/background-mobile-left.png'
-import tabletBgLeft from '../../static/nursing/background-tablet-left.png'
-import desktopBgLeft from '../../static/nursing/background-desktop-left.png'
-import hdBgLeft from '../../static/nursing/background-hd-left.png'
-import mobileBgRight from '../../static/nursing/background-mobile-right.png'
-import tabletBgRight from '../../static/nursing/background-tablet-right.png'
-import desktopBgRight from '../../static/nursing/background-desktop-right.png'
-import hdBgRight from '../../static/nursing/background-hd-right.png'
+import mobileBgLeft from '../../static/background-mobile-left.png'
+import tabletBgLeft from '../../static/background-tablet-left.png'
+import desktopBgLeft from '../../static/background-desktop-left.png'
+import hdBgLeft from '../../static/background-hd-left.png'
+import mobileBgRight from '../../static/background-mobile-right.png'
+import tabletBgRight from '../../static/background-tablet-right.png'
+import desktopBgRight from '../../static/background-desktop-right.png'
+import hdBgRight from '../../static/background-hd-right.png'
 
 const Container = styled.div`
   position: absolute;
@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Column = styled.div`
   background-size: contain;
-  ${mq.mobileOnly`
+  ${mq.mobileBelow`
     flex: 0 0 20px;
     background-image: url(${props => (props.reversed ? mobileBgRight : mobileBgLeft)});
   `}
