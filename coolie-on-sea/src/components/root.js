@@ -1,36 +1,51 @@
 /* eslint no-console:0, no-unused-expressions: 0 react/no-array-index-key:0 */
-import { scrollLocker } from '../utils/scroll-manager'
-import { sectionTitleNoOrgName, sectionOgUrl, articleSlug } from '../constants/metadata'
-import anchors from '../data/anchors'
-import AudioBox from './audio-box'
-import audioSrc from '../data/audio-src'
 import BlockQuote from './blockquote'
 import BookIntro from './book-intro'
-import ccAuthorize from '../constants/authorize'
 import CCParagraph from './ccparagraph'
 import Character from './character'
 import Credits from './credits'
 import DonationBox from './donation-box'
+import FisherBaseMap from './fisher-base-map'
+import FloatGraphics from './float-graphics'
 import Footer from '@twreporter/react-components/lib/footer'
-import getQueryVarable from '../utils/get-query-variable'
-import HeadBar from './head-bar'
 import HeaderOne from './header-one'
 import HeaderTwo from './header-two'
 import Image from './image'
 import ImageDiff from './image-diff'
 import InfoBox from './infobox'
 import IntroParagraph from './intro-paragraph'
+import LeadingVideo from './leading-video' 
+import MapStory from './map-story'
 import Opening from './opening'
 import Paragraph from './paragraph'
+import PhotoStory from './photo-story'
 import React from 'react'
 import SECTIONSDATA from '../data/content/sections'
 import ShareButton from './share-button'
+import SideBar from './side-bar' 
 import SmallImage from './small-image'
+import Team from './team'
+import UnorderList from './unorder-list'
+import Waypoint from 'react-waypoint'
+import anchors from '../data/anchors'
+import audioSrc from '../data/audio-src'
+import ccAuthorize from '../constants/authorize'
+import getQueryVarable from '../utils/get-query-variable'
+import imgSrc from '../data/img-src'
+import screen from '../utils/screen'
 import smoothScroll from 'smoothscroll'
 import styled, { injectGlobal } from 'styled-components'
-import Team from './team'
 import teamMembers from '../data/credits'
 import theme from '../utils/theme'
+import throttle from 'lodash/throttle'
+import { scrollLocker } from '../utils/scroll-manager'
+import { sectionTitleNoOrgName, sectionOgUrl, articleSlug } from '../constants/metadata'
+import layout from '../utils/layout'
+
+// lodash
+const _ = {
+  throttle
+}
 
 const ANCHOR_SEARCH_KEY = 'article'
 
@@ -74,43 +89,99 @@ const Background = styled.div`
   background: ${theme.colors.bg.app};
 `
 
+const BackToTopButton = styled.img`
+ position: fixed;
+ width: 52px;
+ height: 52px;
+ cursor: pointer;
+ opacity: ${props => props.show ? 1 : 0};
+ transition: opacity .3s linear;
+ ${screen.tabletBelow`
+   bottom: 25px;
+   right: 25px;
+ `}
+ ${screen.desktopAbove`
+   width: 36px;
+   height: 36px;
+ `}
+ ${screen.desktopOnly`
+   top: calc(264 / 900 * 100%);
+   right: calc(50% - ${layout.desktop.width.small}px / 2 - (119 / 1024) * 100vw);
+ `}
+ ${screen.hdAbove`
+   top: calc(364 / 900 * 100%);
+   right: calc(50% - ${layout.hd.width.small}px / 2 - (100 / 1440) * 100vw);
+ `}
+`
+
+const scrollPosition = {
+  y: 0
+}
+
+const desktopBreakPoint = 1024
+
 export default class Root extends React.Component {
   constructor(props) {
-    super(props)
-    this.smoothscrollToTargetAnchor = this._smoothscrollToTargetAnchor.bind(this)
-    this.onStorySelect = this._onStorySelect.bind(this)
-    this.audioInitiated = this._audioInitiated.bind(this)
-    this.audios = []
+    super(props) 
+    this.insideArticle = false
     this.state = {
-      selectedRoleIndex: null,
-      selectedConversationId: null
+      showBackToTop: false
     }
+    this.smoothscrollToTargetAnchor = this._smoothscrollToTargetAnchor.bind(this)
+    this.onArticleSelect = this._onArticleSelect.bind(this)
+    this.showBackToTopButton = this._showBackToTopButton.bind(this)
+    this.handleScroll = this._handleScroll.bind(this)
+    this._onScroll = _.throttle(this.handleScroll, 300).bind(this)
   }
+
   componentDidMount() {
-    
+    // PIXI.utils.skipHello()
     // EX: if the url path is /?article=article1
     // after this component mounted and rendered,
     // the browser will smoothly scroll to article1
     
     this.smoothscrollToTargetAnchor()
-    // this._autoPlayHandler()
+    if (window.innerWidth < desktopBreakPoint) {
+      window.addEventListener('scroll', this._onScroll)
+    }
   }
-  componentWillUnmount() {
-    this.audios = null
+
+  componentWillUnMount() {
+    this.insideArticle = null
+    window.removeEventListener('scroll', this._onScroll)
   }
+
+  _handleScroll() {
+    const { showBackToTop } = this.state
+    const currentTopY = window.scrollY
+
+    // Calculate scrolling distance to determine whether tools are displayed
+    const lastY = scrollPosition.y
+    const distance = currentTopY - lastY
+    scrollPosition.y = currentTopY
+    if (distance > 30) {
+      if (showBackToTop && this.insideArticle) {
+        this.showBackToTopButton(false, true)
+      }
+    } else if (distance < -100) {
+      if (!showBackToTop && this.insideArticle) {
+        this.showBackToTopButton(true, true)
+      }
+    }
+  }
+
   _smoothscrollToTargetAnchor() {
     const anchorQuery = getQueryVarable(ANCHOR_SEARCH_KEY)
     if (anchorQuery) {
       const targetAnchor = document.getElementById(anchorQuery)
-
-      // TODO: Better to use side-bar's function
       smoothScroll(targetAnchor)
 
       // don't scroll, jump to anchor position
         // window.scroll(0, targetAnchor.getBoundingClientRect().top)
     }
   }
-  _onStorySelect(storyId, autoScroll = true) {
+
+  _onArticleSelect(storyId, autoScroll = true) {
     const storySpliter = storyId.split('-')
     const conversationId = storySpliter[0] + '-' + storySpliter[1]
     const roleIndex = storySpliter[2]
@@ -119,38 +190,6 @@ export default class Root extends React.Component {
     if (autoScroll) {
       smoothScroll(document.getElementById(conversationId))
     }
-
-    this.setState({
-      selectedConversationId: conversationId,
-      selectedRoleIndex: roleIndex
-    })
-
-  }
-
-  _autoPlayHandler() {
-    // Test whether the user agent(browser) support auto-play
-    const fakeAudio = new Audio(audioSrc['blank'])
-    fakeAudio.play()
-      .then(() => {
-        console.log('the browser has functional auto-play')
-      })
-      .catch(() => {
-        console.log('the browser block auto-play')
-        scrollLocker()
-      })
-  }
-
-  _playAllAudios() {
-    for (const a of this.audios) {
-      if (typeof a === 'object') {
-        a.play()
-        a.pause()
-      }
-    }
-  }
-
-  _audioInitiated(audio) {
-    this.audios.push(audio)
   }
 
   _renderSection(sectionBlocks, sectionIndex) {
@@ -180,8 +219,18 @@ export default class Root extends React.Component {
         Component = Character
       } else if (block.type === 'image-diff') {
         Component = ImageDiff
-      } else if (block.type === 'audio-box') {
-        Component = AudioBox
+      } else if (block.type === 'photo-story') {
+        Component = PhotoStory
+      } else if (block.type === 'map-story') {
+        Component = MapStory
+      } else if (block.type === 'fisher-base-map') {
+        Component = FisherBaseMap
+      } else if (block.type === 'unorder-list') {
+        Component = UnorderList
+      } else if (block.type === 'float-graphics') {
+        Component = FloatGraphics
+      } else if (block.type == 'leading-video') {
+        Component = LeadingVideo
       }
 
       if (Component == HeaderOne) {
@@ -212,15 +261,8 @@ export default class Root extends React.Component {
             textAlign={block.textAlign}
           />
         )
-      } else if (Component == AudioBox) {
-        return (
-          <Component 
-            key={`block_${block.type}_${blockindex}`}
-            content={block.content}
-            audioInitiated={this.audioInitiated}
-          />
-        )
       }
+
       return (
         <Component
           key={`block_${block.type}_${blockindex}`}
@@ -240,22 +282,42 @@ export default class Root extends React.Component {
     })
   }
 
+  _showBackToTopButton(toShow, isInsideArticleBody = false) {
+    this.insideArticle = isInsideArticleBody
+    this.setState({
+      showBackToTop: toShow 
+    }) 
+  }
   render() {
+    const { showBackToTop } = this.state
     return (
       <React.Fragment>
+        <BackToTopButton
+          src={imgSrc['back_to_top']}
+          show={showBackToTop}
+          onClick={() => { smoothScroll(0) }}
+        />
         <Background>
           <Opening
-            playAllAudios={this._playAllAudios}
             firstAnchorId={anchors[0].id}
+            showBackToTopButton={this.showBackToTopButton}
           />
-          <HeadBar anchors={anchors}>
+          <SideBar anchors={anchors}>
             {this._renderSections(SECTIONSDATA)}
-          </HeadBar>
+          </SideBar>
           <DonationBox />
           <CCParagraph content={[ccAuthorize]} />
           <Team credits={teamMembers} />
         </Background>
-        <Footer />
+        <Waypoint
+          onEnter={this.showBackToTopButton.bind(this, false, true)}
+          onLeave={this.showBackToTopButton.bind(this, true, true)}
+          fireOnRapidScroll
+        >
+          <div>
+            <Footer />
+          </div>
+        </Waypoint>
       </React.Fragment>
     )
   }

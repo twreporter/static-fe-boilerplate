@@ -1,0 +1,258 @@
+[
+  {
+    "country": "南非共和國",
+    "port": "開普敦",
+    "location": {
+      "latitude": "-33.911157",
+      "longitude": "18.433898"
+    }
+  },
+  {
+    "country": "千里達共和國",
+    "port": "西班牙港",
+    "location": {
+      "latitude": "10.646451",
+      "longitude": "-61.510686"
+    }
+  },
+  {
+    "country": "烏拉圭",
+    "port": "蒙特維多",
+    "location": {
+      "latitude": "-34.876611",
+      "longitude": "-56.214132"
+    }
+  },
+  {
+    "country": "英屬福克蘭群島",
+    "port": "史坦利港",
+    "location": {
+      "latitude": "-51.692685",
+      "longitude": "-57.836714"
+    }
+  },
+  {
+    "country": "馬來西亞",
+    "port": "檳城",
+    "location": {
+      "latitude": "5.426339",
+      "longitude": "100.339949"
+    }
+  },
+  {
+    "country": "馬來西亞",
+    "port": "蘭卡威",
+    "location": {
+      "latitude": "6.356376",
+      "longitude": "99.782764"
+    }
+  },
+  {
+    "country": "南非共和國",
+    "port": "德班",
+    "location": {
+      "latitude": "-29.871553",
+      "longitude": "31.020643"
+    }
+  },
+  {
+    "country": "泰國",
+    "port": "普吉",
+    "location": {
+      "latitude": "7.906365",
+      "longitude": "98.340741"
+    }
+  },
+  {
+    "country": "泰國",
+    "port": "曼谷",
+    "location": {
+      "latitude": "13.706386",
+      "longitude": "100.502211"
+    }
+  },
+  {
+    "country": "塞席爾共和國",
+    "port": "維多利亞港",
+    "location": {
+      "latitude": "-4.619007",
+      "longitude": "55.456392"
+    }
+  },
+  {
+    "country": "模里西斯",
+    "port": "路易士港",
+    "location": {
+      "latitude": "-20.151998",
+      "longitude": "57.489561"
+    }
+  },
+  {
+    "country": "新加坡",
+    "port": "新加坡港",
+    "location": {
+      "latitude": "1.274669",
+      "longitude": "103.782980"
+    }
+  },
+  {
+    "country": "斯里蘭卡",
+    "port": "可倫坡",
+    "location": {
+      "latitude": "6.951823",
+      "longitude": "79.851059"
+    }
+  },
+  {
+    "country": "巴布亞紐幾內亞",
+    "port": "拉包爾",
+    "location": {
+      "latitude": "-4.201027",
+      "longitude": "152.169671"
+    }
+  },
+  {
+    "country": "巴布亞紐幾內亞",
+    "port": "韋瓦克",
+    "location": {
+      "latitude": "-3.577754",
+      "longitude": "143.674310"
+    }
+  },
+  {
+    "country": "日本",
+    "port": "清水",
+    "location": {
+      "latitude": "35.027711",
+      "longitude": "138.513371"
+    }
+  },
+  {
+    "country": "日本",
+    "port": "久里浜",
+    "location": {
+      "latitude": "35.222411",
+      "longitude": "139.714629"
+    }
+  },
+  {
+    "country": "日本",
+    "port": "橫須賀",
+    "location": {
+      "latitude": "35.286089",
+      "longitude": "139.656689"
+    }
+  },
+  {
+    "country": "日本",
+    "port": "燒津",
+    "location": {
+      "latitude": "34.862393",
+      "longitude": "138.330232"
+    }
+  },
+  {
+    "country": "索羅門群島",
+    "port": "赫尼拉",
+    "location": {
+      "latitude": "-9.429429",
+      "longitude": "159.966873"
+    }
+  },
+  {
+    "country": "索羅門群島",
+    "port": "諾羅",
+    "location": {
+      "latitude": "-9.789601",
+      "longitude": "160.273410"
+    }
+  },
+  {
+    "country": "法屬坡里尼西亞",
+    "port": "大溪地",
+    "location": {
+      "latitude": "-17.532974",
+      "longitude": "-149.574370"
+    }
+  },
+  {
+    "country": "美屬薩摩亞",
+    "port": "巴哥巴哥",
+    "location": {
+      "latitude": "11.182200",
+      "longitude": "-60.738785"
+    }
+  },
+  {
+    "country": "秘魯",
+    "port": "卡要",
+    "location": {
+      "latitude": "-12.139463",
+      "longitude": "-77.016703"
+    }
+  },
+  {
+    "country": "密克羅尼西亞",
+    "port": "波納佩",
+    "location": {
+      "latitude": "6.870275",
+      "longitude": "158.143282"
+    }
+  },
+  {
+    "country": "斐濟",
+    "port": "蘇瓦",
+    "location": {
+      "latitude": "-18.131089",
+      "longitude": "178.425084"
+    }
+  },
+  {
+    "country": "菲律賓",
+    "port": "納卯",
+    "location": {
+      "latitude": "7.035075",
+      "longitude": "125.536141"
+    }
+  },
+  {
+    "country": "大韓民國",
+    "port": "釜山",
+    "location": {
+      "latitude": "35.112990",
+      "longitude": "129.050023"
+    }
+  },
+  {
+    "country": "諾魯",
+    "port": "諾魯",
+    "location": {
+      "latitude": "-0.553468",
+      "longitude": "166.927414"
+    }
+  },
+  {
+    "country": "吐瓦魯",
+    "port": "富納富提",
+    "location": {
+      "latitude": "-8.526571",
+      "longitude": "179.193306"
+    }
+  },
+  {
+    "country": "馬紹爾群島",
+    "port": "馬久羅",
+    "location": {
+      "latitude": "7.101342",
+      "longitude": "171.184668"
+    }
+  },
+  {
+    "country": "帛琉共和國",
+    "port": "馬拉卡",
+    "location": {
+      "latitude": "-9.557109",
+      "longitude": "124.994831"
+    }
+  }
+]

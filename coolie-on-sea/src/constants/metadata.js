@@ -1,9 +1,12 @@
+export const updateDate = '2018.12.11'
+
 // metadata of main article
 const theReporter = ' - 報導者 The Reporter'
-const slug = 'taiwan-boy-in-the-dress-gcs'
+const slug = 'coolie-on-sea'
 export const siteURL = 'https://www.twreporter.org/'
-export const titleNoOrgName = '穿裙子的男孩們'
+export const titleNoOrgName = '海上人口販運風暴'
 export const title = `${titleNoOrgName}${theReporter}`
+export const subtitle = '血淚漁場二部曲' 
 export const ogDescription = '一本《穿裙子的男孩》引起部分家長關切及後續風波，《報導者》以4名性別認同各種光譜與變裝欲者的真實故事，呼應WHO的最新定義：他們沒有病，需要的不是「治療」，而是「理解」。'
 export const ogImage = `https://storage.googleapis.com/twreporter-infographics/${slug}/static/og-image.png`
 export const ogUrl = `https://www.twreporter.org/i/${slug}`
@@ -35,7 +38,7 @@ export const sectionTitle = [
 ]
 
 export const articleSlug = [
-  '',
+  'intro',
   'taiwan-boy-in-the-dress-twcdfamily',
   'taiwan-boy-in-the-dress-transsexual-erika',
   'taiwan-boy-in-the-dress-transgender-lilico',

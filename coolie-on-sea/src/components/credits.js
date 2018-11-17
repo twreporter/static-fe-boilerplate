@@ -1,5 +1,5 @@
 import BaseComponents from './base'
-import map from 'lodash.map'
+import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import React from 'react'
 import screen from '../utils/screen'
@@ -51,7 +51,7 @@ const MemberWithLink = styled.a`
   font-weight: ${theme.typography.font.weight.regular};
   color: ${theme.colors.text.paragraph};
   font-size: ${fontSize};
-  border-bottom: 1px solid rgb(199, 27, 10);
+  border-bottom: 1px solid ${theme.colors.primary};
   transition: color 0.5s ease 0s;
   &:hover{
     color: rgb(199, 27, 10);

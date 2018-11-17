@@ -36,7 +36,7 @@ class HeaderOne extends React.PureComponent {
         id={id}
       >
         {
-          content[1].length > 0 ?
+          content[1] && content[1].length > 0 ?
           <StyledSubtitle>
             {content[1]} >
           </StyledSubtitle>
