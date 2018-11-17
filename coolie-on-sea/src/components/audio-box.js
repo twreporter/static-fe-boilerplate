@@ -6,7 +6,20 @@ import React from 'react'
 import screen from '../utils/screen'
 import styled from 'styled-components'
 import subtitleSrc from '../data/subtitles/subtitle-src'
-import TWAudio from './audio'
+import TWAudio from './audio-content'
+
+const mockup = {
+  sectionBg: {
+    desktop: {
+      width: 1024,
+      height: 700
+    },
+    mobile: {
+      width: 375,
+      height: 556
+    }
+  }
+}
 
 const Container = styled.div`
   width: 100%;
@@ -18,34 +31,27 @@ const AudioSectionBg = styled.div `
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   position: absolute;
   background-image: url(${props => props.mobile});
   animation: ${fadeIn} 900ms ease 1200ms both;
   ${screen.tabletOnly`
     background-image: url(${props => props.tablet});
   `}
-  ${screen.desktopOnly`
-    left: 39px;
-  `};
   ${screen.desktopAbove`
     background-image: url(${props => props.desktop});
-    left: 55px;
   `}
 `
 
 const AudioContainer = styled.div`
-  width: 100%;
-  height: 100vh;
   position: relative;
-  max-height: 900px;
+  width: 100%;
+  height: calc(100vw * (${mockup.sectionBg.mobile.height}/ ${mockup.sectionBg.mobile.width}));
   ${screen.desktopAbove`
-    max-height: 768px;
-  `};
-  ${screen.tabletOnly`
-    max-height: 1024px;
-  `};
+    height: 100vh;
+  `}
 `
 
 class AudioBox extends React.PureComponent {

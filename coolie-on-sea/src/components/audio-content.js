@@ -1,6 +1,7 @@
-import { CPAP, SubtitleContainer, TextFrame, IconContainerPrototype } from './common-components'
-import PauseIcon from '../../static/pause.svg'
-import PlayIcon from '../../static/play.svg'
+import { SubtitleContainer, TextFrame, IconContainerPrototype } from './common-components'
+// import PauseIcon from '../../static/pause.svg'
+// import PlayIcon from '../../static/play.svg'
+import imgSrc from '../data/img-src'
 import PropTypes from 'prop-types'
 import React from 'react'
 import screen from '../utils/screen'
@@ -12,11 +13,24 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
 `
 
-const PBContainer = CPAP.extend`
+const SubtitleBox = styled.div `
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  transform: translate(-150%, -100%);
+  ${screen.tabletBelow`
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%,0);
+  `}
+`
+
+const PBContainer = styled.div`
   bottom: 70px;
   ${screen.tabletOnly`
     bottom: 105px;
@@ -54,29 +68,43 @@ const CurrentTimeBar = styled.div`
   `};
 `
 
-const PlayContainer = CPAP.extend`
-  top: 26%;
-  ${screen.mobileBelow`
-    width: 31px;
-    height: 31px;
-    top: 18px;
-    right: 18px;
-    transform: none;
-  `};
+const FisherTell = styled.div`
+  display: flex;
+  align-items: center;
+  transform: translateY(-125%);
+  ${screen.tabletBelow`
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  `}
+`
+
+const PlayContainer = styled.div`
+  position: relative;
+  ${screen.desktopAbove`
+    margin-left: 12px;
+  `}
+  ${screen.tabletBelow`
+    margin-right: 12px;
+  `}
 `
 
 const IconContainer = IconContainerPrototype.extend`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 58px;
-  height: 58px;
+  width: 30px;
+  height: 30px;
   opacity: ${props => (props.ifShowUp ? '1' : '0')};
   transition: opacity 300ms ease-in-out;
+  img {
+    width: 100%;
+  }
   ${screen.mobileBelow`
     width: 31px;
     height: 31px;
   `};
+`
+
+const Name = styled.img`
+  width: 115px;
+  height: 42px;
 `
 
 class AnimationPlayButton extends React.PureComponent {
@@ -89,13 +117,15 @@ class AnimationPlayButton extends React.PureComponent {
         <IconContainer
           ifShowUp={ifPlaying}
         >
-          <PauseIcon />
+          {/* <PauseIcon /> */}
+          <img src={imgSrc['soundOn']}/>
         </IconContainer>
-        <IconContainer
+        {/* <IconContainer
           ifShowUp={!ifPlaying}
         >
           <PlayIcon />
-        </IconContainer>
+          <img src={imgSrc['soundOn']}/>
+        </IconContainer> */}
       </PlayContainer>
     )
   }
@@ -225,27 +255,32 @@ class TWAudio extends React.Component {
         fireOnRapidScroll
       >
         <Container>
-          <SubtitleContainer>
-            <CatchPhrase
-              ifHide={this.state.ifHide}
-            >
-              {catchphrase}
-            </CatchPhrase>
-          </SubtitleContainer>
-          <Subtitle
-            subtitles={subtitles}
-            currentTime={currentTime}
-          />
-          <ProgressBar
-            currentTime={this.state.currentTime}
-            duration={this.audio.duration || 0}
-            durationBarColor={this.props.durationBarColor}
-            currentBarColor={this.props.currentBarColor}
-          />
-          <AnimationPlayButton
-            ifPlaying={this.state.ifPlaying}
-            onClick={this.onClickPlay}
-          />
+          <SubtitleBox>
+            <FisherTell>
+              <Name src={imgSrc['name_1']} />
+              <AnimationPlayButton
+                ifPlaying={this.state.ifPlaying}
+                onClick={this.onClickPlay}
+              />
+            </FisherTell>
+            <SubtitleContainer>
+              <CatchPhrase
+                ifHide={this.state.ifHide}
+              >
+                <mark>{catchphrase}</mark>
+              </CatchPhrase>
+            </SubtitleContainer>
+            <Subtitle
+              subtitles={subtitles}
+              currentTime={currentTime}
+            />
+            {/* <ProgressBar
+              currentTime={this.state.currentTime}
+              duration={this.audio.duration || 0}
+              durationBarColor={this.props.durationBarColor}
+              currentBarColor={this.props.currentBarColor}
+            /> */}
+          </SubtitleBox>
         </Container>
       </Waypoint>
     )

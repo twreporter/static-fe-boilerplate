@@ -34,12 +34,18 @@ import _5_2 from '../../static/pictures/5-2.jpg'
 import _5_3 from '../../static/pictures/5-3.jpg'
 import _5_4 from '../../static/pictures/5-4.jpg'
 
+
+// new pictures
 import m_photo_1 from '../../static/pictures/m-photo-1.png'
 import d_photo_1 from '../../static/pictures/d-photo-1.png'
 
+import name_1 from '../../static/name-1.png'
+import soundOn from '../../static/sound-on.png'
+
 const icons = {
   "icon_scroll": icon_scroll,
-  "logo": logo
+  "logo": logo,
+  "soundOn": soundOn
 }
 
 const opening = {
@@ -78,7 +84,8 @@ const pictures = {
   "5_4": _5_4,
 
   "m_photo_1": m_photo_1,
-  "d_photo_1": d_photo_1
+  "d_photo_1": d_photo_1,
+  "name_1": name_1
 }
 
 export default {

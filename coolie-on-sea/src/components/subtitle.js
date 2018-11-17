@@ -71,7 +71,7 @@ class Subtitle extends React.Component {
             key={i}
             ifShowUp={i === currentFrameIndex && ifShowUp}
           >
-            {text}
+            <mark>{text}</mark>
           </TextFrame>
         )
       })

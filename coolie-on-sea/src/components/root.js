@@ -3,6 +3,7 @@ import { scrollLocker } from '../utils/scroll-manager'
 import { sectionTitleNoOrgName, sectionOgUrl, articleSlug } from '../constants/metadata'
 import anchors from '../data/anchors'
 import AudioBox from './audio-box'
+import audioSrc from '../data/audio-src'
 import BlockQuote from './blockquote'
 import BookIntro from './book-intro'
 import ccAuthorize from '../constants/authorize'
@@ -30,9 +31,6 @@ import styled, { injectGlobal } from 'styled-components'
 import Team from './team'
 import teamMembers from '../data/credits'
 import theme from '../utils/theme'
-
-// assets
-import blankAudio from '../../static/blank.mp3'
 
 const ANCHOR_SEARCH_KEY = 'article'
 
@@ -131,7 +129,7 @@ export default class Root extends React.Component {
 
   _autoPlayHandler() {
     // Test whether the user agent(browser) support auto-play
-    const fakeAudio = new Audio(blankAudio)
+    const fakeAudio = new Audio(audioSrc['blank'])
     fakeAudio.play()
       .then(() => {
         console.log('the browser has functional auto-play')
