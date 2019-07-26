@@ -224,7 +224,7 @@ const pictures = {
   "m61": m61,
   "m62": m62,
   "m63": m63,
-	"out41": "https://scontent.ftpe4-1.fna.fbcdn.net/v/t1.0-9/40276482_2675423709149755_7721850993431805952_n.jpg?_nc_cat=101&_nc_ht=scontent.ftpe4-1.fna&oh=b85c3dd46b940d958fab1477cd5f5539&oe=5CA21ACF",
+  "out41": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/40276482_2675423709149755_7721850993431805952_n.jpg?_nc_cat=101&_nc_oc=AQlRxE0aELOasOG8bbB_3lk2_39CEwm3Q8MGRNToKzWihoa3v3hk5Q1Qp86XXPnpyiE&_nc_ht=scontent.ftpe7-4.fna&oh=eeeecb7f88b21d0b184436aa97bd5d8f&oe=5DB6F5CF",
 	"out42": "https://eunavfor.eu/wp-content/uploads/2013/07/20130726_nicehl01_ME03_NAHAM3_NE2L2450.jpg",
   "opening_title": opening_title,
   "opening_subtitle": opening_subtitle
