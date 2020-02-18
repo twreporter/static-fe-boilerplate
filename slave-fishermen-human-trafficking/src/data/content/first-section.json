@@ -1148,10 +1148,27 @@
 					"農委會代主委陳吉仲受訪時表示，遠洋漁業三法在2017年上路後，漁業署已訂定境外聘僱最低薪資跟工時規範。但他也坦言，現行的境外聘僱制度確實不足，目前已經請學者研擬推行境外漁工納入《勞基法》、或訂定專法的可能性，但無論如何，都應比照ILO 188號公約精神，維護漁工人權。陳吉仲也提出，與漁工來源國簽署協定、建立更正式的合作關係，也是長期目標。（協助採訪／林怡蕿）"
 				]
       },
-
-  {
-    "type": "share-button"
-  },
+      {
+        "type": "paragraph",
+        "content": [
+          "",
+          {
+            "type": "link",
+            "content": [
+              "（閱讀英文版，請點：How Taiwan Became an Accessory to Slavery on the High Seas。）",
+              "https://www.twreporter.org/a/slave-fishermen-human-trafficking-gcs-english"
+            ],
+            "Remark": [
+              "1.添加外連超連結之文字",
+              "2.超連結網址"
+            ]
+          },
+          ""
+				]
+      },
+      {
+        "type": "share-button"
+      },
   {
     "type": "related",
     "content": [
