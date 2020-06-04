@@ -505,32 +505,6 @@
       "2. 文字靠左或靠右，填 left 即可"
     ]
   },
-  {
-    "type": "image",
-    "content": [
-      "out41",
-      "out41",
-      "",
-      "Naham3的漁工曾有兩年的時間，與美國記者摩爾（Michael Scott Moore）在同一艘船上。（照片來源／Michael Scott Moore臉書）",
-      {
-        "desktop": {
-          "width": 880,
-          "height": 586.25 
-        },
-        "mobile": {
-          "width": 880,
-          "height": 586.25
-        }
-      }
-    ],
-    "_arguments": [
-      "content[0]: image src",
-      "content[1]: mobile portrait img",
-      "content[2]: image alt",
-      "content[3]: description",
-      "content[4]: mockup(width and height ratio)"
-    ]
-  },
 {
     "type": "paragraph",
     "content": [
