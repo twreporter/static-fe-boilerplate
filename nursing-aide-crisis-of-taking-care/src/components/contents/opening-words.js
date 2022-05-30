@@ -100,7 +100,7 @@ class OpeningWords extends React.PureComponent {
     return (
       <Container>
         <Title>被隱藏的醫療帳單</Title>
-        <Subtitle>一年600億住院看護費用誰該埋單？</Subtitle>
+        <Subtitle>一年600億住院看護費用誰該買單？</Subtitle>
         <LogoWrapper><Logo /></LogoWrapper>
       </Container>
     )
